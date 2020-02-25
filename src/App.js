@@ -10,7 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './img/questbacklogo.png';
 import iconCalculator from './img/iconcalculator.png';
 
-import './App.css';
+import './App.css'; 
+
+/*test */ 
 
 const sideNavStyles = {
   background: '#6D9BB5',
@@ -55,6 +57,7 @@ const App = () => {
         <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Dashboard <p></p></Link></div>
         <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Hidden <p></p></Link></div>
         <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Internal <p></p></Link></div>
+    
         <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>International int <p></p></Link></div>
 
 
@@ -75,6 +78,7 @@ const App = () => {
           </div>
         </menu>
         <div>
+ 
           <Route exact path="/" component={Mr} />
           <Route path="/ex" component={Ex} />
           <Route path="/cx" component={Cx} />
