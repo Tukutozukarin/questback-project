@@ -21,6 +21,7 @@ const sideNavStyles = {
   cursor: 'col-resize',
   margin: '0 0.1px',
   height: '100%',
+  
 };
 
 const sidePanelStyles = {
