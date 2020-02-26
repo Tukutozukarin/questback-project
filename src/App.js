@@ -7,8 +7,10 @@ import Mr from './components/pages/Mr';
 import SplitPane from 'react-split-pane';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import logo from './img/questbacklogo.png';
-import iconCalculator from './img/iconcalculator.png';
+import logo from './components/assets/img/questbacklogo.png';
+import iconCalculator from './components/assets/img/iconcalculator.png';
+import Card from './components/cards/CardsUI';
+
 
 import './App.css'; 
 
@@ -31,6 +33,7 @@ const sidePanelStyles = {
 const App = () => {
     return (
       <Router>
+           
       <SplitPane
         split="vertical"
         minSize={100}
@@ -38,7 +41,7 @@ const App = () => {
         pane1Style={sidePanelStyles}
         resizerStyle={sideNavStyles}
       >
-
+        
 
         <menu class="container-fluid">
 
