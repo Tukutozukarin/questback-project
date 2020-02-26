@@ -1,9 +1,7 @@
 import React from 'react';
-import img1 from '../assets/img/computer1.jpg';
-import img2 from '../assets/img/computer2.jpg';
-import './card-style.css';
+import './excard-style.css';
 
-const Card = props => {
+const Excard = props => {
     return(
         <div className="card text-center shadow">
             <div className="overflow">
@@ -20,4 +18,4 @@ const Card = props => {
     );
 }
 
-export default Card;
+export default Excard;

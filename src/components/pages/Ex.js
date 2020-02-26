@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import Card from '../cards/Cards';
+import ExCard from '../cards/excards/exCards';
 
 
 class Ex extends Component {
@@ -8,6 +8,8 @@ class Ex extends Component {
     return (
         <div>
           <h2>Ex</h2>
+          <Card />
+          <ExCard />
         </div>
     );
   }

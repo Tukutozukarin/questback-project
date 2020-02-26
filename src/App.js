@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import logo from './components/assets/img/questbacklogo.png';
 import iconCalculator from './components/assets/img/iconcalculator.png';
-import Card from './components/cards/CardsUI';
 
 
 import './App.css'; 
@@ -33,7 +32,7 @@ const sidePanelStyles = {
 const App = () => {
     return (
       <Router>
-           
+
       <SplitPane
         split="vertical"
         minSize={100}
