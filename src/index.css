@@ -12,4 +12,45 @@ code {
     monospace;
 }
 
+.sidebar {
+  max-width: 240px;
+  height: 100vh;
+  background-color: rgba(109, 155, 181, 1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-item-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-item-icon {
+  margin-right: 6px;
+}
+
+.sidebar-item-text {
+  width: 100%;
+}
+
+.sidebar-item-expand-arrow {
+  font-size: 1.2rem !important;
+}
+
+.sidebar-item-expand-arrow-expanded {
+  color: black;
+  font-weight: bold;
+}
+
+
+
 
