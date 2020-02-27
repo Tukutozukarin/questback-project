@@ -7,7 +7,8 @@ class Ex extends Component {
   render() {
     return (
         <div>
-          <h2>Ex</h2>
+          <h2>Exffnlanlfeajlfeanjlfnjealnjlnjl</h2>
+          <h3>Sigurd er Gay!</h3>
           <Card />
           <ExCard />
         </div>
