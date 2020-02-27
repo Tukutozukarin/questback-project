@@ -18,6 +18,8 @@ const App = () => {
       <Router>
         <div>
         
+        {/* Container is the one that 
+            stores all the pages on the site */}
         <Container />
 
       
