@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Ex from './Ex';
 import Cx from './Cx';
 import Mr from './Mr';
@@ -22,7 +22,7 @@ const items = [
     { name: '', label: '' },
     { name: '', label: '' },
     { name: 'mr', label: 'MR' },
-    { name: 'ex', label: 'EX', path: '/ex', exact: true, sidebar: () => <div>home</div>},
+    { name: 'ex', label: 'EX', path: "/ex", exact: true, sidebar: () => <div>home</div>},
     { name: 'cx', label: 'CX' },
     {
     },
@@ -31,6 +31,9 @@ const items = [
   function Container() {
       return (
     <div>
+        
+        <Link to={items.path}>{items.name}</Link>
+        
 
        <Sidebar items={items}/>
         <Switch>
