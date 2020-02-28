@@ -19,6 +19,20 @@ class Excards extends Component {
                     <div className="col-md-4">
                         <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
                     </div>
+
+                    <div className="col-md-4">
+                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
+                    </div>
+
+                    <div className="col-md-4">
+                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
+                    </div>
+                    <div className="col-md-4">
+                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
+                    </div>
+                    <div className="col-md-4">
+                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
+                    </div>
                 </div>
             </div>
         );
