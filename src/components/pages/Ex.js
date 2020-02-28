@@ -10,7 +10,7 @@ class Ex extends Component {
           <h2>Exffnlanlfeajlfeanjlfnjealnjlnjl</h2>
           <h3>Sigurd er Gay!</h3>
           <h3>Testing</h3>
-          <Card />
+         
           <ExCard />
         </div>
     );

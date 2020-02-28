@@ -11,13 +11,13 @@ class Excards extends Component {
             <div className="container-fluid d-flex justify-content-center">
                 <div className="row">
                     <div className="col-md-4">
-                        <Excard imgsrc={computer1} title="Console"/>
+                        <Excard imgsrc={computer1} title="Console" ahref="/mr" hrefTitle="Management" />
                     </div>
                     <div className="col-md-4">
-                        <Excard imgsrc={computer2} title="Test"/>
+                        <Excard imgsrc={computer2} title="Test" ahref="/ex" hrefTitle="Employee"/>
                     </div>
                     <div className="col-md-4">
-                        <Excard imgsrc={computer1} title="Computer"/>
+                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
                     </div>
                 </div>
             </div>

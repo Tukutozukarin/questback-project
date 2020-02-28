@@ -12,7 +12,7 @@ const Excard = props => {
                 <p className="card-text text-secondary">
                     lorem ipsum
                 </p>
-                <a href="#" className="btn btn-outline-success">Go anywhere</a>
+                <a href={props.ahref} className="btn btn-outline-success">{props.hrefTitle}</a>
             </div>
         </div>
     );
