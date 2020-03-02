@@ -5,7 +5,8 @@ body {
 }
 
 .card{
-    width: 12rem;
+    width: 13rem;
+    border-radius: 30px;
 }
 
 .card:hover{
