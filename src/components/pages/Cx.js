@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Cxcard from '../cards/cxcards/cxCards';
 
 class Cx extends Component {
   render() {
     return (
         <div>
-          <h2>CX</h2>
+          <Cxcard />
         </div>
     );
   }

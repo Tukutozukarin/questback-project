@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Excard from './exCardsUI';
+import Mrcard from './mrCardsUI';
 
 import computer1 from '../../assets/img/computer1.jpg';
 import computer2 from '../../assets/img/computer2.jpg';
 
 
-class Excards extends Component {
+class Mrcards extends Component {
     render() {
         return (
             <div className="container-fluid d-flex justify-content-center">
@@ -16,9 +16,10 @@ class Excards extends Component {
                 <div class="dropdown">
                 <button class="dropbtn">Product</button>
                 <div class="dropdown-content">
+                    <a href="/ex">EX</a>
                     <a href="/cx">CX</a>
-                    <a href="/">MR</a>
                 </div>
+                
                 </div>
                 </div>
              {/* End of the dropdown product menu */}
@@ -45,6 +46,7 @@ class Excards extends Component {
                 <div class="dropdown-content">
                     <a href="#">USD</a>
                     <a href="#">POUND</a>
+                    <a href="#">EURO</a>
                     <a href="#">NOK</a>
                 </div>
                 </div>
@@ -54,29 +56,17 @@ class Excards extends Component {
 
               
                 <div className="row">
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Console" ahref="/mr" hrefTitle="Management" />
+                    <div className="col-md-4">
+                        <Mrcard imgsrc={computer1} title="Console" ahref="/mr" hrefTitle="Management" />
                     </div>
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer2} title="Test" ahref="/ex" hrefTitle="Employee"/>
+                    <div className="col-md-4">
+                        <Mrcard imgsrc={computer2} title="Test" ahref="/ex" hrefTitle="Employee"/>
                     </div>
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
+                    <div className="col-md-4">
+                        <Mrcard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
                     </div>
                     
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
-                    </div>
-                  
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
-                    </div>
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
-                    </div>
-                    <div className="col-md-3">
-                        <Excard imgsrc={computer1} title="Computer" ahref="/cx" hrefTitle="test"/>
-                    </div>
+                
                 </div>
             </div>
           </div>
@@ -86,4 +76,4 @@ class Excards extends Component {
     }
 }
 
-export default Excards;
+export default Mrcards;

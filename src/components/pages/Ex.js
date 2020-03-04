@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Card from '../cards/Cards';
 import ExCard from '../cards/excards/exCards';
 
 

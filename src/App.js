@@ -16,13 +16,12 @@ import './App.css';
 const App = () => {
     return (
       <Router>
-        <div class="container-fluid d-flex justify-content-center">
+        <div class="d-flex justify-content-center" >
           
         {/* Container is the one that 
             stores all the pages on the site */}
         <Container />
-
-      
+        
         </div>
 
     </Router>

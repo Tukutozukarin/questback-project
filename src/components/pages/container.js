@@ -24,11 +24,11 @@ const styles = {
         
           
   
-          <menu class="container-fluid"  style={{ background: '#6D9BB5', position: 'sticky', margin: '0rem', padding: '1rem'}}>
+          <menu class="container-fluid"  style={{ background: '#6D9BB5', position: 'sticky', margin: '0rem', padding: '1rem', width: '280px'}}>
   
   
           <div class="container-fluid col-xs-12 col-md-8"><img src={logo}  
-          position="absolute" alt="questbackLogo" width="115px" height="40px" /></div>
+          position="absolute" alt="questbackLogo" width="130px" height="50px"/></div>
           <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
   
   
