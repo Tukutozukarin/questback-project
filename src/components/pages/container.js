@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from './Home';
 import Ex from './Ex';
 import Cx from './Cx';
 import Mr from './Mr';
@@ -49,7 +50,7 @@ const styles = {
           </div>
   
   
-            <div class="container-fluid col-xs-12 col-md-8"><Link to="/"  style={{ color: '#000000', fontSize: '28px', fontWeight: 'bold' }}>MR</Link>
+            <div class="container-fluid col-xs-12 col-md-8"><Link to="/mr"  style={{ color: '#000000', fontSize: '28px', fontWeight: 'bold' }}>MR</Link>
                 <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
             </div>
   
@@ -63,7 +64,8 @@ const styles = {
           </menu>
           <div>
    
-            <Route exact path="/" component={Mr} />
+            <Route exact path="/" component={Home} />
+            <Route path="/mr" component={Mr} />
             <Route path="/ex" component={Ex} />
             <Route path="/cx" component={Cx} />
           </div>
