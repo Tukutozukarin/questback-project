@@ -1,18 +1,86 @@
 body {
-    background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
+    background: #F8F8F8;
     overflow-y: auto;
     overflow-y: scroll;
+    margin-left: 19%;
+}
+
+.sum {
+    color: #7ae63a;
+}
+
+.div-topnav {
+    
+    z-index: -1;
+    margin-top: 0%;
+    margin-left: -1%;
+    font-style: bold;
+    width: 85%;
+    height: 20%;
+    border: 1px solid black;
+    display: flex;
+    padding: 40px;
+    position: absolute;
+    font-size: x-large;
+    background-color: #cccccc;
+}
+
+.div-belowtopnav {
+    
+    z-index: -1;
+    margin-top: 14%;
+    margin-left: -1%;
+    font-style: bold;
+    width: 85%;
+    height: 10%;
+    border: 1px solid black;
+    display: flex;
+    padding: 40px;
+    position: absolute;
+    font-size: x-large;
+    background-color: blue;
 }
 
 .div-result {
-    margin-top: 100px;
-    width: 80%;
-    height: 100px;
-    border: 1px solid blue;
+    z-index: -1;
+    margin-top: 20%;
+    margin-left: -1%;
+    font-style: bold;
+    width: 85%;
+    height: 20%;
+    border: 1px solid black;
+    display: flex;
+    padding: 40px;
+    position: absolute;
+    font-size: x-large;
+    background-color: whitesmoke;
+
 }
 
+.div-textbelowdashboard {
+    z-index: -1;
+    margin-top: 35%;
+    margin-left: -1%;
+    font-style: bold;
+    width: 65%;
+    height: 20%;
+    border: 1px solid black;
+    font-size: 14px;
+    display: inline-block;
+    position: absolute;
+   
+    background-color: yellow;
+
+}
+
+
+
 .row {
-    margin-top: 200px;
+    margin-top: 60%;
+    position: absolute;
+    margin-left: 2%;
+ 
+ 
 }
 
 .card{
@@ -132,8 +200,8 @@ body {
   }
 
   .navbar {
-    background-color: 	#F8F8F8;
-    width: 70%; 
+    background-color: 	#cccccc;
+    width: 60%; 
     padding: 10px;
     position: fixed; 
     top: 0; 

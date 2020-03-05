@@ -17,8 +17,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
         
           
   
-          <menu class="container-fluid sidebar-menu" 
-          style={{ background: '#6D9BB5', position: 'sticky', margin: '0rem', padding: '1rem', width: '280px' }}>
+          <menu class="container-fluid" 
+          style={{ background: '#6D9BB5', position: 'fixed', margin: '0rem', padding: '1rem', width: '18%', left: '0%', height: '100%', display: 'block' }}>
   
   
           <div class="container-fluid col-xs-12 col-md-8"><img src={logo}  

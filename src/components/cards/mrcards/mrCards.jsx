@@ -45,6 +45,30 @@ class Mrcards extends Component {
         return (
             <div className="container-fluid d-flex justify-content-center">
 
+            <div class="container-fluid div-topnav"></div>
+
+            <div class="container-fluid div-belowtopnav"></div>
+
+            <div class="container-fluid div-result"
+            >ROI Dashboard | Total Business:
+            <p class="sum"> 30030300</p>
+            </div>
+
+            <div class="container-fluid div-textbelowdashboard">
+                <h3>Select a section below to review your ROI{"\n"}</h3>
+                <p>To calculate your return of investment, begin with the first section below. 
+                    The information entered automatically populate corresponding fields in the other sections.
+                    You will be able to move from section to section to add/or adjust value to reflect your organization and process.
+                    To return to this screen, click on the ROI Dashboard button to the left. 
+                </p>
+                </div>
+
+                <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+         />
+
             <nav className={classnames("navbar", {
                 "navbar--hidden": !this.state.visible
             })}
@@ -84,7 +108,7 @@ class Mrcards extends Component {
                 
             </nav>
 
-            <div class="div-result">ROI Dashboard | Total Business Impact</div>
+            
            
   
                 <div className="row">
