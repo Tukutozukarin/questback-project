@@ -1,10 +1,13 @@
 body {
     background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
     overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .card{
-    width: 12rem;
+    width: 13rem;
+    border-radius: 30px;
+    margin: 1rem;
 }
 
 .card:hover{
@@ -21,7 +24,7 @@ body {
 }
 
 .container-fluid .row {
-    padding-top: 6rem;
+    padding-top: 5rem;
 }
 
 .overflow{
@@ -36,3 +39,102 @@ body {
 .card-img-top:hover {
     transform: scale(1.8);
 }
+
+.product-btn {
+    background-color: #6D9BB5;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0px 8px 14px 0px #888888;
+    
+}
+
+.customer-btn {
+    background-color: #6D9BB5;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0px 8px 14px 0px #888888;
+    
+}
+
+.currency-btn {
+    background-color: #6D9BB5;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0px 8px 14px 0px #888888;
+    
+}
+
+.dropbtn {
+    background-color: grey;
+    color: black;
+    padding: 8px;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: -1%;
+    box-shadow: 0px 8px 14px 0px  #888888;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 14px 0px  #888888;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #6D9BB5;}
+
+  #btn-currency {
+    font-weight: bold;
+  }
+
+  .navbar {
+    background-color: 	#F8F8F8;
+    width: 70%; 
+    padding: 10px;
+    position: fixed; 
+    top: 0; 
+    transition: top 0.6s;
+    z-index: 999 !important;
+}
+
+.navbar--hidden {
+    top: -100px; 
+}
+
+.topdiv {
+    height: 10px;
+}
+

@@ -11,25 +11,18 @@ import iconCalculator from '../assets/img/iconcalculator.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const styles = {
-    background: '#000',
-    width: '2px',
-    cursor: 'col-resize',
-    margin: '0 5px',
-    height: '100%',
-  };
-
   function Container() {
       return( 
         <Router>
         
           
   
-          <menu class="container-fluid"  style={{ background: '#6D9BB5', position: 'sticky', margin: '0rem', padding: '1rem', width: '280px'}}>
+          <menu class="container-fluid sidebar-menu" 
+          style={{ background: '#6D9BB5', position: 'sticky', margin: '0rem', padding: '1rem', width: '280px' }}>
   
   
           <div class="container-fluid col-xs-12 col-md-8"><img src={logo}  
-          position="absolute" alt="questbackLogo" width="130px" height="50px"/></div>
+          position="absolute" id="logoimg" alt="questbackLogo" width="130px" height="50px"/></div>
           <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
   
   
