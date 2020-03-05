@@ -84,8 +84,6 @@ class Cxcards extends Component {
             </nav>
 
               
-           
-
               
                 <div className="row">
                     <div className="col-md-3">

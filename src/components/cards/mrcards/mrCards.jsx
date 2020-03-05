@@ -84,8 +84,11 @@ class Mrcards extends Component {
                 
             </nav>
 
-              
+            <div class="div-result">ROI Dashboard | Total Business Impact</div>
+           
+  
                 <div className="row">
+
                     <div className="col-md-4">
                         <Mrcard imgsrc={computer1} title="Console" ahref="/mr" hrefTitle="Management" />
                     </div>
