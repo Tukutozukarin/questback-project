@@ -10,12 +10,15 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "jquery": "^3.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
+    "react-range": "^1.5.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
-    "react-split-pane": "^0.1.89"
+    "react-scripts": "^3.4.0",
+    "react-split-pane": "^0.1.89",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
