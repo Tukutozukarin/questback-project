@@ -23,7 +23,8 @@ const Excard = props => {
                 <a href={props.ahref} className="btn btn-outline-success">{props.hrefTitle}</a>
                 <p></p>
             </div>
-
+        
+        
         </div>
     );
 }

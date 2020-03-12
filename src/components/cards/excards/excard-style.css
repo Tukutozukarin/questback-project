@@ -68,16 +68,15 @@ body {
     font-size: 14px;
     display: inline-block;
     position: absolute;
-   
     background-color: yellow;
 
 }
 
 
 
-.div-belowcards {
+.div-whythenumbers {
     z-index: -1;
-    margin-top: 140%;
+    margin-top: 115%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
@@ -86,7 +85,8 @@ body {
     padding: 40px;
     position: absolute;
     background-color: greenyellow;
-    
+    overflow: hidden;
+    display: inline-block;
 
 }
 
@@ -97,13 +97,50 @@ body {
     margin-bottom: 29%;
     margin-left: 61%;
     z-index: -1;
+    overflow: hidden;
 }
 
 
 .div-whythenumbers-textbox {
+    z-index: -1;
     width: 65%;
     margin-right: 30%;
     margin-top: 6%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.hr-below-whythenumbers-title {
+    border-top: 1px solid black;
+
+  }
+
+  .hr-below-whythenumbers {
+      border-top: 1px solid black;
+      width: 75%;
+      margin-right: 40%;
+  }
+
+.div-whatif {
+    z-index: -1;
+    margin-top: 160%;
+    margin-left: -1%;
+    font-style: bold;
+    width: 85%;
+    height: 55%;
+    border: 1px solid black;
+    padding: 40px;
+    position: absolute;
+    background-color: blueviolet;
+    overflow: hidden;
+}
+
+
+.div-whatif-textbox {
+    width: 80%;
+    margin-right: 40%;
+    margin-top: 6%;
+    overflow: hidden;
 }
 
 .a-read-more {
@@ -112,19 +149,24 @@ body {
     text-decoration: none;
 }
 
+.div-cards {
+    background: cadetblue;
+    z-index: -1;
+    display: inline-block;
+
+}
 
 
 .row {
-    margin-top: 60%;
+    left: 20%;
+    top: -30%;
     position: absolute;
     margin-left: 2%;
- 
- 
+    overflow: hidden;
 }
 
 .card{
     width: 14rem;
-    border-radius: 30px;
     margin: 1rem;
 }
 
@@ -156,6 +198,222 @@ body {
 
 .card-img-top:hover {
     transform: scale(1.8);
+}
+
+/* Caculation box */
+
+.div-calculation-title {
+    top: 5%;
+    left: 3%;
+    position: absolute;
+}
+
+.div-calculation {
+    z-index: -1;
+    background-color: wheat;
+    top: 374%;
+    left: 18%;
+    width: 83%;
+    height: 120%;
+    position: absolute;
+    overflow: hidden;
+}
+
+/* Calculation textbox 1 starts */
+.div-calculation-textbox-1 {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 80%;
+    height: 22%;
+    left: 10%;
+    top: 15%;
+    border-radius: 10px;
+}
+
+.p-calculation-green-numbers-1 {
+    color: orange;
+    position: absolute; 
+    left: 85%;
+    top: 5%;
+    
+}
+
+.calculation-green-textbox-1 {
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    width: 95%; 
+    height: 34%;
+    border-style: solid;
+    border-color: lime;
+    text-align: middle;
+    display: table-cell;
+    padding: 1.5%;
+    vertical-align: middle;
+}
+
+.p-calculation-green-textbox-1 {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.calculation-costofrecruitment-textbox-1 {
+    position: absolute; 
+    top: 52%;
+    left: 3%;
+    width: 92%;
+}
+
+.calculation-costofrecruitment-numbers-1 {
+    position: absolute;
+    color: green; 
+    left: 85%;
+    top: -12%;
+    font-size: large;
+}
+
+.calculation-savingyou-textbox-1 {
+    position: absolute;
+    color: #085e72;
+    font-weight: bold;
+    font-size: xx-large;
+    top: 70%;
+    left: 3%;
+    width: 95%;
+    height: 30%;
+}
+
+
+
+.calculation-savingyou-numbers-textbox-1 {
+    position: absolute; 
+    left: 82%;
+    top: 25%;
+    color: green;
+    font-size: x-large;
+}
+
+
+
+/* Calculation textbox 1 ends */
+
+/* Calculation textbox 2 starts */
+
+.div-calculation-textbox-2 {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 80%;
+    height: 30%;
+    left: 10%;
+    top: 15%;
+    border-radius: 10px;
+}
+
+.p-calculation-green-numbers-2 {
+    color: orange;
+    position: absolute; 
+    left: 81%;
+    top: 10%;
+    font-size: large;
+    
+}
+
+.calculation-green-textbox-2 {
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    width: 95%; 
+    height: 34%;
+    border-style: solid;
+    border-color: lime;
+    text-align: middle;
+    display: table-cell;
+    padding: 1.5%;
+    vertical-align: middle;
+}
+
+.div-calculation-textbox-2 {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 80%;
+    height: 22%;
+    left: 10%;
+    top: 41%;
+}
+
+.p-calculation-green-textbox-2 {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.calculation-costofonboarding-textbox-2 {
+    position: absolute; 
+    top: 52%;
+    left: 3%;
+    width: 92%;   
+}
+
+.calculation-costofonboarding-numbers-2 {
+    position: absolute;
+    color: green; 
+    left: 85%;
+    top: -12%;
+    font-size: large;
+}
+
+.calculation-costofonboarding-text-2 {
+    
+}
+
+.calculation-costofonboarding-textcalculated-2 {
+    font-size: small;
+    top: 60%;
+    position: absolute;
+}
+
+.calculation-costofonboarding-numbers-textbox-2 {
+    position: absolute; 
+    left: 85%;
+    top: 70%;
+    color: green;
+    font-size: x-large;
+}
+
+.calculation-savingyou-text-textbox-2 {
+    position: absolute;
+    color: blue;
+}
+
+/* Calculation textbox 2 ends */
+
+
+
+
+.div-calculation-textbox-3 {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 80%;
+    height: 22%;
+    left: 10%;
+    top: 67%;
+}
+
+/* Start of top nav bar*/
+
+.navbar {
+  
+    width: 60%; 
+    padding: 10px;
+    position: fixed; 
+    top: 0; 
+    transition: top 0.6s;
+    z-index: 999 !important;
+}
+
+.navbar--hidden {
+    top: -100px; 
 }
 
 .product-btn {
@@ -228,19 +486,6 @@ body {
     
   }
 
-  .hr-below-whythenumbers-title {
-    border-top: 1px solid black;
-
-  }
-
-  .hr-below-whythenumbers {
-      border-top: 1px solid black;
-      width: 75%;
-      margin-right: 40%;
-  }
-
-  
-
   .dropdown-content a:hover {background-color: #ddd;}
 
   .dropdown:hover .dropdown-content {display: block;}
@@ -251,19 +496,6 @@ body {
     font-weight: bold;
   }
 
-  .navbar {
-    background-color: 	#cccccc;
-    width: 60%; 
-    padding: 10px;
-    position: fixed; 
-    top: 0; 
-    transition: top 0.6s;
-    z-index: 999 !important;
-}
-
-.navbar--hidden {
-    top: -100px; 
-}
 
 .topdiv {
     height: 10px;
