@@ -12,7 +12,7 @@ const Excard = props => {
             <div className="card-body text-dark">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text text-secondary">
-                    lorem ipsum
+                    {props.description}
                 </p>
             </div>
 

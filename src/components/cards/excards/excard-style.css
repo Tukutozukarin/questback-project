@@ -6,7 +6,11 @@ body {
 }
 
 .sum {
+    position: absolute;
     color: #7ae63a;
+    left: 75%;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .div-topnav {
@@ -72,11 +76,11 @@ body {
 
 }
 
-
+/* Why the numbers start*/
 
 .div-whythenumbers {
     z-index: -1;
-    margin-top: 115%;
+    margin-top: 130%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
@@ -123,7 +127,7 @@ body {
 
 .div-whatif {
     z-index: -1;
-    margin-top: 160%;
+    margin-top: 180%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
@@ -200,7 +204,140 @@ body {
     transform: scale(1.8);
 }
 
+/* The impact card */
+
+
+.div-the-impact-card{
+    width: 14rem;
+    margin: 1rem;
+    background-color: grey;
+    width: 160%;
+    height: 90%;
+    position: absolute;
+    overflow: hidden; 
+    border-radius: 30px;
+  
+
+}
+
+.div-the-impact-card:hover{
+    box-shadow: 5px 10px 20px 1px rgb(0, 0, 0, 0.253) !important;
+}
+
+.div-the-impact-card-body {  
+    padding: 3rem 0 !important;
+}
+
+.div-the-impact-card-text{
+    font-size: 0.9rem;
+    padding: 0.4rem 1.9rem;
+}
+
+.the-impact-title {
+    position: absolute; 
+    top: 5%;
+    left: 10%;
+}
+
+.div-the-impact-card-info {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background-color: red;
+    top: 18%;
+    left: 2%;
+    
+}
+
+
+.the-impact-total-new-hires-text {
+    position: absolute;
+    top: 2%;
+}
+
+.the-impact-total-new-hires-number {
+    position: absolute;
+    left: 75%;
+    top: 2%;
+    color: greenyellow;    
+}
+
+.hr-total-new-hires {
+    position: absolute;
+    width: 100%;
+    top: 8%;
+    border: 1px solid black;
+}
+
+.the-impact-cost-of-recruitmet-text {
+    position: absolute;
+    top: 15%;
+}
+
+.the-impact-cost-of-recruitmet-number {
+    position: absolute;
+    color: greenyellow;
+    left: 70%;
+    top: 15%;
+}
+
+.the-impact-productivity-cost-text{
+    position: absolute;
+    top: 23%;
+}
+
+.the-impact-productivity-cost-number {
+    position: absolute;
+    color: greenyellow;
+    left: 70%;
+    top: 29%;
+}
+
+.the-impact-cost-of-attrition-text {
+    position: absolute;
+    top: 39%;
+}
+
+.the-impact-cost-of-attrition-number {
+    position: absolute;
+    color: greenyellow;
+    left: 70%;
+    top: 39%;
+}
+
+.hr-cost-of-attrition {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    border: 1px solid black;
+}
+
+.the-impact-total-cost-text {
+    position: absolute;
+    top: 55%;
+}
+
+.the-impact-total-cost-number {
+    position: absolute;
+    color: greenyellow;
+    left: 70%;
+    top: 55%;
+}
+
+/* The impact card end*/
+
 /* Caculation box */
+
+.div-calculation {
+    z-index: -1;
+    background-color: wheat;
+    top: 373%;
+    left: 18%;
+    width: 83%;
+    height: 90%;
+    position: absolute;
+    overflow: hidden;
+}
 
 .div-calculation-title {
     top: 5%;
@@ -208,23 +345,14 @@ body {
     position: absolute;
 }
 
-.div-calculation {
-    z-index: -1;
-    background-color: wheat;
-    top: 374%;
-    left: 18%;
-    width: 83%;
-    height: 120%;
-    position: absolute;
-    overflow: hidden;
-}
+
 
 /* Calculation textbox 1 starts */
 .div-calculation-textbox-1 {
     position: absolute;
     background-color: whitesmoke;
     width: 80%;
-    height: 22%;
+    height: 20%;
     left: 10%;
     top: 15%;
     border-radius: 10px;
@@ -273,26 +401,28 @@ body {
     font-size: large;
 }
 
-.calculation-savingyou-textbox-1 {
+.calculation-savingyou-text-textbox-1 {
     position: absolute;
     color: #085e72;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: x-large;
     top: 70%;
-    left: 3%;
     width: 95%;
     height: 30%;
+    left: 3%;
+
 }
 
-
-
-.calculation-savingyou-numbers-textbox-1 {
+.calculation-costofonboarding-numbers-textbox-1 {
     position: absolute; 
-    left: 82%;
-    top: 25%;
+    left: 81%;
+    top: 70%;
     color: green;
     font-size: x-large;
 }
+
+
+
 
 
 
@@ -304,18 +434,17 @@ body {
     position: absolute;
     background-color: whitesmoke;
     width: 80%;
-    height: 30%;
+    height: 20%;
     left: 10%;
-    top: 15%;
-    border-radius: 10px;
+    top: 40%;
 }
 
 .p-calculation-green-numbers-2 {
     color: orange;
     position: absolute; 
-    left: 81%;
+    left: 84%;
     top: 10%;
-    font-size: large;
+    font-size: medium;
     
 }
 
@@ -333,14 +462,7 @@ body {
     vertical-align: middle;
 }
 
-.div-calculation-textbox-2 {
-    position: absolute;
-    background-color: whitesmoke;
-    width: 80%;
-    height: 22%;
-    left: 10%;
-    top: 41%;
-}
+
 
 .p-calculation-green-textbox-2 {
     min-height: 10em;
@@ -363,14 +485,15 @@ body {
     font-size: large;
 }
 
-.calculation-costofonboarding-text-2 {
-    
-}
-
-.calculation-costofonboarding-textcalculated-2 {
-    font-size: small;
-    top: 60%;
+.calculation-savingyou-text-textbox-2 {
     position: absolute;
+    color: #085e72;
+    font-weight: bold;
+    font-size: x-large;
+    top: 60%;
+    width: 95%;
+    height: 30%;
+
 }
 
 .calculation-costofonboarding-numbers-textbox-2 {
@@ -381,23 +504,74 @@ body {
     font-size: x-large;
 }
 
-.calculation-savingyou-text-textbox-2 {
-    position: absolute;
-    color: blue;
-}
+
 
 /* Calculation textbox 2 ends */
 
 
-
+/* Calculation textbox 3 starts */
 
 .div-calculation-textbox-3 {
     position: absolute;
     background-color: whitesmoke;
     width: 80%;
-    height: 22%;
+    height: 20%;
     left: 10%;
-    top: 67%;
+    top: 65%;
+}
+
+.p-calculation-green-numbers-3 {
+    color: orange;
+    position: absolute; 
+    left: 90%;
+    top: 10%;
+    font-size: large;
+}
+
+
+/* Calculation textbox 3 ends */
+
+.calculated-CPH {
+    font-weight: bold;
+    position: absolute;
+    bottom: 3%; 
+    font-size: small;
+    left: 13%;
+}
+
+/* End of Do the calculation */
+
+/* Start of business impact */
+
+.div-business-impact{
+    z-index: -1;
+    position: absolute;
+    top: 463%;
+    left: 18%;
+    width: 83%;
+    height: 80%; 
+    background-color: #e5e5e5;
+}
+
+.div-total-business-impact-title {
+    position: absolute;
+    left: 32%;
+    top: 4%;
+    font-size: xx-large;
+}
+
+.div-business-impact-box {
+    position: absolute;
+    width: 80%;
+    height: 82%; 
+    top: 14%;
+    left: 10%;
+    background-color: green;
+}
+
+.img-business-impact {
+    width: 100%;
+    height: 100%;
 }
 
 /* Start of top nav bar*/
