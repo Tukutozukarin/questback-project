@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: #F8F8F8;
     overflow-y: auto;
@@ -12,6 +16,68 @@ body {
     font-weight: bold;
     font-size: x-large;
 }
+
+/* Sidebar content div start */
+.nav-sidebar{
+    position: fixed;
+    width: 18%;
+    height: 49%;
+    z-index: 2;
+    left: 0%;
+    top: 8%;
+    overflow: hidden;
+
+}
+
+.icon-sidebar {
+    width: 20px;
+    height: 20px;
+}
+
+.title-sidebar {
+    font-weight: bold;
+    font-size: large;
+}
+
+.list-sidebar {
+    font-weight: bold;
+    font-size: medium;
+
+}
+
+.list-sidebar-moretext {
+    font-size: medium;
+}
+
+.div-link-text-sidebar {
+    color: black;
+}
+
+.links-sidebar {
+    position: fixed;
+    width: 18%;
+    height: 24%;
+    
+    z-index: 2;
+    left: 1%;
+    top: 60%;
+    overflow: auto;
+}
+
+.list-links-sidebar {
+    font-weight: bold;
+    font-size: 28px;
+    list-style: none;
+    top: 20%;
+ 
+}
+
+.href-link-text-sidebar {
+    color: black;
+}
+
+/* Sidebar content div end */
+
 
 .div-topnav {
     
@@ -243,7 +309,6 @@ body {
     position: absolute;
     width: 100%;
     height: 80%;
-    background-color: red;
     top: 18%;
     left: 2%;
     

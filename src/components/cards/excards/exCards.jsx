@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import businessimpactimg from '../../assets/img/business-impact.png';
 import whythenumbersImg from '../../assets/img/Sigurd.png';
+import iconCalculator from '../../assets/img/iconcalculator.png';
 
 
 
@@ -47,6 +48,38 @@ class Excards extends Component {
     render() {
         return (
             <div className="container-fluid d-flex justify-content-center">
+
+                {/* Sidebar start */}
+                <div className="container-fluid nav-sidebar">
+                    <p className="title-sidebar">
+                        <img className="icon-sidebar" src={iconCalculator} alt="icon calculator" /> ROI Calculator  </p>
+                    <ul className="list-sidebar">
+                        <li><a className="div-link-text-sidebar" href="/cx">ROI Calculator > </a></li>
+                        <p></p>
+                        <li><a className="div-link-text-sidebar" href="/cx">About your company</a></li>
+                        <ul className="list-sidebar-moretext">
+                            <li><a className="div-link-text-sidebar" href="/cx">The impact</a></li>
+                        </ul>
+                        <p></p>
+                        <li><a className="div-link-text-sidebar" href="/cx">What If</a></li>
+                        <p></p>
+                        <li><a className="div-link-text-sidebar" href="/cx">Total Business Impact</a></li>
+                    </ul>
+
+                    <div className="container-fluid links-sidebar">
+                        <ul className="list-links-sidebar">
+                            <li><a className="href-link-text-sidebar" href="#div-whatif">MR</a></li>
+                            <p></p>
+                            <li><a className="href-link-text-sidebar" href="/ex">EX</a></li>
+                            <p></p>
+                            <li><a className="href-link-text-sidebar" href="/cx">CX</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                {/* Sidebar end */}
 
                 <div className="container-fluid div-topnav"></div>
 
@@ -138,13 +171,13 @@ class Excards extends Component {
 
 
                         <div className="calculation-costofonboarding-savingyou-text-1">
-                                <p className="calculation-savingyou-text-textbox-1">Saving you</p>
-                            </div>
+                            <p className="calculation-savingyou-text-textbox-1">Saving you</p>
+                        </div>
 
                         <div className="calculation-costofonboarding-savingyou-textbox-1">
-                          
-                          <h4 className="calculation-costofonboarding-numbers-textbox-1" >$200 000</h4> 
-                  </div>
+
+                            <h4 className="calculation-costofonboarding-numbers-textbox-1" >$200 000</h4>
+                        </div>
 
 
                     </div>
@@ -227,7 +260,7 @@ class Excards extends Component {
                     </div>
 
                     <div className="div-business-impact-box">
-                        <img className="img-business-impact" src={businessimpactimg} alt="business impact img"/>
+                        <img className="img-business-impact" src={businessimpactimg} alt="business impact img" />
                     </div>
                 </div>
 
@@ -283,51 +316,51 @@ class Excards extends Component {
                     <div className="row">
 
                         <div className="col-md-3">
-                            <Excard 
-                            title="Size" 
-                            description="How many employees do you have" 
-                            ahref="/mr" 
-                            hrefTitle="Included" 
+                            <Excard
+                                title="Size"
+                                description="How many employees do you have"
+                                ahref="/mr"
+                                hrefTitle="Included"
                             />
                         </div>
                         <div className="col-md-3">
-                            <Excard 
-                            title="Grow rate" 
-                            description="By what % does your organization grow per year?"
-                            ahref="/ex" 
-                            hrefTitle="Employee" 
+                            <Excard
+                                title="Grow rate"
+                                description="By what % does your organization grow per year?"
+                                ahref="/ex"
+                                hrefTitle="Employee"
                             />
                         </div>
                         <div className="col-md-3">
-                            <Excard 
-                            title="Attrition" 
-                            description="What % of your organization leave per year?"
-                            ahref="/cx" 
-                            hrefTitle="test" 
+                            <Excard
+                                title="Attrition"
+                                description="What % of your organization leave per year?"
+                                ahref="/cx"
+                                hrefTitle="test"
                             />
                         </div>
                         <div className="col-md-3">
-                            <Excard 
-                            title="Pay" 
-                            description="What is the average fully loaded annual salary in your company?"
-                            ahref="/cx" 
-                            hrefTitle="test" 
+                            <Excard
+                                title="Pay"
+                                description="What is the average fully loaded annual salary in your company?"
+                                ahref="/cx"
+                                hrefTitle="test"
                             />
                         </div>
                         <div className="col-md-3">
-                            <Excard  
-                            title="Cost per hire (CPH)" 
-                            description="Consider job boards, consultants, background - Checks, marketing etc..."
-                            ahref="/cx" 
-                            hrefTitle="test" 
+                            <Excard
+                                title="Cost per hire (CPH)"
+                                description="Consider job boards, consultants, background - Checks, marketing etc..."
+                                ahref="/cx"
+                                hrefTitle="test"
                             />
                         </div>
                         <div className="col-md-3">
-                            <Excard  
-                            title="Onboarding time (in days" 
-                            description="How long does it take for employees. To be fully productive?"
-                            ahref="/cx" 
-                            hrefTitle="test" 
+                            <Excard
+                                title="Onboarding time (in days"
+                                description="How long does it take for employees. To be fully productive?"
+                                ahref="/cx"
+                                hrefTitle="test"
                             />
                         </div>
 
@@ -338,25 +371,25 @@ class Excards extends Component {
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
                                     <b className="the-impact-total-new-hires-number">2000</b>
-                                    <hr className="hr-total-new-hires"/>
+                                    <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
                                     <b className="the-impact-cost-of-recruitmet-number">$ 2 000 000</b>
 
-                                    <p className="the-impact-productivity-cost-text"><b>How much does getting <br/> people 
+                                    <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
                                     up to full produtivity cost?</b></p>
                                     <b className="the-impact-productivity-cost-number">$ 4 375 000</b>
 
                                     <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
                                     <b className="the-impact-cost-of-attrition-number">$ 33 000 000</b>
 
-                                    <hr className="hr-cost-of-attrition"/>
+                                    <hr className="hr-cost-of-attrition" />
 
                                     <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
                                     <b className="the-impact-total-cost-number">$ 4 137 500</b>
 
                                 </div>
-                               
+
                             </div>
                         </div>
 

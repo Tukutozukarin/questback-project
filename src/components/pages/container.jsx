@@ -23,34 +23,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
   
   
-        <div><text><img src={iconCalculator}  
-          position="absolute" alt="iconCalculator" width="20px" height="20px" 
-          style={{display : 'inline-block', color: '#000000', fontSize: '28px', fontWeight: 'bold'}} />
-          <Link to="/"  style={{ color: '#000000', fontSize: '17px', fontWeight: 'bold' }}> ROI </Link>
-          </text>
-          </div>
-          <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Dashboard <p></p></Link></div>
-          <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Hidden <p></p></Link></div>
-          <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>Internal <p></p></Link></div>
-      
-          <div class="container-fluid col-xs-12 col-md-8"><Link to="/" style={{ color: '#000000', fontSize: '17px'}}>International int <p></p></Link></div>
-  
-  
-          <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3>
-          </div>
-  
-  
-            <div class="container-fluid col-xs-12 col-md-8"><Link to="/mr"  style={{ color: '#000000', fontSize: '28px', fontWeight: 'bold' }}>MR</Link>
-                <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
-            </div>
-  
-            <div class="container-fluid col-xs-12 col-md-8"><Link to="/ex" style={{ color: '#000000', fontSize: '28px', fontWeight: 'bold'  }}>EX</Link>
-                <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
-  
-            </div>
-            <div class="container-fluid col-xs-12 col-md-8"><Link to="/cx" style={{ color: '#000000', fontSize: '28px', fontWeight: 'bold'  }}>CX</Link>
-                  <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
-            </div>
+            
+        
           </menu>
           <div>
    
