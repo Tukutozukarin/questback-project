@@ -10,6 +10,22 @@ import iconCalculator from '../../assets/img/iconcalculator.png';
 
 
 class Excards extends Component {
+    
+    /* Navigating though divs for sidebar  */
+    refWhatIf = React.createRef()
+    refROIDashboard = React.createRef()
+
+      handleScrollTo = (elRef) => {
+        // Incase the ref supplied isn't ref.current
+        const el = elRef.current ? elRef.current : elRef
+        
+        // Scroll the element into view
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+
     constructor(props) {
         super(props);
 
@@ -22,6 +38,7 @@ class Excards extends Component {
     // Adds an event listener when the component is mount. 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
+        this.setState({ loaded: true })
     }
 
     // Remove the event listener when the component is unmount. 
@@ -52,18 +69,18 @@ class Excards extends Component {
                 {/* Sidebar start */}
                 <div className="container-fluid nav-sidebar">
                     <p className="title-sidebar">
-                        <img className="icon-sidebar" src={iconCalculator} alt="icon calculator" /> ROI Calculator  </p>
+                        <img className="icon-sidebar" src={iconCalculator} alt="icon calculator" /> ROI Calculator > </p>
                     <ul className="list-sidebar">
-                        <li><a className="div-link-text-sidebar" href="/cx">ROI Calculator > </a></li>
+                        <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refROIDashboard) }}>ROI Dashboard</li>
                         <p></p>
-                        <li><a className="div-link-text-sidebar" href="/cx">About your company</a></li>
+                        <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refWhatIf) }}>About your company</li>
                         <ul className="list-sidebar-moretext">
-                            <li><a className="div-link-text-sidebar" href="/cx">The impact</a></li>
+                            <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refWhatIf) }}>The Impact</li>
                         </ul>
                         <p></p>
-                        <li><a className="div-link-text-sidebar" href="/cx">What If</a></li>
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>What If</li>
                         <p></p>
-                        <li><a className="div-link-text-sidebar" href="/cx">Total Business Impact</a></li>
+                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>Total Business Impact</li>
                     </ul>
 
                     <div className="container-fluid links-sidebar">
@@ -85,7 +102,7 @@ class Excards extends Component {
 
                 <div className="container-fluid div-belowtopnav"></div>
 
-                <div className="container-fluid div-result"
+                <div className="container-fluid div-result" ref={this.refROIDashboard}
                 >ROI Dashboard | Total Business:
                  <p className="sum">$ 30030300</p>
                 </div>
@@ -125,7 +142,8 @@ class Excards extends Component {
                     </div>
                 </div>
 
-                <div className="container-fluid div-whatif">
+                {/* The ref will refer the scroll link to what if, in sidebar */}
+                <div className="container-fluid div-whatif" ref={this.refWhatIf}>
                     <h3><b>WHAT IF</b></h3>
 
 

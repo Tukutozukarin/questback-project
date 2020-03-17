@@ -51,6 +51,7 @@ body {
 
 .div-link-text-sidebar {
     color: black;
+    cursor: pointer;
 }
 
 .links-sidebar {
