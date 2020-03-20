@@ -10,6 +10,12 @@ class ExSizeSlider extends React.Component {
     state = {
         size: [50]
       };
+
+
+      onChange(size) {
+        this.setState({ size })
+        this.props.setSizeValue(size);
+      }
       render() {
         return (
           <div
@@ -24,7 +30,7 @@ class ExSizeSlider extends React.Component {
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={size => this.setState({ size })}
+              onChange={size => this.onChange(size)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}

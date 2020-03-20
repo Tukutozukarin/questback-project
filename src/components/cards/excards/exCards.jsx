@@ -40,7 +40,8 @@ class Excards extends Component {
 
         this.state = {
             prevScrollpos: window.pageYOffset,
-            visible: true
+            visible: true,
+            totalNewHires: 0
         };
     }
 
@@ -70,6 +71,11 @@ class Excards extends Component {
             visible
         });
     };
+
+
+    handleSizeChange = (size) => {
+        this.setState({totalNewHires: size})
+    }
 
     render() {
         return (
@@ -352,7 +358,7 @@ class Excards extends Component {
 
                             />
                             <div className=" container-fluid div-slider">
-                                <ExSizeSlider />
+                                <ExSizeSlider setSizeValue={this.handleSizeChange}/>
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -402,7 +408,7 @@ class Excards extends Component {
 
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                    <b className="the-impact-total-new-hires-number">2000</b>
+                                     <b className="the-impact-total-new-hires-number">{this.state.totalNewHires}</b>
                                     <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
