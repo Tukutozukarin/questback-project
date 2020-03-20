@@ -16,10 +16,9 @@ const Excard = props => {
                 </p>
             </div>
 
-            <div className="overflow">
+            <div className="overflow ">
                 {/* Still under testing in regards to min and max props values */}
-                <RangeEx min={props.minimumValues} max={props.maximumValue} />
-                <p></p>
+ 
                 <a href={props.ahref} className="btn btn-outline-success">{props.hrefTitle}</a>
                 <p></p>
             </div>

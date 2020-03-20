@@ -9,6 +9,12 @@ body {
     margin-left: 19%;
 }
 
+.div-slider {
+    position: absolute;
+    top: 52%;
+    left: 10%;
+}
+
 .sum {
     position: absolute;
     color: #7ae63a;
@@ -223,22 +229,24 @@ body {
 .div-cards {
     background: cadetblue;
     z-index: -1;
-    display: inline-block;
 
 }
 
 
 .row {
-    left: 20%;
-    top: -30%;
+    left: 15%;
+    top: 70%;
     position: absolute;
-    margin-left: 2%;
-    overflow: hidden;
+    margin: 1rem;
 }
 
 .card{
     width: 14rem;
-    margin: 1rem;
+    height: 100%;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 30px;
+    
 }
 
 .card:hover{

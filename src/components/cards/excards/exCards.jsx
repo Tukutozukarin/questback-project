@@ -7,24 +7,33 @@ import businessimpactimg from '../../assets/img/business-impact.png';
 import whythenumbersImg from '../../assets/img/Sigurd.png';
 import iconCalculator from '../../assets/img/iconcalculator.png';
 
+import ExSizeSlider from '../../rangeslider/exslider/exSizeSlider';
+import ExGrowRateSlider from '../../rangeslider/exslider/exGrowRateSlider';
+import ExAttritionSlider from '../../rangeslider/exslider/exAttritionSlider';
+import ExPaySlider from '../../rangeslider/exslider/exPaySlider';
+import ExCostPerHireSlider from '../../rangeslider/exslider/exCostPerHireSlider';
+import ExOnboardingSlider from '../../rangeslider/exslider/exOnboardingSlider';
 
 
 class Excards extends Component {
-    
+
     /* Navigating though divs for sidebar  */
     refWhatIf = React.createRef()
     refROIDashboard = React.createRef()
+    refTheImpact = React.createRef()
+    refTotalBusinessImpact = React.createRef()
 
-      handleScrollTo = (elRef) => {
+
+    handleScrollTo = (elRef) => {
         // Incase the ref supplied isn't ref.current
         const el = elRef.current ? elRef.current : elRef
-        
+
         // Scroll the element into view
         el.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+            behavior: 'smooth',
+            block: 'start'
         })
-      }
+    }
 
     constructor(props) {
         super(props);
@@ -71,21 +80,21 @@ class Excards extends Component {
                     <p className="title-sidebar">
                         <img className="icon-sidebar" src={iconCalculator} alt="icon calculator" /> ROI Calculator > </p>
                     <ul className="list-sidebar">
-                        <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refROIDashboard) }}>ROI Dashboard</li>
+                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refROIDashboard) }}>ROI Dashboard</li>
                         <p></p>
-                        <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refWhatIf) }}>About your company</li>
+                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>About your company</li>
                         <ul className="list-sidebar-moretext">
-                            <li className="div-link-text-sidebar"  onClick={() => { this.handleScrollTo(this.refWhatIf) }}>The Impact</li>
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refTheImpact) }}>The Impact</li>
                         </ul>
                         <p></p>
-                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>What If</li>
+                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>What If</li>
                         <p></p>
-                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>Total Business Impact</li>
+                        <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refTotalBusinessImpact) }}>Total Business Impact</li>
                     </ul>
 
                     <div className="container-fluid links-sidebar">
                         <ul className="list-links-sidebar">
-                            <li><a className="href-link-text-sidebar" href="#div-whatif">MR</a></li>
+                            <li><a className="href-link-text-sidebar" href="/mr">MR</a></li>
                             <p></p>
                             <li><a className="href-link-text-sidebar" href="/ex">EX</a></li>
                             <p></p>
@@ -130,6 +139,7 @@ class Excards extends Component {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
+                           
 
                             <hr className="hr-below-whythenumbers" />
 
@@ -145,7 +155,6 @@ class Excards extends Component {
                 {/* The ref will refer the scroll link to what if, in sidebar */}
                 <div className="container-fluid div-whatif" ref={this.refWhatIf}>
                     <h3><b>WHAT IF</b></h3>
-
 
 
                     <div className="container-fluid div-whatif-textbox">
@@ -273,7 +282,7 @@ class Excards extends Component {
                 {/* start of business impact */}
 
                 <div className="container-fluid div-business-impact">
-                    <div className="div-total-business-impact">
+                    <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
                         <b className="div-total-business-impact-title">TOTAL BUSINESS IMPACT</b>
                     </div>
 
@@ -334,12 +343,17 @@ class Excards extends Component {
                     <div className="row">
 
                         <div className="col-md-3">
+
                             <Excard
                                 title="Size"
                                 description="How many employees do you have"
                                 ahref="/mr"
                                 hrefTitle="Included"
+
                             />
+                            <div className=" container-fluid div-slider">
+                                <ExSizeSlider />
+                            </div>
                         </div>
                         <div className="col-md-3">
                             <Excard
@@ -384,7 +398,7 @@ class Excards extends Component {
 
                         <div className="col-md-3">
                             <div className="div-the-impact-card">
-                                <h4 className="the-impact-title"><b>THE IMPACT</b></h4>
+                                <h4 className="the-impact-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
 
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
