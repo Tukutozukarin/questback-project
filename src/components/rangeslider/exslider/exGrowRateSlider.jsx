@@ -8,8 +8,13 @@ const MAX = 100;
 
 class ExGrowRateSlider extends React.Component {
     state = {
-        values: [50]
+        growratevalues: [50]
       };
+
+      onChange(growratevalues) {
+        this.setState({ growratevalues })
+        this.props.setGrowValue(growratevalues);
+      }
       render() {
         return (
           <div
@@ -20,11 +25,11 @@ class ExGrowRateSlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.values}
+              values={this.state.growratevalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={values => this.setState({ values })}
+              onChange={growratevalues => this.onChange({ growratevalues })}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -44,7 +49,7 @@ class ExGrowRateSlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.values,
+                        values: this.state.growratevalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -91,7 +96,7 @@ class ExGrowRateSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.values[0].toFixed(1)}
+              {this.state.growratevalues[0].toFixed(1)}
             </output>
           </div>
         );

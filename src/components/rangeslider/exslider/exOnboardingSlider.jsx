@@ -8,8 +8,13 @@ const MAX = 100;
 
 class ExOnboardingSlider extends React.Component {
     state = {
-        values: [50]
+        onboardingvalues: [50]
       };
+
+      onChange(onboardingvalues) {
+        this.setState({ onboardingvalues })
+        this.props.setOnboardingValue(onboardingvalues);
+      }
       render() {
         return (
           <div
@@ -20,11 +25,11 @@ class ExOnboardingSlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.values}
+              values={this.state.onboardingvalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={values => this.setState({ values })}
+              onChange={onboardingvalues => this.onChange({ onboardingvalues })}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -44,7 +49,7 @@ class ExOnboardingSlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.values,
+                        values: this.state.onboardingvalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -91,7 +96,7 @@ class ExOnboardingSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.values[0].toFixed(1)}
+              {this.state.onboardingvalues[0].toFixed(1)}
             </output>
           </div>
         );

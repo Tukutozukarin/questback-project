@@ -8,8 +8,13 @@ const MAX = 100;
 
 class ExCostPerHireSlider extends React.Component {
     state = {
-        values: [50]
+        costperhirevalues: [50]
       };
+
+      onChange(costperhirevalues) {
+        this.setState({ costperhirevalues })
+        this.props.setCostValue(costperhirevalues);
+      }
       render() {
         return (
           <div
@@ -20,11 +25,11 @@ class ExCostPerHireSlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.values}
+              values={this.state.costperhirevalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={values => this.setState({ values })}
+              onChange={costperhirevalues => this.onChange({ costperhirevalues })}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -44,7 +49,7 @@ class ExCostPerHireSlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.values,
+                        values: this.state.costperhirevalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -91,7 +96,7 @@ class ExCostPerHireSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.values[0].toFixed(1)}
+              {this.state.costperhirevalues[0].toFixed(1)}
             </output>
           </div>
         );

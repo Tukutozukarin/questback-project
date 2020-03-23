@@ -41,7 +41,12 @@ class Excards extends Component {
         this.state = {
             prevScrollpos: window.pageYOffset,
             visible: true,
-            totalNewHires: 0
+            SizeValue: 0,
+            GrowValue: 0,
+            AttritionValue: 0,
+            PayValue: 0,
+            CostPerHireValues: 0,
+            OnboardingTimeValue: 0
         };
     }
 
@@ -74,8 +79,36 @@ class Excards extends Component {
 
 
     handleSizeChange = (size) => {
-        this.setState({totalNewHires: size})
+       this.setState({SizeValue: size })
     }
+
+    handleGrowChange = (growratevalues) => {
+        this.setState({growratevalues: growratevalues })
+     }
+
+     handleAttritionChange = (attritionvalues) => {
+        this.setState({AttritionValue: attritionvalues })
+     }
+
+     handlePayChange = (payvalues) => {
+        this.setState({PayValue: payvalues })
+     }
+
+     handleCostPerHireChange = (costperhirevalues) => {
+        this.setState({CostPerHireValues: costperhirevalues })
+     }
+
+     handleOnboardinTimeChange = (onboardingvalues) => {
+        this.setState({OnboardingTimeValue: onboardingvalues })
+     }
+
+
+    
+
+
+  
+
+    
 
     render() {
         return (
@@ -357,17 +390,21 @@ class Excards extends Component {
                                 hrefTitle="Included"
 
                             />
-                            <div className=" container-fluid div-slider">
+                            <div className=" container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange}/>
+                                
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <Excard
+                            <Excard 
                                 title="Grow rate"
                                 description="By what % does your organization grow per year?"
-                                ahref="/ex"
-                                hrefTitle="Employee"
+                                ahref="/mr"
+                                hrefTitle="Included"
                             />
+                            <div className="container-fluid div-slider-grow">
+                                 <ExGrowRateSlider setGrowValue={this.handleGrowChange}/>
+                            </div>
                         </div>
                         <div className="col-md-3">
                             <Excard
@@ -376,6 +413,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
+                              <div className="container-fluid div-slider-attrition">
+                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange}/>
+                            </div>
                         </div>
                         <div className="col-md-3">
                             <Excard
@@ -384,6 +424,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
+                              <div className="container-fluid div-slider-pay">
+                                 <ExPaySlider setPayValue={this.handlePayChange}/>
+                            </div>
                         </div>
                         <div className="col-md-3">
                             <Excard
@@ -392,6 +435,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
+                              <div className="container-fluid div-slider-costperhire">
+                                 <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange}/>
+                            </div>
                         </div>
                         <div className="col-md-3">
                             <Excard
@@ -400,6 +446,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
+                              <div className="container-fluid div-slider-onboardingtime">
+                                 <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange}/>
+                            </div>
                         </div>
 
                         <div className="col-md-3">
@@ -408,11 +457,11 @@ class Excards extends Component {
 
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                     <b className="the-impact-total-new-hires-number">{this.state.totalNewHires}</b>
+                                     <b className="the-impact-total-new-hires-number">{this.state.SizeValue + this.state.AttritionValue}</b>
                                     <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
-                                    <b className="the-impact-cost-of-recruitmet-number">$ 2 000 000</b>
+                                    <b className="the-impact-cost-of-recruitmet-number">{this.state.AttritionValue}</b>
 
                                     <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
                                     up to full produtivity cost?</b></p>

@@ -8,8 +8,13 @@ const MAX = 100;
 
 class ExPaySlider extends React.Component {
     state = {
-        values: [50]
+        payvalues: [50]
       };
+
+      onChange(payvalues) {
+        this.setState({ payvalues })
+        this.props.setPayValue(payvalues);
+      }
       render() {
         return (
           <div
@@ -20,11 +25,11 @@ class ExPaySlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.values}
+              values={this.state.payvalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={values => this.setState({ values })}
+              onChange={payvalues => this.onChange({ payvalues })}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -44,7 +49,7 @@ class ExPaySlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.values,
+                        values: this.state.payvalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -91,7 +96,7 @@ class ExPaySlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.values[0].toFixed(1)}
+              {this.state.payvalues[0].toFixed(1)}
             </output>
           </div>
         );

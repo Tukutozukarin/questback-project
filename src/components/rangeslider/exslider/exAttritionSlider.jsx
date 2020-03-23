@@ -6,10 +6,16 @@ const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
-class ExAttritionSlider extends React.Component {
+class ExSizeSlider extends React.Component {
     state = {
-        values: [50]
+        attritionvalues: [50]
       };
+
+
+      onChange(attritionvalues) {
+        this.setState({ attritionvalues })
+        this.props.setAttritionValue(attritionvalues);
+      }
       render() {
         return (
           <div
@@ -20,11 +26,11 @@ class ExAttritionSlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.values}
+              values={this.state.attritionvalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={values => this.setState({ values })}
+              onChange={attritionvalues => this.onChange(attritionvalues)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -44,7 +50,7 @@ class ExAttritionSlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.values,
+                        values: this.state.attritionvalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -91,11 +97,11 @@ class ExAttritionSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.values[0].toFixed(1)}
+              {this.state.attritionvalues[0].toFixed(1)}
             </output>
           </div>
         );
       }
     }
 
-export default ExAttritionSlider;
+export default ExSizeSlider;
