@@ -11,6 +11,7 @@ class ExOnboardingSlider extends React.Component {
         onboardingvalues: [50]
       };
 
+
       onChange(onboardingvalues) {
         this.setState({ onboardingvalues })
         this.props.setOnboardingValue(onboardingvalues);
@@ -29,7 +30,7 @@ class ExOnboardingSlider extends React.Component {
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={onboardingvalues => this.onChange({ onboardingvalues })}
+              onChange={onboardingvalues => this.onChange(onboardingvalues)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -96,7 +97,7 @@ class ExOnboardingSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.onboardingvalues[0].toFixed(1)}
+
             </output>
           </div>
         );

@@ -15,10 +15,30 @@ body {
     left: 10%;
 }
 
+.p-SizeValue {
+    position: absolute;
+    left: 54%;
+    top: 55%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
+}
+
 .div-slider-grow {
     position: absolute;
     top: 55%;
     left: 10%;
+}
+
+.p-GrowValue {
+    position: absolute;
+    left: 54%;
+    top: 55%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
 }
 
 .div-slider-attrition {
@@ -27,10 +47,30 @@ body {
     left: 10%;
 }
 
+.p-AttritionValue {
+    position: absolute;
+    left: 54%;
+    top: 55%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
+}
+
 .div-slider-pay {
     position: absolute;
     top: 55%;
     left: 10%;
+}
+
+.p-PayValue {
+    position: absolute;
+    left: 54%;
+    top: 59%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
 }
 
 .div-slider-costperhire {
@@ -39,10 +79,30 @@ body {
     left: 10%;
 }
 
+.p-CostPerHireValue {
+    position: absolute;
+    left: 54%;
+    top: 64%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
+}
+
 .div-slider-onboardingtime {
     position: absolute;
     top: 55%;
     left: 10%;
+}
+
+.p-OnboardingTimeValue {
+    position: absolute;
+    left: 54%;
+    top: 58%;
+    font-size: xx-large;
+    font-weight: bold;
+    color: chartreuse;
+    z-index: 2;
 }
 
 .sum {
@@ -490,6 +550,12 @@ body {
     vertical-align: middle;
 }
 
+.calculation-CPH-slider {
+    position: relative;
+    left: 20%;
+    top: -970%;
+}
+
 .calculation-costofrecruitment-textbox-1 {
     position: absolute; 
     top: 52%;
@@ -566,6 +632,12 @@ body {
     vertical-align: middle;
 }
 
+.calculation-onboarding-slider {
+    position: relative;
+    left: 20%;
+    top: -970%;
+}
+
 
 
 .p-calculation-green-textbox-2 {
@@ -627,9 +699,15 @@ body {
 .p-calculation-green-numbers-3 {
     color: orange;
     position: absolute; 
-    left: 90%;
+    left: 88%;
     top: 10%;
     font-size: large;
+}
+
+.calculation-attrition-slider {
+    position: relative;
+    left: 20%;
+    top: -970%;
 }
 
 
@@ -682,10 +760,12 @@ body {
 
 .navbar {
   
-    width: 60%; 
+    width: 90%; 
+    height: 10%;
     padding: 10px;
     position: fixed; 
     top: 0; 
+    background-color: #6D9BB5;
     transition: top 0.6s;
     z-index: 999 !important;
 }
@@ -694,16 +774,23 @@ body {
     top: -100px; 
 }
 
+
 .product-btn {
     background-color: #6D9BB5;
     color: white;
     padding: 7px;
     font-size: 16px;
-    position: relative;
     display: inline-block;
     font-weight: bold;
     box-shadow: 0px 8px 14px 0px #888888;
+    left: 140%;
+    position: relative;
     
+}
+
+.drop-product {
+    position: relative;
+    left: 141%;
 }
 
 .customer-btn {
@@ -711,10 +798,10 @@ body {
     color: white;
     padding: 7px;
     font-size: 16px;
-    position: relative;
     display: inline-block;
     font-weight: bold;
     box-shadow: 0px 8px 14px 0px #888888;
+    position: relative;
     
 }
 
@@ -724,10 +811,16 @@ body {
     padding: 7px;
     font-size: 16px;
     position: relative;
+    right: 110%;
     display: inline-block;
     font-weight: bold;
     box-shadow: 0px 8px 14px 0px #888888;
     
+}
+
+.drop-currency {
+    position: relative;
+    right: 110%;
 }
 
 .dropbtn {
@@ -735,7 +828,6 @@ body {
     color: black;
     padding: 8px;
     font-size: 16px;
-    position: relative;
     display: inline-block;
     font-weight: bold;
     margin-left: -1%;
@@ -754,6 +846,14 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 14px 0px  #888888;
     z-index: 1;
+  }
+
+  .dropdown-product {
+      left: 139%;
+  }
+
+  .dropdown-currency {
+        right: 110%;
   }
   
   .dropdown-content a {

@@ -97,7 +97,7 @@ class ExSizeSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.size[0].toFixed(1)}
+          
             </output>
           </div>
         );

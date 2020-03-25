@@ -14,6 +14,11 @@ import ExPaySlider from '../../rangeslider/exslider/exPaySlider';
 import ExCostPerHireSlider from '../../rangeslider/exslider/exCostPerHireSlider';
 import ExOnboardingSlider from '../../rangeslider/exslider/exOnboardingSlider';
 
+import ExCalculationCPHSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationCPHSlider';
+import ExCalculationOnboardingSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationOnboardingSlider';
+import ExCalculationAttritionSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationAttritionSlider';
+
+
 
 class Excards extends Component {
 
@@ -46,7 +51,14 @@ class Excards extends Component {
             AttritionValue: 0,
             PayValue: 0,
             CostPerHireValues: 0,
-            OnboardingTimeValue: 0
+            OnboardingTimeValue: 0,
+            CalculationCPHValue: 0,
+            CalculationOnboardingValue: 0,
+            CalculationAttritionValue: 0,
+            totalHires: 0
+
+            
+
         };
     }
 
@@ -79,36 +91,45 @@ class Excards extends Component {
 
 
     handleSizeChange = (size) => {
-       this.setState({SizeValue: size })
+        this.setState({ SizeValue: size })
     }
 
     handleGrowChange = (growratevalues) => {
-        this.setState({growratevalues: growratevalues })
-     }
+        this.setState({ GrowValue: growratevalues })
+    }
 
-     handleAttritionChange = (attritionvalues) => {
-        this.setState({AttritionValue: attritionvalues })
-     }
+    handleAttritionChange = (attritionvalues) => {
+        this.setState({ AttritionValue: attritionvalues })
+    }
 
-     handlePayChange = (payvalues) => {
-        this.setState({PayValue: payvalues })
-     }
+    handlePayChange = (payvalues) => {
+        this.setState({ PayValue: payvalues })
+    }
 
-     handleCostPerHireChange = (costperhirevalues) => {
-        this.setState({CostPerHireValues: costperhirevalues })
-     }
+    handleCostPerHireChange = (costperhirevalues) => {
+        this.setState({ CostPerHireValues: costperhirevalues })
+    }
 
-     handleOnboardinTimeChange = (onboardingvalues) => {
-        this.setState({OnboardingTimeValue: onboardingvalues })
-     }
+    handleOnboardinTimeChange = (onboardingvalues) => {
+        this.setState({ OnboardingTimeValue: onboardingvalues })
+    }
+
+    handleCalculationCPHChange = (calculationcphvalues) => {
+        this.setState({ CalculationCPHValue: calculationcphvalues})
+    }
+
+    handleCalculationOnboardingChange = (calculationonboardingvalues) => {
+        this.setState({ CalculationOnboardingValue: calculationonboardingvalues })
+    }
+
+    handleCalculationAttritionChange = (calculationattritionvalues) => {
+        this.setState({ CalculationAttritionValue: calculationattritionvalues})
+    }
 
 
-    
 
 
-  
 
-    
 
     render() {
         return (
@@ -178,7 +199,7 @@ class Excards extends Component {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
-                           
+
 
                             <hr className="hr-below-whythenumbers" />
 
@@ -224,12 +245,15 @@ class Excards extends Component {
                     {/* Start of first calculation textbox */}
                     <div className="div-calculation-textbox-1">
                         <div className="calculation-green-textbox-1">
+                            
                             <p className="p-calculation-green-textbox-1">
-                                <b>
-                                    If you could reduce CPH to this much <p className="p-calculation-green-numbers-1" ><h4><b>$900</b></h4></p>
+                                <b> If you could reduce CPH to this much 
+                                    <p className="p-calculation-green-numbers-1" ><h4><b>${this.state.CalculationCPHValue}</b></h4></p>
                                 </b>
                             </p>
-
+                            <div className="calculation-CPH-slider">
+                                <ExCalculationCPHSlider setCalculationCPHValue={this.handleCalculationCPHChange} />
+                            </div>
                         </div>
                         <div className="calculation-costofrecruitment-textbox-1">
                             <p><b>Cost of recruitment would go down</b> <h4 className="calculation-costofrecruitment-numbers-1" >$ 1 800 800</h4> </p>
@@ -255,10 +279,12 @@ class Excards extends Component {
                     <div className="div-calculation-textbox-2">
                         <div className="calculation-green-textbox-2">
                             <p className="p-calculation-green-textbox-2">
-                                <b>
-                                    If you could reduce ONBOARDING time this much <p className="p-calculation-green-numbers-2" ><h4><b>Days 14</b></h4></p>
+                                <b>If you could reduce ONBOARDING time this much <p className="p-calculation-green-numbers-2" ><h4><b>Days {this.state.CalculationOnboardingValue}</b></h4></p>
                                 </b>
                             </p>
+                            <div className="calculation-onboarding-slider">
+                                <ExCalculationOnboardingSlider setCalculationOnboardingValue={this.handleCalculationOnboardingChange} />
+                            </div>
                         </div>
                         <div className="calculation-costofonboarding-textbox-2">
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
@@ -288,13 +314,16 @@ class Excards extends Component {
                             <p className="p-calculation-green-textbox-2">
                                 <b>
                                     If you could reduce ATTRITION to this much <p className="p-calculation-green-numbers-3" >
-                                        <h4><b>9%</b></h4></p>
+                                        <h4><b>{this.state.CalculationAttritionValue} %</b></h4></p>
                                 </b>
                             </p>
+
+                            <div className="calculation-attrition-slider">
+                                <ExCalculationAttritionSlider setCalculationAttritionValue={this.handleCalculationAttritionChange} />
+                            </div>
                         </div>
                         <div className="calculation-costofonboarding-textbox-2">
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
-
 
                                 <h4 className="calculation-costofonboarding-numbers-2" >$ 1 800 800</h4>
                             </p>
@@ -343,15 +372,14 @@ class Excards extends Component {
                 >
 
                     <div class="dropdown">
-                        <button class="product-btn">Product</button>
-                        <button class="dropbtn">MR</button>
+                            <button class="product-btn">Product</button>
+                            <button class="dropbtn drop-product">MR</button>
 
-                        <div class="dropdown-content">
-                            <a href="/cx">MR</a>
-                            <a href="/ex">EX</a>
-                            <a href="/cx">CX</a>
-                        </div>
-
+                            <div class="dropdown-content dropdown-product">
+                                <a href="/cx">MR</a>
+                                <a href="/ex">EX</a>
+                                <a href="/cx">CX</a>
+                            </div>
                     </div>
 
                     <div class="dropdown">
@@ -365,8 +393,8 @@ class Excards extends Component {
 
                     <div class="dropdown">
                         <button class="currency-btn">CURRENCY</button>
-                        <button class="dropbtn">USD</button>
-                        <div class="dropdown-content">
+                        <button class="dropbtn drop-currency">USD</button>
+                        <div class="dropdown-content dropdown-currency">
                             <a href="/ex">USD</a>
                             <a href="/cx">NOK</a>
                             <a href="/cx">EURO</a>
@@ -388,22 +416,23 @@ class Excards extends Component {
                                 description="How many employees do you have"
                                 ahref="/mr"
                                 hrefTitle="Included"
-
                             />
+                            <p className="p-SizeValue">{this.state.SizeValue}</p>
                             <div className=" container-fluid div-slider-size">
-                                <ExSizeSlider setSizeValue={this.handleSizeChange}/>
-                                
+                                <ExSizeSlider setSizeValue={this.handleSizeChange} />
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <Excard 
+
+                            <Excard
                                 title="Grow rate"
                                 description="By what % does your organization grow per year?"
                                 ahref="/mr"
                                 hrefTitle="Included"
                             />
+                              <p className="p-GrowValue">{this.state.GrowValue}</p>
                             <div className="container-fluid div-slider-grow">
-                                 <ExGrowRateSlider setGrowValue={this.handleGrowChange}/>
+                                <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -413,8 +442,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                              <div className="container-fluid div-slider-attrition">
-                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange}/>
+                             <p className="p-AttritionValue">{this.state.AttritionValue}</p>
+                            <div className="container-fluid div-slider-attrition">
+                                <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -424,8 +454,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                              <div className="container-fluid div-slider-pay">
-                                 <ExPaySlider setPayValue={this.handlePayChange}/>
+                             <p className="p-PayValue">{this.state.PayValue}</p>
+                            <div className="container-fluid div-slider-pay">
+                                <ExPaySlider setPayValue={this.handlePayChange} />
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -435,8 +466,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                              <div className="container-fluid div-slider-costperhire">
-                                 <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange}/>
+                                <p className="p-CostPerHireValue">{this.state.CostPerHireValues}</p>
+                            <div className="container-fluid div-slider-costperhire">
+                                <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange} />
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -446,8 +478,9 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                              <div className="container-fluid div-slider-onboardingtime">
-                                 <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange}/>
+                                 <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
+                            <div className="container-fluid div-slider-onboardingtime">
+                                <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange} />
                             </div>
                         </div>
 
@@ -457,7 +490,7 @@ class Excards extends Component {
 
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                     <b className="the-impact-total-new-hires-number">{this.state.SizeValue + this.state.AttritionValue}</b>
+                                    <b className="the-impact-total-new-hires-number">{this.state.SizeValue + this.state.AttritionValue}</b>
                                     <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>

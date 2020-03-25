@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './Home';
 import Ex from './Ex';
 import Cx from './Cx';
 import Mr from './Mr';
 
 import logo from '../assets/img/questbacklogo.png';
-import iconCalculator from '../assets/img/iconcalculator.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,8 +21,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           id="logoimg" alt="questbackLogo" width="160px"/></div>
           <div class="container-fluid col-xs-12 col-md-8"><h3><p></p></h3></div>
   
-  
-            
         
           </menu>
           <div>

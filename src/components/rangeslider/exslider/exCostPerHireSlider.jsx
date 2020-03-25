@@ -11,6 +11,7 @@ class ExCostPerHireSlider extends React.Component {
         costperhirevalues: [50]
       };
 
+
       onChange(costperhirevalues) {
         this.setState({ costperhirevalues })
         this.props.setCostValue(costperhirevalues);
@@ -29,7 +30,7 @@ class ExCostPerHireSlider extends React.Component {
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={costperhirevalues => this.onChange({ costperhirevalues })}
+              onChange={costperhirevalues => this.onChange(costperhirevalues)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -96,7 +97,7 @@ class ExCostPerHireSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.costperhirevalues[0].toFixed(1)}
+
             </output>
           </div>
         );

@@ -6,15 +6,15 @@ const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
-class ExPaySlider extends React.Component {
+class ExCalculationCPHSlider extends React.Component {
     state = {
-        payvalues: [50]
+        calculationcphvalues: [50]
       };
 
 
-      onChange(payvalues) {
-        this.setState({ payvalues })
-        this.props.setPayValue(payvalues);
+      onChange(calculationcphvalues) {
+        this.setState({ calculationcphvalues })
+        this.props.setCalculationCPHValue(calculationcphvalues);
       }
       render() {
         return (
@@ -26,11 +26,11 @@ class ExPaySlider extends React.Component {
             }}
           >
             <Range
-              values={this.state.payvalues}
+              values={this.state.calculationcphvalues}
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={payvalues => this.onChange(payvalues)}
+              onChange={calculationcphvalues => this.onChange(calculationcphvalues)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -39,7 +39,7 @@ class ExPaySlider extends React.Component {
                     ...props.style,
                     height: '160px',
                     display: 'flex',
-                    width: '85%'
+                    width: '19%'
                   }}
                 >
                   <div
@@ -50,7 +50,7 @@ class ExPaySlider extends React.Component {
                       width: '100%',
                       borderRadius: '4px',
                       background: getTrackBackground({
-                        values: this.state.payvalues,
+                        values: this.state.calculationcphvalues,
                         colors: ['#1a757b', '#ccc'],
                         min: MIN,
                         max: MAX
@@ -97,11 +97,11 @@ class ExPaySlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-
+          
             </output>
           </div>
         );
       }
     }
 
-export default ExPaySlider;
+export default ExCalculationCPHSlider;

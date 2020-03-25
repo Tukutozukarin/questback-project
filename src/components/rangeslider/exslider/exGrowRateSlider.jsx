@@ -11,6 +11,7 @@ class ExGrowRateSlider extends React.Component {
         growratevalues: [50]
       };
 
+
       onChange(growratevalues) {
         this.setState({ growratevalues })
         this.props.setGrowValue(growratevalues);
@@ -29,7 +30,7 @@ class ExGrowRateSlider extends React.Component {
               step={STEP}
               min={MIN}
               max={MAX}
-              onChange={growratevalues => this.onChange({ growratevalues })}
+              onChange={growratevalues => this.onChange(growratevalues)}
               renderTrack={({ props, children }) => (
                 <div
                   onMouseDown={props.onMouseDown}
@@ -96,7 +97,7 @@ class ExGrowRateSlider extends React.Component {
                 color: '#7CFC00' 
             }} id="output">
 
-              {this.state.growratevalues[0].toFixed(1)}
+          
             </output>
           </div>
         );
