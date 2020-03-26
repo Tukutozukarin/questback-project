@@ -495,7 +495,7 @@ body {
 .div-calculation {
     z-index: -1;
     background-color: wheat;
-    top: 373%;
+    top: 401%;
     left: 18%;
     width: 83%;
     height: 90%;
@@ -728,7 +728,7 @@ body {
 .div-business-impact{
     z-index: -1;
     position: absolute;
-    top: 463%;
+    top: 490%;
     left: 18%;
     width: 83%;
     height: 80%; 
@@ -748,7 +748,6 @@ body {
     height: 82%; 
     top: 14%;
     left: 10%;
-    background-color: green;
 }
 
 .img-business-impact {

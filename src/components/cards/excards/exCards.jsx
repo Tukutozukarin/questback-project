@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Excard from './exCardsUI';
 import classnames from 'classnames';
-
+import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 
 import businessimpactimg from '../../assets/img/business-impact.png';
 import whythenumbersImg from '../../assets/img/Sigurd.png';
@@ -55,11 +55,44 @@ class Excards extends Component {
             CalculationCPHValue: 0,
             CalculationOnboardingValue: 0,
             CalculationAttritionValue: 0,
-            totalHires: 0
-
-            
+            totalHires: 0,
+            chartData: {}
 
         };
+    }
+
+    getChartData(){
+        // Ajax calls 
+        this.setState({
+            chartData: {
+                labels: [
+                    'Year 1',
+                    'Year 2',
+                    'Year 3',
+                ],
+                datasets: [
+                    {
+                        label: 'The Impact',
+                        data: [
+                            4324,
+                            54654,
+                            654756,
+                            
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                           
+                        ]
+                    }
+                ]
+            }
+        })
+    }
+
+    componentWillMount() {
+        this.getChartData();
     }
 
     // Adds an event listener when the component is mount. 
@@ -351,11 +384,11 @@ class Excards extends Component {
 
                 <div className="container-fluid div-business-impact">
                     <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
-                        <b className="div-total-business-impact-title">TOTAL BUSINESS IMPACT</b>
+                        <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
                     </div>
 
                     <div className="div-business-impact-box">
-                        <img className="img-business-impact" src={businessimpactimg} alt="business impact img" />
+                        <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
                     </div>
                 </div>
 
