@@ -41,6 +41,7 @@ class Excards extends Component {
         })
     }
 
+
     constructor(props) {
         super(props);
 
@@ -64,31 +65,33 @@ class Excards extends Component {
 
     getChartData() {
         // Ajax calls 
-        this.setState({
-            chartData: {
-                labels: [
-                    'Year 1',
-                    'Year 2',
-                    'Year 3',
-                ],
-                datasets: [
-                    {
-                        label: 'The Impact',
-                        data: [
-                            this.state.SizeValue,
-                            4324,
-                            54654,
-                            654756,
-
-                        ],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-
-                        ]
-                    }
-                ]
+        this.setState( (state) => {
+            return {
+                chartData: {
+                    labels: [
+                        'Year 1',
+                        'Year 2',
+                        'Year 3',
+                    ],
+                    datasets: [
+                        {
+                            label: 'The Impact',
+                            data: [
+                                state.SizeValue,
+                                4324,
+                                54654,
+                                654756,
+    
+                            ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+    
+                            ]
+                        }
+                    ]
+                }
             }
         })
     }
