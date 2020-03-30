@@ -18,6 +18,7 @@ import ExCalculationCPHSlider from '../../rangeslider/exslider/dothecalculation-
 import ExCalculationOnboardingSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationOnboardingSlider';
 import ExCalculationAttritionSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationAttritionSlider';
 
+import includeButton from '../../buttons/includebutton';
 
 
 class Excards extends Component {
@@ -61,7 +62,7 @@ class Excards extends Component {
         };
     }
 
-    getChartData(){
+    getChartData() {
         // Ajax calls 
         this.setState({
             chartData: {
@@ -74,16 +75,17 @@ class Excards extends Component {
                     {
                         label: 'The Impact',
                         data: [
+                            this.state.SizeValue,
                             4324,
                             54654,
                             654756,
-                            
+
                         ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.6)',
                             'rgba(54, 162, 235, 0.6)',
                             'rgba(75, 192, 192, 0.6)',
-                           
+
                         ]
                     }
                 ]
@@ -122,17 +124,33 @@ class Excards extends Component {
         });
     };
 
+    /* 
+        handleSizeChange = (size) => {
+            this.setState({ SizeValue: size })
+        }
+    
+      
+        handleGrowChange = (growratevalues) => {
+            this.setState({ GrowValue: growratevalues })
+        }
+    
+        handleAttritionChange = (attritionvalues) => {
+            this.setState({ AttritionValue: attritionvalues })
+        }
+    
+        */
 
     handleSizeChange = (size) => {
-        this.setState({ SizeValue: size })
+        this.setState({ SizeValue: parseInt(size) })
     }
+
 
     handleGrowChange = (growratevalues) => {
         this.setState({ GrowValue: growratevalues })
     }
 
     handleAttritionChange = (attritionvalues) => {
-        this.setState({ AttritionValue: attritionvalues })
+        this.setState({ AttritionValue: parseInt(attritionvalues) })
     }
 
     handlePayChange = (payvalues) => {
@@ -148,7 +166,7 @@ class Excards extends Component {
     }
 
     handleCalculationCPHChange = (calculationcphvalues) => {
-        this.setState({ CalculationCPHValue: calculationcphvalues})
+        this.setState({ CalculationCPHValue: calculationcphvalues })
     }
 
     handleCalculationOnboardingChange = (calculationonboardingvalues) => {
@@ -156,7 +174,7 @@ class Excards extends Component {
     }
 
     handleCalculationAttritionChange = (calculationattritionvalues) => {
-        this.setState({ CalculationAttritionValue: calculationattritionvalues})
+        this.setState({ CalculationAttritionValue: calculationattritionvalues })
     }
 
 
@@ -273,14 +291,15 @@ class Excards extends Component {
                 <div className="container-fluid div-calculation">
                     <div className="div-calculation-title">
                         <h2>Do the calculation</h2>
+                        
                     </div>
 
                     {/* Start of first calculation textbox */}
                     <div className="div-calculation-textbox-1">
                         <div className="calculation-green-textbox-1">
-                            
+
                             <p className="p-calculation-green-textbox-1">
-                                <b> If you could reduce CPH to this much 
+                                <b> If you could reduce CPH to this much
                                     <p className="p-calculation-green-numbers-1" ><h4><b>${this.state.CalculationCPHValue}</b></h4></p>
                                 </b>
                             </p>
@@ -385,6 +404,11 @@ class Excards extends Component {
                 <div className="container-fluid div-business-impact">
                     <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
                         <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
+                        <includeButton onClick={() => { console.log("test")}}
+                                    type="button"
+                                    buttonStyle="btn--primary--outline"
+                                    buttonSize="btn--large"
+                                >Include</includeButton>
                     </div>
 
                     <div className="div-business-impact-box">
@@ -405,14 +429,14 @@ class Excards extends Component {
                 >
 
                     <div class="dropdown">
-                            <button class="product-btn">Product</button>
-                            <button class="dropbtn drop-product">MR</button>
+                        <button class="product-btn">Product</button>
+                        <button class="dropbtn drop-product">MR</button>
 
-                            <div class="dropdown-content dropdown-product">
-                                <a href="/cx">MR</a>
-                                <a href="/ex">EX</a>
-                                <a href="/cx">CX</a>
-                            </div>
+                        <div class="dropdown-content dropdown-product">
+                            <a href="/cx">MR</a>
+                            <a href="/ex">EX</a>
+                            <a href="/cx">CX</a>
+                        </div>
                     </div>
 
                     <div class="dropdown">
@@ -448,11 +472,12 @@ class Excards extends Component {
                                 title="Size"
                                 description="How many employees do you have"
                                 ahref="/mr"
-                                hrefTitle="Included"
                             />
                             <p className="p-SizeValue">{this.state.SizeValue}</p>
                             <div className=" container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange} />
+
+                             
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -463,7 +488,7 @@ class Excards extends Component {
                                 ahref="/mr"
                                 hrefTitle="Included"
                             />
-                              <p className="p-GrowValue">{this.state.GrowValue}</p>
+                            <p className="p-GrowValue">{this.state.GrowValue}</p>
                             <div className="container-fluid div-slider-grow">
                                 <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
                             </div>
@@ -475,7 +500,7 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                             <p className="p-AttritionValue">{this.state.AttritionValue}</p>
+                            <p className="p-AttritionValue">{this.state.AttritionValue}</p>
                             <div className="container-fluid div-slider-attrition">
                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
                             </div>
@@ -487,7 +512,7 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                             <p className="p-PayValue">{this.state.PayValue}</p>
+                            <p className="p-PayValue">{this.state.PayValue}</p>
                             <div className="container-fluid div-slider-pay">
                                 <ExPaySlider setPayValue={this.handlePayChange} />
                             </div>
@@ -499,7 +524,7 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                                <p className="p-CostPerHireValue">{this.state.CostPerHireValues}</p>
+                            <p className="p-CostPerHireValue">{this.state.CostPerHireValues}</p>
                             <div className="container-fluid div-slider-costperhire">
                                 <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange} />
                             </div>
@@ -511,7 +536,7 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                                 <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
+                            <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
                             <div className="container-fluid div-slider-onboardingtime">
                                 <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange} />
                             </div>

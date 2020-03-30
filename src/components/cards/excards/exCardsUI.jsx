@@ -1,6 +1,5 @@
 import React from 'react';
 import './excard-style.css';
-import RangeEx from '../../rangeslider/RangeEx';
 
 const Excard = props => {
     return (
