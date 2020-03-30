@@ -126,22 +126,6 @@ class Excards extends Component {
         });
     };
 
-    /*
-        handleSizeChange = (size) => {
-            this.setState({ SizeValue: size })
-        }
-
-
-        handleGrowChange = (growratevalues) => {
-            this.setState({ GrowValue: growratevalues })
-        }
-
-        handleAttritionChange = (attritionvalues) => {
-            this.setState({ AttritionValue: attritionvalues })
-        }
-
-        */
-
     handleSizeChange = (size) => {
         this.setState({ SizeValue: parseInt(size) })
         this.getChartData()
@@ -149,7 +133,7 @@ class Excards extends Component {
 
 
     handleGrowChange = (growratevalues) => {
-        this.setState({ GrowValue: growratevalues })
+        this.setState({ GrowValue: parseInt(growratevalues) })
     }
 
     handleAttritionChange = (attritionvalues) => {
@@ -157,27 +141,27 @@ class Excards extends Component {
     }
 
     handlePayChange = (payvalues) => {
-        this.setState({ PayValue: payvalues })
+        this.setState({ PayValue: parseInt(payvalues) })
     }
 
     handleCostPerHireChange = (costperhirevalues) => {
-        this.setState({ CostPerHireValues: costperhirevalues })
+        this.setState({ CostPerHireValues: parseInt(costperhirevalues) })
     }
 
     handleOnboardinTimeChange = (onboardingvalues) => {
-        this.setState({ OnboardingTimeValue: onboardingvalues })
+        this.setState({ OnboardingTimeValue: parseInt(onboardingvalues) })
     }
 
     handleCalculationCPHChange = (calculationcphvalues) => {
-        this.setState({ CalculationCPHValue: calculationcphvalues })
+        this.setState({ CalculationCPHValue: parseInt(calculationcphvalues) })
     }
 
     handleCalculationOnboardingChange = (calculationonboardingvalues) => {
-        this.setState({ CalculationOnboardingValue: calculationonboardingvalues })
+        this.setState({ CalculationOnboardingValue: parseInt(calculationonboardingvalues) })
     }
 
     handleCalculationAttritionChange = (calculationattritionvalues) => {
-        this.setState({ CalculationAttritionValue: calculationattritionvalues })
+        this.setState({ CalculationAttritionValue: parseInt(calculationattritionvalues) })
     }
 
 
