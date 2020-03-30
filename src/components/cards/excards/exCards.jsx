@@ -551,7 +551,7 @@ class Excards extends Component {
 
                                 <div className="div-the-impact-card-info">
                                     <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                    <b className="the-impact-total-new-hires-number">{this.state.SizeValue + this.state.AttritionValue}</b>
+                                    <b className="the-impact-total-new-hires-number">{this.state.SizeValue +  this.state.AttritionValue }</b>
                                     <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
