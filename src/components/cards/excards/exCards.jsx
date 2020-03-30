@@ -64,8 +64,8 @@ class Excards extends Component {
     }
 
     getChartData() {
-        // Ajax calls 
-        this.setState( (state) => {
+        // Ajax calls
+        this.setState((state) => {
             return {
                 chartData: {
                     labels: [
@@ -78,16 +78,15 @@ class Excards extends Component {
                             label: 'The Impact',
                             data: [
                                 state.SizeValue,
-                                4324,
-                                54654,
-                                654756,
-    
+                                432,
+                                746
+
                             ],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.6)',
                                 'rgba(54, 162, 235, 0.6)',
                                 'rgba(75, 192, 192, 0.6)',
-    
+
                             ]
                         }
                     ]
@@ -100,13 +99,13 @@ class Excards extends Component {
         this.getChartData();
     }
 
-    // Adds an event listener when the component is mount. 
+    // Adds an event listener when the component is mount.
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
         this.setState({ loaded: true })
     }
 
-    // Remove the event listener when the component is unmount. 
+    // Remove the event listener when the component is unmount.
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }
@@ -127,24 +126,25 @@ class Excards extends Component {
         });
     };
 
-    /* 
+    /*
         handleSizeChange = (size) => {
             this.setState({ SizeValue: size })
         }
-    
-      
+
+
         handleGrowChange = (growratevalues) => {
             this.setState({ GrowValue: growratevalues })
         }
-    
+
         handleAttritionChange = (attritionvalues) => {
             this.setState({ AttritionValue: attritionvalues })
         }
-    
+
         */
 
     handleSizeChange = (size) => {
         this.setState({ SizeValue: parseInt(size) })
+        this.getChartData()
     }
 
 
@@ -294,7 +294,7 @@ class Excards extends Component {
                 <div className="container-fluid div-calculation">
                     <div className="div-calculation-title">
                         <h2>Do the calculation</h2>
-                        
+
                     </div>
 
                     {/* Start of first calculation textbox */}
@@ -407,11 +407,11 @@ class Excards extends Component {
                 <div className="container-fluid div-business-impact">
                     <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
                         <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
-                        <includeButton onClick={() => { console.log("test")}}
-                                    type="button"
-                                    buttonStyle="btn--primary--outline"
-                                    buttonSize="btn--large"
-                                >Include</includeButton>
+                        <includeButton onClick={() => { console.log("test") }}
+                            type="button"
+                            buttonStyle="btn--primary--outline"
+                            buttonSize="btn--large"
+                        >Include</includeButton>
                     </div>
 
                     <div className="div-business-impact-box">
@@ -480,7 +480,7 @@ class Excards extends Component {
                             <div className=" container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange} />
 
-                             
+
                             </div>
                         </div>
                         <div className="col-md-3">

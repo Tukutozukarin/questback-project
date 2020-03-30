@@ -8,7 +8,6 @@ class exChartTheImpact extends Component {
         super(props);
         this.state = {
             chartData: props.chartData
-
         }
     }
 
@@ -19,21 +18,21 @@ class exChartTheImpact extends Component {
         location: ''
     }
 
-    changeHandler() {
-        this.refChart.update();
-        console.log("failed")
-    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.chartData !== this.state.chartData) {
+          this.setState({ chartData: nextProps.chartData });
+        }
+      }
 
     render() {
         return (
             <div className="chart">
                 <Bar
                     data={this.state.chartData}
-                    onChange={this.changeHandler}
                     ref={(referense) => this.refChart = referense}
                     width={100}
                     height={50}
-                    options={{ 
+                    options={{
                         title: {
                             display: this.props.displayTitle,
                             text: 'Largest Cost in ' + this.props.location,
@@ -43,7 +42,7 @@ class exChartTheImpact extends Component {
                             display: this.props.displayLegend,
                             position: this.props.legendPosition
                         }
-                     }}
+                    }}
                 />
             </div>
         )
