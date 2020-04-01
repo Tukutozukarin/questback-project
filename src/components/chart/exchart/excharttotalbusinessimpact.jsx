@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-class exChartTheImpact extends Component {
+class exChartTotalBusinessImpact extends Component {
     refChart = {};
 
     constructor(props) {
         super(props);
         this.state = {
-            chartData: props.chartData
+            chartBusinessData: props.chartBusinessData
         }
     }
 
     static defaultProps = {
         displayTitle: true,
         displayLegend: true,
-        legendPosition: 'top',
+        legendPosition: 'right',
         location: ''
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.chartData !== this.state.chartData) {
-          this.setState({ chartData: nextProps.chartData });
+        if (nextProps.chartBusinessData !== this.state.chartBusinessData) {
+          this.setState({ chartBusinessData: nextProps.chartBusinessData });
         }
       }
 
@@ -28,10 +28,10 @@ class exChartTheImpact extends Component {
         return (
             <div className="chart">
                 <Bar
-                    data={this.state.chartData}
+                    data={this.state.chartBusinessData}
                     ref={(referense) => this.refChart = referense}
                     width={100}
-                    height={90}
+                    height={50}
                     options={{
                         title: {
                             display: this.props.displayTitle,
@@ -49,4 +49,4 @@ class exChartTheImpact extends Component {
     }
 }
 
-export default exChartTheImpact;
+export default exChartTotalBusinessImpact;

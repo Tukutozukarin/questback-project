@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Excard from './exCardsUI';
 import classnames from 'classnames';
-import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 
-import businessimpactimg from '../../assets/img/business-impact.png';
+import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
+import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
+
 import whythenumbersImg from '../../assets/img/Sigurd.png';
 import iconCalculator from '../../assets/img/iconcalculator.png';
 
@@ -48,6 +49,8 @@ class Excards extends Component {
         this.state = {
             prevScrollpos: window.pageYOffset,
             visible: true,
+            MorePeoplePerYear: 1000,
+            LostPeoplePerYear: 1000,
             SizeValue: 0,
             GrowValue: 0,
             AttritionValue: 0,
@@ -57,8 +60,9 @@ class Excards extends Component {
             CalculationCPHValue: 0,
             CalculationOnboardingValue: 0,
             CalculationAttritionValue: 0,
-            totalHires: 0,
-            chartData: {}
+            FullProductionCost: 240,
+            chartData: {},
+    
 
         };
     }
@@ -77,7 +81,7 @@ class Excards extends Component {
                         {
                             label: 'The Impact',
                             data: [
-                                state.SizeValue,
+                                ((state.SizeValue + state.SizeValue)  / state.AttritionValue ),
                                 432,
                                 746
 
@@ -138,6 +142,7 @@ class Excards extends Component {
 
     handleAttritionChange = (attritionvalues) => {
         this.setState({ AttritionValue: parseInt(attritionvalues) })
+        this.getChartData()
     }
 
     handlePayChange = (payvalues) => {
@@ -163,6 +168,7 @@ class Excards extends Component {
     handleCalculationAttritionChange = (calculationattritionvalues) => {
         this.setState({ CalculationAttritionValue: parseInt(calculationattritionvalues) })
     }
+
 
 
 
@@ -295,7 +301,7 @@ class Excards extends Component {
                             </div>
                         </div>
                         <div className="calculation-costofrecruitment-textbox-1">
-                            <p><b>Cost of recruitment would go down</b> <h4 className="calculation-costofrecruitment-numbers-1" >$ 1 800 800</h4> </p>
+        <p><b>Cost of recruitment would go down</b> <h4 className="calculation-costofrecruitment-numbers-1" >$ { this.state.CalculationCPHValue*(this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4> </p>
                         </div>
 
 
@@ -305,7 +311,8 @@ class Excards extends Component {
 
                         <div className="calculation-costofonboarding-savingyou-textbox-1">
 
-                            <h4 className="calculation-costofonboarding-numbers-textbox-1" >$200 000</h4>
+                            <h4 className="calculation-costofonboarding-numbers-textbox-1" >$ { this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) - 
+                            this.state.CalculationCPHValue*(this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)  }</h4>
                         </div>
 
 
@@ -329,24 +336,30 @@ class Excards extends Component {
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
 
 
-                                <h4 className="calculation-costofonboarding-numbers-2" >$ 1 800 800</h4>
+                                <h4 className="calculation-costofonboarding-numbers-2" > $
+                                    { (this.state.PayValue/this.state.FullProductionCost)* this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4>
                             </p>
 
                             <div className="calculation-costofonboarding-savingyou-textbox-2">
-
-                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >$291 667</h4>
-                            </div>
-
 
                             <div className="calculation-costofonboarding-savingyou-text-2">
                                 <p className="calculation-savingyou-text-textbox-2">Saving you</p>
                             </div>
 
+                            <h4 className="calculation-costofonboarding-numbers-textbox-2" >$ 
+                            { (this.state.PayValue/this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) - 
+                                    (this.state.PayValue/this.state.FullProductionCost)* this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) }
+                                </h4>
+                            </div>
+
+
+                            
+
                         </div>
 
                     </div>
 
-
+                    {/* Start of third calculation textbox */}
 
                     <div className="div-calculation-textbox-3">
                         <div className="calculation-green-textbox-2">
@@ -364,7 +377,7 @@ class Excards extends Component {
                         <div className="calculation-costofonboarding-textbox-2">
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
 
-                                <h4 className="calculation-costofonboarding-numbers-2" >$ 1 800 800</h4>
+                                <h4 className="calculation-costofonboarding-numbers-2" >$ { this.state.PayValue * this.state.CalculationAttritionValue }</h4>
                             </p>
 
 
@@ -375,7 +388,9 @@ class Excards extends Component {
 
                             <div className="calculation-costofonboarding-savingyou-textbox-2">
 
-                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >$291 667</h4>
+                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >$
+                                    { this.state.PayValue + this.state.LostPeoplePerYear - this.state.LostPeoplePerYear }
+                                </h4>
                             </div>
 
                         </div>
@@ -385,6 +400,8 @@ class Excards extends Component {
                     <p className="calculated-CPH">Calculated as CPH x (Total new Hires)</p>
 
                 </div>
+
+                {/* Start of third calculation textbox */}
 
                 {/* start of business impact */}
 
@@ -399,7 +416,7 @@ class Excards extends Component {
                     </div>
 
                     <div className="div-business-impact-box">
-                        <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
+                        <ExChartTheImpact chartData={this.state.chartData}  location="EX" />
                     </div>
                 </div>
 
@@ -492,6 +509,36 @@ class Excards extends Component {
                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
                             </div>
                         </div>
+
+                        <div className="col-md-3">
+                            <div className="div-the-impact-card">
+                                <h4 className="the-impact-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
+
+                                <div className="div-the-impact-card-info">
+                                    <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
+                                    <b className="the-impact-total-new-hires-number">{this.state.MorePeoplePerYear + this.state.LostPeoplePerYear }</b>
+                                    <hr className="hr-total-new-hires" />
+
+                                    <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
+                                    <b className="the-impact-cost-of-recruitmet-number">{ this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)  }</b>
+
+                                    <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
+                                    up to full produtivity cost?</b></p>
+                                    <b className="the-impact-productivity-cost-number"> { ((this.state.PayValue/this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) } </b>
+
+                                    <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
+                                    <b className="the-impact-cost-of-attrition-number">{ this.state.PayValue + this.state.LostPeoplePerYear}</b>
+
+                                    <hr className="hr-cost-of-attrition" />
+
+                                    <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
+                                    <b className="the-impact-total-cost-number">$ 4 137 500</b>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                         <div className="col-md-3">
                             <Excard
                                 title="Pay"
@@ -529,30 +576,13 @@ class Excards extends Component {
                             </div>
                         </div>
 
+
                         <div className="col-md-3">
                             <div className="div-the-impact-card">
                                 <h4 className="the-impact-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
-
-                                <div className="div-the-impact-card-info">
-                                    <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                    <b className="the-impact-total-new-hires-number">{this.state.SizeValue +  this.state.AttritionValue }</b>
-                                    <hr className="hr-total-new-hires" />
-
-                                    <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
-                                    <b className="the-impact-cost-of-recruitmet-number">{this.state.AttritionValue}</b>
-
-                                    <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
-                                    up to full produtivity cost?</b></p>
-                                    <b className="the-impact-productivity-cost-number">$ 4 375 000</b>
-
-                                    <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
-                                    <b className="the-impact-cost-of-attrition-number">$ 33 000 000</b>
-
-                                    <hr className="hr-cost-of-attrition" />
-
-                                    <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
-                                    <b className="the-impact-total-cost-number">$ 4 137 500</b>
-
+                                
+                                <div className="div-the-impact-card-chart">
+                                    <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
                                 </div>
 
                             </div>

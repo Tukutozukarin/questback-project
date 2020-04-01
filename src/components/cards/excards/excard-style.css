@@ -375,12 +375,24 @@ body {
 .div-the-impact-card{
     width: 14rem;
     margin: 1rem;
-    background-color: grey;
+    background-color: lightskyblue;
     width: 160%;
     height: 90%;
     position: absolute;
     overflow: hidden; 
     border-radius: 30px;
+  
+
+}
+
+
+
+.div-the-impact-card-chart{
+    width: 96%;
+    height: 90%;
+    top: 15%;
+    left: 2%;
+    position: absolute;
   
 
 }
