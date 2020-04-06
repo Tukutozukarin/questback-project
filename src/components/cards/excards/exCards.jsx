@@ -124,7 +124,7 @@ class Excards extends Component {
                     ],
                     datasets: [
                         {
-                            label: 'The impact',
+                            label: 'The Total Impact',
                             data: [
                                 (state.SizeValue),
                                 400,
@@ -490,7 +490,7 @@ class Excards extends Component {
                     </div>
 
                     <div className="div-business-impact-box">
-                        <ExChartTotalBusinessImpact chartData={this.state.chartBusinessData} />
+                        <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
                     </div>
                 </div>
 
