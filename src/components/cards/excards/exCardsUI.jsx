@@ -15,13 +15,6 @@ const Excard = props => {
                 </p>
             </div>
 
-            <div className="overflow ">
-                {/* Still under testing in regards to min and max props values */}
- 
-                <a href={props.ahref} className="btn btn-outline-success">{props.hrefTitle}</a>
-                <p></p>
-            </div>
-        
         
         </div>
     );

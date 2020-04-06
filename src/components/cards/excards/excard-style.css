@@ -12,7 +12,7 @@ body {
 .div-slider-size {
     position: absolute;
     top: 52%;
-    left: 10%;
+    left: 13%;
 }
 
 .p-SizeValue {
@@ -25,10 +25,31 @@ body {
     z-index: 2;
 }
 
+.b-includeSizeButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+
+.b-includeSizeButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
+
+
 .div-slider-grow {
     position: absolute;
     top: 55%;
-    left: 10%;
+    left: 13%;
 }
 
 .p-GrowValue {
@@ -41,10 +62,29 @@ body {
     z-index: 2;
 }
 
+.b-includeGrowButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+.b-includeGrowButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
+
 .div-slider-attrition {
     position: absolute;
     top: 55%;
-    left: 10%;
+    left: 14%;
 }
 
 .p-AttritionValue {
@@ -57,10 +97,30 @@ body {
     z-index: 2;
 }
 
+
+
+.b-includeAttritionButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+.b-includeAttritionButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
 .div-slider-pay {
     position: absolute;
     top: 55%;
-    left: 10%;
+    left: 13%;
 }
 
 .p-PayValue {
@@ -73,10 +133,29 @@ body {
     z-index: 2;
 }
 
+
+.b-includePayButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+.b-includePayButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
 .div-slider-costperhire {
     position: absolute;
     top: 55%;
-    left: 10%;
+    left: 13%;
 }
 
 .p-CostPerHireValue {
@@ -89,10 +168,29 @@ body {
     z-index: 2;
 }
 
+
+.b-includeCostPerHireButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+.b-includeCostPerHireButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
 .div-slider-onboardingtime {
     position: absolute;
     top: 55%;
-    left: 10%;
+    left: 13%;
 }
 
 .p-OnboardingTimeValue {
@@ -104,6 +202,25 @@ body {
     color: chartreuse;
     z-index: 2;
 }
+
+.b-includeOnboardingButton {
+    position: absolute;
+    border-width: 2px;
+    border-color: limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    left: 38%;
+}
+
+.b-includeOnboardingButton:focus {
+    position: absolute;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 8px;
+    color: red;
+    left: 35%;
+}
+
 
 .sum {
     position: absolute;
@@ -334,7 +451,7 @@ body {
     width: 15rem;
     height: 100%;
     padding: 2rem;
-    margin: 2rem;
+    margin: 3rem;
     border-radius: 30px;
     
 }

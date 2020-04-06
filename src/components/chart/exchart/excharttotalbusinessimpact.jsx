@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
 
 class exChartTotalBusinessImpact extends Component {
-    refChart = {};
+    refChartBusiness = {};
 
     constructor(props) {
         super(props);
@@ -27,15 +27,15 @@ class exChartTotalBusinessImpact extends Component {
     render() {
         return (
             <div className="chart">
-                <Bar
+                <HorizontalBar
                     data={this.state.chartBusinessData}
-                    ref={(referense) => this.refChart = referense}
+                    ref={(referense) => this.refChartBusiness = referense}
                     width={100}
                     height={50}
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Largest Cost in ' + this.props.location,
+                            text: 'Your total BUSINESS IMPACT wouuld be ' + this.props.location,
                             fontSize: 25
                         },
                         legend: {
