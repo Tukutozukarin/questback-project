@@ -290,6 +290,22 @@ body {
     color: black;
 }
 
+/* Sidebar PDF button start */
+
+.PDF-btn {
+    position: fixed;
+    background-color: black;
+    color: white;
+    border-color: black;
+    font-weight: bold;
+    width: 5%;
+    height: 5%;
+    top: 85%;
+    left: 4%;
+}
+
+/* Sidebar PDF button end*/
+
 /* Sidebar content div end */
 
 

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Excard from './exCardsUI';
 import classnames from 'classnames';
 
+import axios from 'axios';
+import { saveAs } from 'file-saver';
+
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
 
@@ -26,8 +29,6 @@ class Excards extends Component {
     refROIDashboard = React.createRef()
     refTheImpact = React.createRef()
     refTotalBusinessImpact = React.createRef()
-
-
 
     handleScrollTo = (elRef) => {
         // Incase the ref supplied isn't ref.current
@@ -70,11 +71,13 @@ class Excards extends Component {
             chartData: {},
             chartBusinessData: {},
 
+            name: "",
+            receiptId: 0,
+            price1: 0,
+            price2: 0,
+
         };
     }
-
-
-
 
 
     getChartData() {
@@ -124,7 +127,7 @@ class Excards extends Component {
                     ],
                     datasets: [
                         {
-                            label: 'The Total Impact',
+                            label: 'The Business impact',
                             data: [
                                 (state.SizeValue),
                                 400,
@@ -146,7 +149,7 @@ class Excards extends Component {
     componentWillMount() {
         this.getChartData();
         this.getChartBusinessData();
-    } 
+    }
 
     // Adds an event listener when the component is mount.
     componentDidMount() {
@@ -248,6 +251,21 @@ class Excards extends Component {
         this.setState({ IncludeOnboardingText: "Excluded" });
     }
 
+    // PDF handle methods
+
+    handlePDFChange = ({ target: { value, name }}) => this.setState({ [name]: value })
+
+    // Creates all pdf and pass all the states
+    //blob is immutable object that represent raw data
+    // blob allows you to construct files as objects
+    createAndDownloadPdf = () => {
+        axios.post('/create-pdf', this.state)
+          .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+          .then((res) => {
+            const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+            saveAs(pdfBlob, 'newPdf.pdf');
+          })
+      }
 
 
 
@@ -272,6 +290,7 @@ class Excards extends Component {
                         <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>What If</li>
                         <p></p>
                         <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refTotalBusinessImpact) }}>Total Business Impact</li>
+
                     </ul>
 
                     <div className="container-fluid links-sidebar">
@@ -282,6 +301,10 @@ class Excards extends Component {
                             <p></p>
                             <li><a className="href-link-text-sidebar" href="/cx">CX</a></li>
                         </ul>
+                    </div>
+
+                    <div className="container-fluid pdfbtn-sidebar">
+                           <button className="PDF-btn" onClick={this.createAndDownloadPdf}>PDF</button>
                     </div>
 
 
@@ -486,7 +509,7 @@ class Excards extends Component {
                 <div className="container-fluid div-business-impact">
                     <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
                         <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
-                      
+
                     </div>
 
                     <div className="div-business-impact-box">
