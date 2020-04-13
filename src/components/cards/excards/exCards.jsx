@@ -71,7 +71,7 @@ class Excards extends Component {
             chartData: {},
             chartBusinessData: {},
 
-            name: "",
+            name: 0,
             receiptId: 0,
             price1: 0,
             price2: 0,
