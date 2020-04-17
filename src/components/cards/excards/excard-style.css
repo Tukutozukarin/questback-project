@@ -1023,3 +1023,8 @@ body {
     height: 10px;
 }
 
+.pdf-file {
+    font-family: sans-serif;
+    text-align: center;
+}
+

@@ -5,6 +5,11 @@ import classnames from 'classnames';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
+
+// @ts-ignore
+import Pdf from 'react-to-pdf';
+import ReactToPdf from '../../pdfGenerator/ReactToPdf';
+
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
 
@@ -22,6 +27,15 @@ import ExCalculationCPHSlider from '../../rangeslider/exslider/dothecalculation-
 import ExCalculationOnboardingSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationOnboardingSlider';
 import ExCalculationAttritionSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationAttritionSlider';
 
+const ref = React.createRef()
+
+const options = {
+
+};
+  
+
+
+
 class Excards extends Component {
 
     /* Navigating though divs for sidebar  */
@@ -29,6 +43,7 @@ class Excards extends Component {
     refROIDashboard = React.createRef()
     refTheImpact = React.createRef()
     refTotalBusinessImpact = React.createRef()
+    refPdf = React.createRef()
 
     handleScrollTo = (elRef) => {
         // Incase the ref supplied isn't ref.current
@@ -40,6 +55,9 @@ class Excards extends Component {
             block: 'start'
         })
     }
+
+
+
 
 
     constructor(props) {
@@ -71,13 +89,10 @@ class Excards extends Component {
             chartData: {},
             chartBusinessData: {},
 
-            name: 0,
-            receiptId: 0,
-            price1: 0,
-            price2: 0,
 
         };
     }
+
 
 
     getChartData() {
@@ -251,27 +266,16 @@ class Excards extends Component {
         this.setState({ IncludeOnboardingText: "Excluded" });
     }
 
-    // PDF handle methods
 
-    handlePDFChange = ({ target: { value, name }}) => this.setState({ [name]: value })
 
-    // Creates all pdf and pass all the states
-    //blob is immutable object that represent raw data
-    // blob allows you to construct files as objects
-    createAndDownloadPdf = () => {
-        axios.post('/create-pdf', this.state)
-          .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
-          .then((res) => {
-            const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-            saveAs(pdfBlob, 'newPdf.pdf');
-          })
-      }
 
 
 
 
 
     render() {
+
+
         return (
             <div className="container-fluid d-flex justify-content-center">
 
@@ -304,7 +308,7 @@ class Excards extends Component {
                     </div>
 
                     <div className="container-fluid pdfbtn-sidebar">
-                           <button className="PDF-btn" onClick={this.createAndDownloadPdf}>PDF</button>
+                        <button className="PDF-btn" onClick={this.toPdf}>PDF</button>
                     </div>
 
 
@@ -377,6 +381,7 @@ class Excards extends Component {
                             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                         </p>
+
 
                         <p><a class="a-read-more" href="https://www.questback.com/no/" target="blank">Read more &#8594;</a> </p>
                     </div>
@@ -510,12 +515,29 @@ class Excards extends Component {
                     <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
                         <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
 
+
                     </div>
 
                     <div className="div-business-impact-box">
                         <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
+                        
+                        <div className="pdf-file">
+                            <div>
+                                <Pdf targetRef={ref} filename="div-blue.pdf" options={options} x={.5} y={.5}>
+                                    {({ toPdf }) => (
+                                        <button onClick={toPdf}>Generate pdf</button>
+                                    )}
+                                </Pdf>
+                                <div style={{ width: 500, height: 500, background: 'blue' }} ref={ref} />
+                            </div>
+                        </div>
+
                     </div>
+
+                 
                 </div>
+
+
 
 
                 <input
@@ -561,6 +583,8 @@ class Excards extends Component {
                     </div>
 
                 </nav>
+
+
 
 
 
@@ -708,5 +732,6 @@ class Excards extends Component {
         );
     }
 }
+
 
 export default Excards;

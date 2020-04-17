@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^4.9.1",
+    "@react-pdf/renderer": "^1.6.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
@@ -19,10 +20,12 @@
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
+    "react-pdf": "^4.1.0",
     "react-range": "^1.5.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "react-split-pane": "^0.1.89",
+    "react-to-pdf": "0.0.11",
     "typescript": "^3.8.3"
   },
   "scripts": {
