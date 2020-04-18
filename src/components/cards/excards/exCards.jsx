@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Excard from './exCardsUI';
 import classnames from 'classnames';
 
-import axios from 'axios';
-import { saveAs } from 'file-saver';
+import ReactPDF from '@react-pdf/renderer';
 
+import { PDFViewer } from '@react-pdf/renderer';
 
-// @ts-ignore
-import Pdf from 'react-to-pdf';
-import ReactToPdf from '../../pdfGenerator/ReactToPdf';
+import {  PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+
 
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
@@ -27,12 +26,40 @@ import ExCalculationCPHSlider from '../../rangeslider/exslider/dothecalculation-
 import ExCalculationOnboardingSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationOnboardingSlider';
 import ExCalculationAttritionSlider from '../../rangeslider/exslider/dothecalculation-exslider/exCalculationAttritionSlider';
 
+import { renderToString } from 'react-dom/server';
+import jsPDF from 'jspdf';
+
+
 const ref = React.createRef()
 
 const options = {
 
 };
+
+const styles = {
+    fontFamily: 'sans-serif',
+    textAlign: 'center',
+};
+
+/*
+const Prints = () => (
+    <div>
+        <ul>
+            <li>Test</li>
+
+
+        </ul>
+        
+        <h3>Data:</h3>
+    </div>
+) */
+
+
+
+
+
   
+
 
 
 
@@ -55,7 +82,6 @@ class Excards extends Component {
             block: 'start'
         })
     }
-
 
 
 
@@ -89,9 +115,11 @@ class Excards extends Component {
             chartData: {},
             chartBusinessData: {},
 
-
+     
         };
     }
+
+
 
 
 
@@ -273,7 +301,25 @@ class Excards extends Component {
 
 
 
+
+
     render() {
+
+        const Prints = () => (
+            <div>
+                <p>test {this.state.SizeValue + this.state.GrowValue}</p>
+
+                <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} width="600" height="300"/>
+            
+            </div>
+          );
+    
+          const print = () => {
+            const string = renderToString(<Prints />);
+            const pdf = new jsPDF();
+            pdf.fromHTML(string);
+            pdf.save('expdf')
+        } 
 
 
         return (
@@ -520,21 +566,19 @@ class Excards extends Component {
 
                     <div className="div-business-impact-box">
                         <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
-                        
-                        <div className="pdf-file">
-                            <div>
-                                <Pdf targetRef={ref} filename="div-blue.pdf" options={options} x={.5} y={.5}>
-                                    {({ toPdf }) => (
-                                        <button onClick={toPdf}>Generate pdf</button>
-                                    )}
-                                </Pdf>
-                                <div style={{ width: 500, height: 500, background: 'blue' }} ref={ref} />
+
+                           <div className="pdf-file">
+                          
+                            <div style={styles}>
+
+                                <button onClick={print}>print</button>
                             </div>
                         </div>
 
+
                     </div>
 
-                 
+
                 </div>
 
 
@@ -732,6 +776,8 @@ class Excards extends Component {
         );
     }
 }
+
+
 
 
 export default Excards;
