@@ -354,7 +354,7 @@ class Excards extends Component {
                     </div>
 
                     <div className="container-fluid pdfbtn-sidebar">
-                        <button className="PDF-btn" onClick={this.toPdf}>PDF</button>
+                        <button className="PDF-btn" onClick={print}>PDF</button>
                     </div>
 
 
@@ -566,14 +566,6 @@ class Excards extends Component {
 
                     <div className="div-business-impact-box">
                         <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
-
-                           <div className="pdf-file">
-                          
-                            <div style={styles}>
-
-                                <button onClick={print}>print</button>
-                            </div>
-                        </div>
 
 
                     </div>
