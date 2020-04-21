@@ -25,24 +25,27 @@ body {
     z-index: 2;
 }
 
-.b-includeSizeButton {
+
+.Exclude {
     position: absolute;
     border-width: 2px;
     border-color: limegreen;
     border-radius: 8px;
     color: limegreen;
-    left: 38%;
+    left: 37%;
+    content: "test"
 }
 
-
-.b-includeSizeButton:focus {
+.Include {
     position: absolute;
     border-width: 2px;
     border-color: red;
     border-radius: 8px;
     color: red;
-    left: 35%;
+    left: 38%;
 }
+
+
 
 
 
@@ -1021,10 +1024,5 @@ body {
 
 .topdiv {
     height: 10px;
-}
-
-.pdf-file {
-    font-family: sans-serif;
-    text-align: center;
 }
 

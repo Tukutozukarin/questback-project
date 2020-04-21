@@ -2,12 +2,7 @@ import React, { Component, useState } from 'react';
 import Excard from './exCardsUI';
 import classnames from 'classnames';
 
-import ReactPDF from '@react-pdf/renderer';
-
-import { PDFViewer } from '@react-pdf/renderer';
-
-import {  PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
@@ -28,39 +23,17 @@ import ExCalculationAttritionSlider from '../../rangeslider/exslider/dothecalcul
 
 import { renderToString } from 'react-dom/server';
 import jsPDF from 'jspdf';
+import html2canvas from "html2canvas";
+import styled from '@react-pdf/styled-components';
 
 
-const ref = React.createRef()
-
-const options = {
-
-};
-
-const styles = {
-    fontFamily: 'sans-serif',
-    textAlign: 'center',
-};
-
-/*
-const Prints = () => (
-    <div>
-        <ul>
-            <li>Test</li>
-
-
-        </ul>
-        
-        <h3>Data:</h3>
-    </div>
-) */
-
-
-
-
-
-  
-
-
+const Heading = styled.Text`
+  margin: 10px;
+  font-size: 22px;
+  font-family: 'Helvetica';
+  text-align: center;
+  color: blue;
+`;
 
 
 class Excards extends Component {
@@ -105,7 +78,7 @@ class Excards extends Component {
             CalculationAttritionValue: 0,
             FullProductionCost: 240,
 
-            IncludeSizeText: "Include",
+            IncludeSizeText: "Exclude",
             IncludeGrowText: "Include",
             IncludeAttritionText: "Include",
             IncludePayText: "Include",
@@ -115,7 +88,11 @@ class Excards extends Component {
             chartData: {},
             chartBusinessData: {},
 
-     
+            calculateSizeValue: true,
+
+            includeExcludeColor: true
+
+
         };
     }
 
@@ -271,7 +248,12 @@ class Excards extends Component {
     /* Include functionanlities button */
 
     includeSize = () => {
-        this.setState({ IncludeSizeText: "Excluded" });
+        this.setState({ 
+            IncludeSizeText: "Include",
+            SizeValue: 0,
+            includeExcludeColor: !this.state.includeExcludeColor
+
+        });
     }
 
     includeGrow = () => {
@@ -294,6 +276,8 @@ class Excards extends Component {
         this.setState({ IncludeOnboardingText: "Excluded" });
     }
 
+   
+
 
 
 
@@ -305,21 +289,48 @@ class Excards extends Component {
 
     render() {
 
-        const Prints = () => (
-            <div>
-                <p>test {this.state.SizeValue + this.state.GrowValue}</p>
+        let btn_include = this.state.includeExcludeColor ? "Exclude" : "Include";
 
-                <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} width="600" height="300"/>
-            
-            </div>
-          );
-    
-          const print = () => {
+        const print = () => {
             const string = renderToString(<Prints />);
             const pdf = new jsPDF();
             pdf.fromHTML(string);
+            pdf.text(`Recipient: ${this.state.SizeValue + this.state.GrowValue}`, 50, 30)
             pdf.save('expdf')
-        } 
+        }
+
+        const styles = StyleSheet.create({
+            page: { backgroundColor: 'tomato' },
+            text: {
+                color: 'blue',
+                left: 100,
+                fontSize: 30,
+                display: 'flex',
+
+            },
+            section: {
+                textAlign: 'right', margin: 30, 
+            }
+        });
+
+        const Prints = () => (
+            <div>
+                <Document>
+                    <Page size="A4" style={styles.page}>
+                        <View style={styles.section}>
+                          
+
+                        </View>
+                    </Page>
+                </Document>
+            </div>
+
+        );
+
+
+
+
+
 
 
         return (
@@ -355,6 +366,7 @@ class Excards extends Component {
 
                     <div className="container-fluid pdfbtn-sidebar">
                         <button className="PDF-btn" onClick={print}>PDF</button>
+                    
                     </div>
 
 
@@ -637,7 +649,7 @@ class Excards extends Component {
                             <p className="p-SizeValue">{this.state.SizeValue}</p>
                             <div className=" container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange} />
-                                <button className="b-includeSizeButton" onClick={this.includeSize}>{this.state.IncludeSizeText}</button>
+            <button className={btn_include} disabled={this.state.SizeValue === 0 ? true : false} onClick={this.includeSize.bind(this)}>{btn_include}</button>
                             </div>
                         </div>
                         <div className="col-md-3">
