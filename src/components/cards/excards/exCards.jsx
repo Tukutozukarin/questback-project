@@ -66,6 +66,7 @@ class Excards extends Component {
         this.state = {
             prevScrollpos: window.pageYOffset,
             visible: true,
+
             MorePeoplePerYear: 1000,
             LostPeoplePerYear: 1000,
 
@@ -93,10 +94,11 @@ class Excards extends Component {
             includeExcludeCostPerHire: true,
             includeExcludeOnboarding: true,
 
-
-
             currencyText: "USD",
             currencyChange: "$",
+
+         
+            time: new Date()
 
 
         };
@@ -188,13 +190,21 @@ class Excards extends Component {
     // Adds an event listener when the component is mount.
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
-        this.setState({ loaded: true })
+        this.setState({ loaded: true });
+        this.timerID = setInterval(() => this.tick(), 1000);
     }
 
     // Remove the event listener when the component is unmount.
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
+        clearInterval(this.timerID);
     }
+
+    tick() {
+        this.setState({
+          time: new Date()
+        });
+      }
 
 
     // This will hide or show the meny
@@ -376,6 +386,9 @@ class Excards extends Component {
         let btn_includeOnboarding = this.state.includeExcludeOnboarding ? "Exclude" : "Include";
 
 
+        // Other ways to add date and time in real time
+        // this.state.time.toLocalTimeString(), toLocalDateString() and if you want both its toLocalString 
+
         const print = () => {
             const string = renderToString(<Prints />);
             const pdf = new jsPDF();
@@ -386,7 +399,9 @@ class Excards extends Component {
 
             pdfTemplateInvoice.src = pdfTemplate; 
             pdf.addImage(pdfTemplateInvoice, 'png', 10, 0, width-20, height-10)
-            pdf.text(`Recipient: ${this.state.SizeValue + this.state.GrowValue}`, 50, 60)
+            pdf.text(`Ex result: ${this.state.SizeValue + this.state.GrowValue}`, 50, 60)
+            pdf.text(`Time: ${this.state.time.toLocaleTimeString()} ${this.state.time.toLocaleDateString()}`, 50, 80)
+            
             pdf.fromHTML(string);
             pdf.save('expdf')
         }
@@ -671,7 +686,7 @@ class Excards extends Component {
                     <div className="div-business-impact-box">
                         <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
 
-
+                     
                     </div>
 
 
