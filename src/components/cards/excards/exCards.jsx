@@ -9,6 +9,7 @@ import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusiness
 
 import whythenumbersImg from '../../assets/img/Sigurd.png';
 import iconCalculator from '../../assets/img/iconcalculator.png';
+import pdfTemplate from '../../assets/img/pdf-invoice.png';
 
 import ExSizeSlider from '../../rangeslider/exslider/exSizeSlider';
 import ExGrowRateSlider from '../../rangeslider/exslider/exGrowRateSlider';
@@ -67,30 +68,35 @@ class Excards extends Component {
             visible: true,
             MorePeoplePerYear: 1000,
             LostPeoplePerYear: 1000,
+
             SizeValue: 0,
             GrowValue: 0,
             AttritionValue: 0,
             PayValue: 0,
             CostPerHireValues: 0,
             OnboardingTimeValue: 0,
+
             CalculationCPHValue: 0,
             CalculationOnboardingValue: 0,
             CalculationAttritionValue: 0,
             FullProductionCost: 240,
-
-            IncludeSizeText: "Exclude",
-            IncludeGrowText: "Include",
-            IncludeAttritionText: "Include",
-            IncludePayText: "Include",
-            IncludeCostPerHireText: "Include",
-            IncludeOnboardingText: "Include",
 
             chartData: {},
             chartBusinessData: {},
 
             calculateSizeValue: true,
 
-            includeExcludeColor: true
+            includeExcludeSize: true,
+            includeExcludeGrow: true,
+            includeExcludeAttrition: true,
+            includeExcludePay: true,
+            includeExcludeCostPerHire: true,
+            includeExcludeOnboarding: true,
+
+
+
+            currencyText: "USD",
+            currencyChange: "$",
 
 
         };
@@ -149,9 +155,17 @@ class Excards extends Component {
                         {
                             label: 'The Business impact',
                             data: [
-                                (state.SizeValue),
-                                400,
-                                600,
+                                   // First row recruitment
+                                   (state.PayValue + state.LostPeoplePerYear - state.LostPeoplePerYear) + 
+                                   //Second and third row is onboarding savings
+                                   (state.PayValue / state.FullProductionCost) * state.OnboardingTimeValue * (state.MorePeoplePerYear + state.LostPeoplePerYear) -
+                                       (state.PayValue / state.FullProductionCost) * state.CalculationOnboardingValue * (state.MorePeoplePerYear + state.LostPeoplePerYear) +
+                                       //last row is recruitment savings
+                                       state.CostPerHireValues * (state.MorePeoplePerYear + state.LostPeoplePerYear) -
+                                           state.CalculationCPHValue * (state.MorePeoplePerYear + state.LostPeoplePerYear),
+                               400,
+                               600,
+                                        
                             ],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.6)',
@@ -208,74 +222,139 @@ class Excards extends Component {
     handleGrowChange = (growratevalues) => {
         this.setState({ GrowValue: parseInt(growratevalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleAttritionChange = (attritionvalues) => {
         this.setState({ AttritionValue: parseInt(attritionvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handlePayChange = (payvalues) => {
         this.setState({ PayValue: parseInt(payvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleCostPerHireChange = (costperhirevalues) => {
         this.setState({ CostPerHireValues: parseInt(costperhirevalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleOnboardinTimeChange = (onboardingvalues) => {
         this.setState({ OnboardingTimeValue: parseInt(onboardingvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleCalculationCPHChange = (calculationcphvalues) => {
         this.setState({ CalculationCPHValue: parseInt(calculationcphvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleCalculationOnboardingChange = (calculationonboardingvalues) => {
         this.setState({ CalculationOnboardingValue: parseInt(calculationonboardingvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     handleCalculationAttritionChange = (calculationattritionvalues) => {
         this.setState({ CalculationAttritionValue: parseInt(calculationattritionvalues) })
         this.getChartData()
+        this.getChartBusinessData()
+
     }
 
     /* Include functionanlities button */
 
     includeSize = () => {
         this.setState({ 
-            IncludeSizeText: "Include",
             SizeValue: 0,
-            includeExcludeColor: !this.state.includeExcludeColor
-
+            includeExcludeSize: !this.state.includeExcludeSize
         });
     }
 
     includeGrow = () => {
-        this.setState({ IncludeGrowText: "Excluded" });
+        this.setState({ 
+            GrowValue: 0,
+            includeExcludeGrow: !this.state.includeExcludeGrow
+
+        });
     }
 
     includeAttrition = () => {
-        this.setState({ IncludeAttritionText: "Excluded" });
+        this.setState({ 
+            AttritionValue: 0,
+            includeExcludeAttrition: !this.state.includeExcludeAttrition
+        });
     }
 
     includePay = () => {
-        this.setState({ IncludePayText: "Excluded" });
+        this.setState({ 
+            PayValue: 0,
+            includeExcludePay: !this.state.includeExcludePay
+        });
     }
 
     includeCostPerHire = () => {
-        this.setState({ IncludeCostPerHireText: "Excluded" });
+        this.setState({ 
+            CostPerHireValues: 0,
+            includeExcludeCostPerHire: !this.state.includeExcludeCostPerHire
+        });
     }
 
     includeOnboarding = () => {
-        this.setState({ IncludeOnboardingText: "Excluded" });
+        this.setState({ 
+            OnboardingTimeValue: 0,
+            includeExcludeOnboarding: !this.state.includeExcludeOnboarding
+        });
     }
 
+    currencyChangeToUSD = (e) => {
+        //reent default will let you use onclick in ahref
+        e.preventDefault();
+        this.setState({ 
+            currencyChange: "$",
+            currencyText: "USD"
+        });
+    }
+
+    currencyChangeToNok = (e) => {
+        e.preventDefault();
+        this.setState({ 
+            currencyChange: "kr",
+            currencyText: "NOK",
+     });
+    }
+
+    currencyChangeToEuro = (e) => {
+        e.preventDefault();
+        this.setState({ 
+            currencyChange: "€",
+            currencyText: "Euro"
+        });
+    }
+
+    currencyChangeToGBP = (e) => {
+        e.preventDefault();
+        this.setState({ 
+            currencyChange: "£",
+            currencyText: "GBP"
+        });
+    }
+
+
+   
    
 
 
@@ -289,13 +368,26 @@ class Excards extends Component {
 
     render() {
 
-        let btn_include = this.state.includeExcludeColor ? "Exclude" : "Include";
+        let btn_includeSize = this.state.includeExcludeSize ? "Exclude" : "Include";
+        let btn_includeGrow = this.state.includeExcludeGrow ? "Exclude" : "Include";
+        let btn_includeAttrition = this.state.includeExcludeAttrition ? "Exclude" : "Include";
+        let btn_includePay = this.state.includeExcludePay ? "Exclude" : "Include";
+        let btn_includeCostPerHire = this.state.includeExcludeCostPerHire ? "Exclude" : "Include";
+        let btn_includeOnboarding = this.state.includeExcludeOnboarding ? "Exclude" : "Include";
+
 
         const print = () => {
             const string = renderToString(<Prints />);
             const pdf = new jsPDF();
+            const pdfTemplateInvoice = new Image();
+            var width = pdf.internal.pageSize.getWidth();    
+            var height = pdf.internal.pageSize.getHeight();
+
+
+            pdfTemplateInvoice.src = pdfTemplate; 
+            pdf.addImage(pdfTemplateInvoice, 'png', 10, 0, width-20, height-10)
+            pdf.text(`Recipient: ${this.state.SizeValue + this.state.GrowValue}`, 50, 60)
             pdf.fromHTML(string);
-            pdf.text(`Recipient: ${this.state.SizeValue + this.state.GrowValue}`, 50, 30)
             pdf.save('expdf')
         }
 
@@ -380,7 +472,7 @@ class Excards extends Component {
 
                 <div className="container-fluid div-result" ref={this.refROIDashboard}
                 >ROI Dashboard | Total Business:
-                 <p className="sum">$ 30030300</p>
+                 <p className="sum">{this.state.currencyChange} 30030300</p>
                 </div>
 
                 <div className="container-fluid div-textbelowdashboard">
@@ -457,7 +549,7 @@ class Excards extends Component {
 
                             <p className="p-calculation-green-textbox-1">
                                 <b> If you could reduce CPH to this much
-                                    <p className="p-calculation-green-numbers-1" ><h4><b>${this.state.CalculationCPHValue}</b></h4></p>
+                                    <p className="p-calculation-green-numbers-1" ><h4><b>{this.state.currencyChange}{this.state.CalculationCPHValue}</b></h4></p>
                                 </b>
                             </p>
                             <div className="calculation-CPH-slider">
@@ -465,7 +557,7 @@ class Excards extends Component {
                             </div>
                         </div>
                         <div className="calculation-costofrecruitment-textbox-1">
-                            <p><b>Cost of recruitment would go down</b> <h4 className="calculation-costofrecruitment-numbers-1" >$ {this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4> </p>
+                            <p><b>Cost of recruitment would go down</b> <h4 className="calculation-costofrecruitment-numbers-1" >{this.state.currencyChange} {this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4> </p>
                         </div>
 
 
@@ -475,8 +567,8 @@ class Excards extends Component {
 
                         <div className="calculation-costofonboarding-savingyou-textbox-1">
 
-                            <h4 className="calculation-costofonboarding-numbers-textbox-1" >$ {this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
-                                this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4>
+                            <h4 className="calculation-costofonboarding-numbers-textbox-1" >{this.state.currencyChange} { Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
+                                this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}</h4>
                         </div>
 
 
@@ -500,8 +592,8 @@ class Excards extends Component {
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
 
 
-                                <h4 className="calculation-costofonboarding-numbers-2" > $
-                                    {(this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</h4>
+                                <h4 className="calculation-costofonboarding-numbers-2" > { this.state.currencyChange}
+                                    { Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}</h4>
                             </p>
 
                             <div className="calculation-costofonboarding-savingyou-textbox-2">
@@ -510,9 +602,9 @@ class Excards extends Component {
                                     <p className="calculation-savingyou-text-textbox-2">Saving you</p>
                                 </div>
 
-                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >$
-                            {(this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
-                                        (this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}
+                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >{this.state.currencyChange}
+                            { Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
+                                        (this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
                                 </h4>
                             </div>
 
@@ -541,7 +633,7 @@ class Excards extends Component {
                         <div className="calculation-costofonboarding-textbox-2">
                             <p className="calculation-costofonboarding-text-2" ><b>Cost of ONBOARDING will go down to</b>
 
-                                <h4 className="calculation-costofonboarding-numbers-2" >$ {this.state.PayValue * this.state.CalculationAttritionValue}</h4>
+                                <h4 className="calculation-costofonboarding-numbers-2" >{this.state.currencyChange} {this.state.PayValue * this.state.CalculationAttritionValue}</h4>
                             </p>
 
 
@@ -552,7 +644,7 @@ class Excards extends Component {
 
                             <div className="calculation-costofonboarding-savingyou-textbox-2">
 
-                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >$
+                                <h4 className="calculation-costofonboarding-numbers-textbox-2" >{this.state.currencyChange}
                                     {this.state.PayValue + this.state.LostPeoplePerYear - this.state.LostPeoplePerYear}
                                 </h4>
                             </div>
@@ -621,12 +713,12 @@ class Excards extends Component {
 
                     <div class="dropdown">
                         <button class="currency-btn">CURRENCY</button>
-                        <button class="dropbtn drop-currency">USD</button>
+                        <button class="dropbtn drop-currency">{this.state.currencyText}</button>
                         <div class="dropdown-content dropdown-currency">
-                            <a href="/ex">USD</a>
-                            <a href="/cx">NOK</a>
-                            <a href="/cx">EURO</a>
-                            <a href="/cx">GBP</a>
+                           <a href="#" onClick={this.currencyChangeToUSD}>USD</a>
+                           <a href="#" onClick={this.currencyChangeToNok}>Nok</a>
+                           <a href="#" onClick={this.currencyChangeToEuro}>EURO</a>
+                           <a href="#" onClick={this.currencyChangeToGBP}>GBP</a>
                         </div>
                     </div>
 
@@ -649,7 +741,12 @@ class Excards extends Component {
                             <p className="p-SizeValue">{this.state.SizeValue}</p>
                             <div className=" container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange} />
-            <button className={btn_include} disabled={this.state.SizeValue === 0 ? true : false} onClick={this.includeSize.bind(this)}>{btn_include}</button>
+                             <button 
+                                className={btn_includeSize} 
+                                disabled={this.state.SizeValue === 0 ? true : false} 
+                                onClick={this.includeSize.bind(this)}
+                            >{btn_includeSize}</button>
+                            
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -662,7 +759,11 @@ class Excards extends Component {
                             <p className="p-GrowValue">{this.state.GrowValue}%</p>
                             <div className="container-fluid div-slider-grow">
                                 <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
-                                <button className="b-includeGrowButton" onClick={this.includeGrow}>{this.state.IncludeGrowText}</button>
+                                <button 
+                                    className={btn_includeGrow}
+                                    disabled={this.state.GrowValue === 0 ? true : false}
+                                    onClick={this.includeGrow.bind(this)}
+                                >{btn_includeGrow}</button>
 
                             </div>
                         </div>
@@ -676,7 +777,11 @@ class Excards extends Component {
                             <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
                             <div className="container-fluid div-slider-attrition">
                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
-                                <button className="b-includeAttritionButton" onClick={this.includeAttrition}>{this.state.IncludeAttritionText}</button>
+                                <button 
+                                    className={btn_includeAttrition}
+                                    disabled={this.state.AttritionValue === 0 ? true : false}
+                                    onClick={this.includeAttrition.bind(this)}
+                                >{btn_includeAttrition}</button>
                             </div>
                         </div>
 
@@ -690,23 +795,22 @@ class Excards extends Component {
                                     <hr className="hr-total-new-hires" />
 
                                     <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
-                                    <b className="the-impact-cost-of-recruitmet-number">$ {this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}</b>
+                                    <b className="the-impact-cost-of-recruitmet-number">{this.state.currencyChange} {Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}</b>
 
                                     <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
                                     up to full produtivity cost?</b></p>
-                                    <b className="the-impact-productivity-cost-number">$ {((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))} </b>
+                                    <b className="the-impact-productivity-cost-number">{this.state.currencyChange} {Math.round(((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)))} </b>
 
                                     <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
-                                    <b className="the-impact-cost-of-attrition-number">{this.state.PayValue + this.state.LostPeoplePerYear}</b>
+                                    <b className="the-impact-cost-of-attrition-number">{this.state.currencyChange} {Math.round(this.state.PayValue + this.state.LostPeoplePerYear)}</b>
 
                                     <hr className="hr-cost-of-attrition" />
 
                                     <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
-                                    <b className="the-impact-total-cost-number">$
-                                    {(this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) +
+                                    <b className="the-impact-total-cost-number">{this.state.currencyChange} {Math.round((this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) +
                                             (this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
                                             ((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
-                                            (this.state.PayValue + this.state.LostPeoplePerYear)
+                                            (this.state.PayValue + this.state.LostPeoplePerYear))
                                         }
                                     </b>
 
@@ -722,10 +826,14 @@ class Excards extends Component {
                                 ahref="/cx"
 
                             />
-                            <p className="p-PayValue">$ {this.state.PayValue} </p>
+                            <p className="p-PayValue">{this.state.currencyChange} {this.state.PayValue} </p>
                             <div className="container-fluid div-slider-pay">
                                 <ExPaySlider setPayValue={this.handlePayChange} />
-                                <button className="b-includePayButton" onClick={this.includePay}>{this.state.IncludePayText}</button>
+                                <button 
+                                    className={btn_includePay} 
+                                    disabled={this.state.PayValue === 0 ? true : false}
+                                    onClick={this.includePay.bind(this)}
+                                >{btn_includePay}</button>
 
                             </div>
                         </div>
@@ -736,10 +844,14 @@ class Excards extends Component {
                                 ahref="/cx"
                                 hrefTitle="test"
                             />
-                            <p className="p-CostPerHireValue">$ {this.state.CostPerHireValues}</p>
+                            <p className="p-CostPerHireValue">{this.state.currencyChange} {this.state.CostPerHireValues}</p>
                             <div className="container-fluid div-slider-costperhire">
                                 <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange} />
-                                <button className="b-includeCostPerHireButton" onClick={this.includeCostPerHire}>{this.state.IncludeCostPerHireText}</button>
+                                <button 
+                                    className={btn_includeCostPerHire} 
+                                    disabled={this.state.CostPerHireValues === 0 ? true : false}
+                                    onClick={this.includeCostPerHire.bind(this)}
+                                >{btn_includeCostPerHire}</button>
 
                             </div>
                         </div>
@@ -753,7 +865,11 @@ class Excards extends Component {
                             <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
                             <div className="container-fluid div-slider-onboardingtime">
                                 <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange} />
-                                <button className="b-includeOnboardingButton" onClick={this.includeOnboarding}>{this.state.IncludeOnboardingText}</button>
+                                <button 
+                                    className={btn_includeOnboarding}
+                                    disabled={this.state.OnboardingTimeValue === 0 ? true : false}
+                                    onClick={this.includeOnboarding.bind(this)}
+                                >{btn_includeOnboarding}</button>
 
                             </div>
                         </div>
