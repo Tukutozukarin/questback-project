@@ -378,12 +378,12 @@ class Excards extends Component {
 
     render() {
 
-        let btn_includeSize = this.state.includeExcludeSize ? "Exclude" : "Include";
-        let btn_includeGrow = this.state.includeExcludeGrow ? "Exclude" : "Include";
-        let btn_includeAttrition = this.state.includeExcludeAttrition ? "Exclude" : "Include";
-        let btn_includePay = this.state.includeExcludePay ? "Exclude" : "Include";
-        let btn_includeCostPerHire = this.state.includeExcludeCostPerHire ? "Exclude" : "Include";
-        let btn_includeOnboarding = this.state.includeExcludeOnboarding ? "Exclude" : "Include";
+        let btn_includeSize = this.state.includeExcludeSize ? "Include" : "Exclude";
+        let btn_includeGrow = this.state.includeExcludeGrow ? "Include" : "Exclude";
+        let btn_includeAttrition = this.state.includeExcludeAttrition ? "Include" : "Exclude";
+        let btn_includePay = this.state.includeExcludePay ? "Include" : "Exclude";
+        let btn_includeCostPerHire = this.state.includeExcludeCostPerHire ? "Include" : "Exclude";
+        let btn_includeOnboarding = this.state.includeExcludeOnboarding ? "Include" : "Exclude";
 
 
         // Other ways to add date and time in real time
@@ -485,9 +485,10 @@ class Excards extends Component {
 
                 <div className="container-fluid div-belowtopnav"></div>
 
-                <div className="container-fluid div-result" ref={this.refROIDashboard}
-                >ROI Dashboard | Total Business:
-                 <p className="sum">{this.state.currencyChange} 30030300</p>
+                <div className="container-fluid div-result" ref={this.refROIDashboard}>
+                  <p className="p-result">ROI Dashboard | Total Business:</p>
+               
+                  <p className="sum">{this.state.currencyChange} 30030300</p>
                 </div>
 
                 <div className="container-fluid div-textbelowdashboard">
@@ -833,8 +834,15 @@ class Excards extends Component {
 
                             </div>
                         </div>
+                    </div>
+                </div>
+               
+                
+            
+                <div className="container-fluid div-cards2">
+                    <div className="row">
 
-                        <div className="col-md-3">
+                    <div className="col-md-3">
                             <Excard
                                 title="Pay"
                                 description="What is the average fully loaded annual salary in your company?"
@@ -852,6 +860,7 @@ class Excards extends Component {
 
                             </div>
                         </div>
+
                         <div className="col-md-3">
                             <Excard
                                 title="Cost per hire (CPH)"
@@ -870,6 +879,8 @@ class Excards extends Component {
 
                             </div>
                         </div>
+
+                           
                         <div className="col-md-3">
                             <Excard
                                 title="Onboarding time (in days"
@@ -889,9 +900,8 @@ class Excards extends Component {
                             </div>
                         </div>
 
-
                         <div className="col-md-3">
-                            <div className="div-the-impact-card">
+                            <div className="div-the-impact-card2">
                                 <h4 className="the-impact-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
 
                                 <div className="div-the-impact-card-chart">
@@ -901,9 +911,7 @@ class Excards extends Component {
                             </div>
                         </div>
 
-                    </div>
-
-
+                     </div>
                 </div>
 
             </div >

@@ -11,14 +11,14 @@ body {
 
 .div-slider-size {
     position: absolute;
-    top: 52%;
-    left: 13%;
+    top: 45%;
+    left: 14%;
 }
 
 .p-SizeValue {
     position: absolute;
-    left: 54%;
-    top: 55%;
+    left: 60%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -29,20 +29,30 @@ body {
 .Exclude {
     position: absolute;
     border-width: 2px;
-    border-color: limegreen;
+    border-color: red;
+    background-color: red;
     border-radius: 8px;
-    color: limegreen;
-    left: 37%;
-    content: "test"
+    color: white;
+    font-size: large;
+    left: 15%;
+    top: 100%;
+    height: 3rem;
+    width: 13rem;
 }
 
 .Include {
     position: absolute;
     border-width: 2px;
-    border-color: red;
+    border-color: limegreen;
+    background-color: limegreen;
     border-radius: 8px;
-    color: red;
-    left: 38%;
+    color: white;
+    font-size: large;
+    left: 15%;
+    top: 100%;
+    height: 3rem;
+    width: 13rem;
+
 }
 
 
@@ -51,14 +61,14 @@ body {
 
 .div-slider-grow {
     position: absolute;
-    top: 55%;
-    left: 13%;
+    top: 45%;
+    left: 14%;
 }
 
 .p-GrowValue {
     position: absolute;
-    left: 54%;
-    top: 55%;
+    left: 60%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -74,26 +84,19 @@ body {
     left: 38%;
 }
 
-.b-includeGrowButton:focus {
-    position: absolute;
-    border-width: 2px;
-    border-color: red;
-    border-radius: 8px;
-    color: red;
-    left: 35%;
-}
+
 
 
 .div-slider-attrition {
     position: absolute;
-    top: 55%;
+    top: 45%;
     left: 14%;
 }
 
 .p-AttritionValue {
     position: absolute;
-    left: 54%;
-    top: 55%;
+    left: 60%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -111,25 +114,17 @@ body {
     left: 38%;
 }
 
-.b-includeAttritionButton:focus {
-    position: absolute;
-    border-width: 2px;
-    border-color: red;
-    border-radius: 8px;
-    color: red;
-    left: 35%;
-}
 
 .div-slider-pay {
     position: absolute;
-    top: 55%;
-    left: 13%;
+    top: 45%;
+    left: 14%;
 }
 
 .p-PayValue {
     position: absolute;
-    left: 54%;
-    top: 59%;
+    left: 52%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -146,25 +141,18 @@ body {
     left: 38%;
 }
 
-.b-includePayButton:focus {
-    position: absolute;
-    border-width: 2px;
-    border-color: red;
-    border-radius: 8px;
-    color: red;
-    left: 35%;
-}
+
 
 .div-slider-costperhire {
     position: absolute;
-    top: 55%;
-    left: 13%;
+    top: 45%;
+    left: 14%;
 }
 
 .p-CostPerHireValue {
     position: absolute;
-    left: 54%;
-    top: 64%;
+    left: 52%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -181,25 +169,18 @@ body {
     left: 38%;
 }
 
-.b-includeCostPerHireButton:focus {
-    position: absolute;
-    border-width: 2px;
-    border-color: red;
-    border-radius: 8px;
-    color: red;
-    left: 35%;
-}
+
 
 .div-slider-onboardingtime {
     position: absolute;
-    top: 55%;
-    left: 13%;
+    top: 45%;
+    left: 14%;
 }
 
 .p-OnboardingTimeValue {
     position: absolute;
-    left: 54%;
-    top: 58%;
+    left: 60%;
+    top: 45%;
     font-size: xx-large;
     font-weight: bold;
     color: chartreuse;
@@ -215,14 +196,7 @@ body {
     left: 38%;
 }
 
-.b-includeOnboardingButton:focus {
-    position: absolute;
-    border-width: 2px;
-    border-color: red;
-    border-radius: 8px;
-    color: red;
-    left: 35%;
-}
+
 
 
 .sum {
@@ -325,13 +299,13 @@ body {
     padding: 40px;
     position: absolute;
     font-size: x-large;
-    background-color: #cccccc;
+    background-color: #6D9BB5;
 }
 
 .div-belowtopnav {
     
     z-index: -1;
-    margin-top: 14%;
+    margin-top: 10%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
@@ -341,28 +315,37 @@ body {
     padding: 40px;
     position: absolute;
     font-size: x-large;
-    background-color: blue;
+    background-color: cadetblue;
+    border-color: cadetblue;
 }
 
 .div-result {
     z-index: -1;
-    margin-top: 20%;
+    margin-top: 15%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
-    height: 20%;
+    height: 13%;
     border: 1px solid black;
     display: flex;
     padding: 40px;
     position: absolute;
     font-size: x-large;
     background-color: whitesmoke;
+    border-color: black;
 
+}
+
+.p-result {
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    font-size: xx-large;
 }
 
 .div-textbelowdashboard {
     z-index: -1;
-    margin-top: 35%;
+    margin-top: 25%;
     margin-left: -1%;
     font-style: bold;
     width: 65%;
@@ -371,7 +354,7 @@ body {
     font-size: 14px;
     display: inline-block;
     position: absolute;
-    background-color: yellow;
+    background-color: cadetblue;
 
 }
 
@@ -379,11 +362,11 @@ body {
 
 .div-whythenumbers {
     z-index: -1;
-    margin-top: 130%;
+    margin-top: 95%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
-    height: 90%;
+    height: 70%;
     border: 1px solid black;
     padding: 40px;
     position: absolute;
@@ -426,7 +409,7 @@ body {
 
 .div-whatif {
     z-index: -1;
-    margin-top: 180%;
+    margin-top: 130%;
     margin-left: -1%;
     font-style: bold;
     width: 85%;
@@ -455,7 +438,18 @@ body {
 .div-cards {
     background: cadetblue;
     z-index: -1;
+    top: 60%;
+    left: 1%;
+    position: absolute;
 
+}
+
+.div-cards2 {
+    background: cadetblue;
+    z-index: -1;
+    top: 113%;
+    left: 1%;
+    position: absolute;
 }
 
 
@@ -463,12 +457,14 @@ body {
     left: 15%;
     top: 70%;
     position: absolute;
-    margin: 1rem;
+    margin: 3rem;
+
 }
 
+
 .card{
-    width: 15rem;
-    height: 100%;
+    width: 16rem;
+    height: 27rem;
     padding: 2rem;
     margin: 3rem;
     border-radius: 30px;
@@ -483,8 +479,17 @@ body {
     padding: 3rem 0 !important;
 }
 
+.card-title {
+    position: relative;
+    top: -16%;
+   
+}
+
 .card-text{
-    font-size: 0.9rem;
+    position: absolute;
+    top: 25%;
+    left: 3%;
+    font-size: 1rem;
     padding: 0.4rem 1.9rem;
 }
 
@@ -509,11 +514,12 @@ body {
 
 
 .div-the-impact-card{
-    width: 14rem;
-    margin: 1rem;
+ 
+    margin: 3rem;
     background-color: lightskyblue;
     width: 160%;
-    height: 90%;
+    height: 80%;
+    top: 0%;
     position: absolute;
     overflow: hidden; 
     border-radius: 30px;
@@ -521,12 +527,26 @@ body {
 
 }
 
+.div-the-impact-card2{
+
+    margin: 3rem;
+    background-color: lightskyblue;
+    width: 160%;
+    height: 80%;
+    position: absolute;
+    overflow: hidden; 
+    border-radius: 30px;
+    top: 0%;
+  
+
+}
+
 
 
 .div-the-impact-card-chart{
-    width: 96%;
-    height: 90%;
-    top: 15%;
+    width: 90%;
+    height: 80%;
+    top: 9%;
     left: 2%;
     position: absolute;
   
@@ -548,8 +568,8 @@ body {
 
 .the-impact-title {
     position: absolute; 
-    top: 5%;
-    left: 10%;
+    top: 4%;
+    left: 5%;
 }
 
 .div-the-impact-card-info {
@@ -643,7 +663,7 @@ body {
 .div-calculation {
     z-index: -1;
     background-color: wheat;
-    top: 401%;
+    top: 315%;
     left: 18%;
     width: 83%;
     height: 90%;
@@ -876,7 +896,7 @@ body {
 .div-business-impact{
     z-index: -1;
     position: absolute;
-    top: 490%;
+    top: 405%;
     left: 18%;
     width: 83%;
     height: 80%; 
