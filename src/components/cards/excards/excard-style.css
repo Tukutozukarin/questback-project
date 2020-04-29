@@ -345,7 +345,7 @@ body {
 
 .div-textbelowdashboard {
     z-index: -1;
-    margin-top: 25%;
+    margin-top: 23%;
     margin-left: -1%;
     font-style: bold;
     width: 65%;
@@ -438,7 +438,7 @@ body {
 .div-cards {
     background: cadetblue;
     z-index: -1;
-    top: 60%;
+    top: 53%;
     left: 1%;
     position: absolute;
 
@@ -447,7 +447,7 @@ body {
 .div-cards2 {
     background: cadetblue;
     z-index: -1;
-    top: 113%;
+    top: 106%;
     left: 1%;
     position: absolute;
 }

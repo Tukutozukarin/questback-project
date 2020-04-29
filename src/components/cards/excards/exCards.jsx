@@ -782,7 +782,7 @@ class Excards extends Component {
                                 ahref="/mr"
                             />
                             <p className="p-SizeValue">{this.state.SizeValue}</p>
-                            <div className=" container-fluid div-slider-size">
+                            <div className="container-fluid div-slider-size">
                                 <ExSizeSlider setSizeValue={this.handleSizeChange} />
                                 <button
                                     className={btn_includeSize}
@@ -819,6 +819,7 @@ class Excards extends Component {
                             />
                             <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
                             <div className="container-fluid div-slider-attrition">
+                               
                                 <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
                                 <button
                                     className={btn_includeAttrition}
@@ -827,6 +828,8 @@ class Excards extends Component {
                                 >{btn_includeAttrition}</button>
                             </div>
                         </div>
+
+                  
 
                         <div className="col-md-3">
                             <div className="div-the-impact-card">
