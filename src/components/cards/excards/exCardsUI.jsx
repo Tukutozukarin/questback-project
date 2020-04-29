@@ -1,5 +1,4 @@
 import React from 'react';
-import './excard-style.css';
 
 const Excard = props => {
     return (
@@ -13,9 +12,9 @@ const Excard = props => {
                 <p className="card-text text-secondary">
                     {props.description}
                 </p>
-            </div>
 
-        
+                {props.children}
+            </div>
         </div>
     );
 }

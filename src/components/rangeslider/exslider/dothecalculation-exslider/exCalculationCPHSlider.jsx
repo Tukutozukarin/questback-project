@@ -37,15 +37,13 @@ class ExCalculationCPHSlider extends React.Component {
                   onTouchStart={props.onTouchStart}
                   style={{
                     ...props.style,
-                    height: '160px',
                     display: 'flex',
-                    width: '19%'
+                    width: '100%'
                   }}
                 >
                   <div
                     ref={props.ref}
                     style={{
-                      marginTop: '70px',
                       height: '26px',
                       width: '100%',
                       borderRadius: '4px',

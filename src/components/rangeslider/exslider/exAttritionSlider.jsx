@@ -39,7 +39,7 @@ class ExSizeSlider extends React.Component {
                     ...props.style,
                     height: '160px',
                     display: 'flex',
-                    width: '85%'
+                    width: '100%'
                   }}
                 >
                   <div
