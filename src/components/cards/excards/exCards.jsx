@@ -528,8 +528,8 @@ class Excards extends Component {
                 </div>
 
 
-                <div className="container-fluid div-whythenumbers"
-                ><h3>Why the numbers</h3>
+                <div className="container-fluid div-whythenumbers">
+                    <p className="p-whythenumbers-title">Why the numbers</p>
                     <hr className="hr-below-whythenumbers-title" />
                     <div>
 
@@ -556,7 +556,7 @@ class Excards extends Component {
 
                 {/* The ref will refer the scroll link to what if, in sidebar */}
                 <div className="container-fluid div-whatif" ref={this.refWhatIf}>
-                    <h3><b>WHAT IF</b></h3>
+                    <p className="p-whatif-title">WHAT IF</p>
 
 
                     <div className="container-fluid div-whatif-textbox">
@@ -719,15 +719,6 @@ class Excards extends Component {
 
 
                 </div>
-
-
-
-
-                <input
-                    type="text"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                />
 
                 <nav className={classnames("navbar", {
                     "navbar--hidden": !this.state.visible
