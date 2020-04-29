@@ -500,68 +500,71 @@ class Excards extends Component {
 
                 <div className="container-fluid mb-4">
                     <div className="row">
+                        <div className="col-xs-12 col-lg-7">
+                            <div className="row">
 
-                        <div className="col-md-2">
+                                <div className="col-xs-12 col-xl-4 mb-4">
 
-                            <Excard
-                                title="Size"
-                                description="How many employees do you have"
-                                ahref="/mr"
-                            >
-                                <p className="p-SizeValue">{this.state.SizeValue}</p>
-                                <div className="container-fluid div-slider-size">
-                                    <ExSizeSlider setSizeValue={this.handleSizeChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.SizeValue === 0 ? true : false}
-                                        onClick={this.includeSize.bind(this)}
-                                    >{btn_includeSize}</button>
+                                    <Excard
+                                        title="Size"
+                                        description="How many employees do you have"
+                                        ahref="/mr"
+                                    >
+                                        <p className="p-SizeValue">{this.state.SizeValue}</p>
+                                        <div className="container-fluid div-slider-size">
+                                            <ExSizeSlider setSizeValue={this.handleSizeChange} />
+                                            <button
+                                                className="btn btn-primary"
+                                                disabled={this.state.SizeValue === 0 ? true : false}
+                                                onClick={this.includeSize.bind(this)}
+                                            >{btn_includeSize}</button>
 
+                                        </div>
+                                    </Excard>
                                 </div>
-                            </Excard>
-                        </div>
-                        <div className="col-md-2">
+                                <div className="col-xs-12 col-xl-4 mb-4">
 
-                            <Excard
-                                title="Grow rate"
-                                description="By what % does your organization grow per year?"
-                                ahref="/mr"
-                            >
-                                <p className="p-GrowValue">{this.state.GrowValue}%</p>
-                                <div className="container-fluid div-slider-grow">
-                                    <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.GrowValue === 0 ? true : false}
-                                        onClick={this.includeGrow.bind(this)}
-                                    >{btn_includeGrow}</button>
+                                    <Excard
+                                        title="Grow rate"
+                                        description="By what % does your organization grow per year?"
+                                        ahref="/mr"
+                                    >
+                                        <p className="p-GrowValue">{this.state.GrowValue}%</p>
+                                        <div className="container-fluid div-slider-grow">
+                                            <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
+                                            <button
+                                                className="btn btn-primary"
+                                                disabled={this.state.GrowValue === 0 ? true : false}
+                                                onClick={this.includeGrow.bind(this)}
+                                            >{btn_includeGrow}</button>
 
+                                        </div>
+                                    </Excard>
                                 </div>
-                            </Excard>
-                        </div>
-                        <div className="col-md-2">
-                            <Excard
-                                title="Attrition"
-                                description="What % of your organization leave per year?"
-                                ahref="/cx"
+                                <div className="col-xs-12 col-xl-4 mb-4">
+                                    <Excard
+                                        title="Attrition"
+                                        description="What % of your organization leave per year?"
+                                        ahref="/cx"
 
-                            >
-                                <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
-                                <div className="container-fluid div-slider-attrition">
+                                    >
+                                        <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
+                                        <div className="container-fluid div-slider-attrition">
 
-                                    <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.AttritionValue === 0 ? true : false}
-                                        onClick={this.includeAttrition.bind(this)}
-                                    >{btn_includeAttrition}</button>
+                                            <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
+                                            <button
+                                                className="btn btn-primary"
+                                                disabled={this.state.AttritionValue === 0 ? true : false}
+                                                onClick={this.includeAttrition.bind(this)}
+                                            >{btn_includeAttrition}</button>
+                                        </div>
+                                    </Excard>
                                 </div>
-                            </Excard>
+
+                            </div>
                         </div>
 
-
-
-                        <div className="col-md-6">
+                        <div className=" col-xs-12 col-lg-5">
                             <div className="card shadow">
                                 <div className="card-body">
                                     <h4 className="card-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
@@ -784,7 +787,7 @@ class Excards extends Component {
                             </div>
                             <div className="col-md-2 text-right">
                                 <h4>
-                                {this.state.currencyChange}
+                                    {this.state.currencyChange}
                                     {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
                                 </h4>
                             </div>
@@ -796,14 +799,14 @@ class Excards extends Component {
                             </div>
                             <div className="col-md-2 text-right">
                                 <h4>
-                                {this.state.currencyChange}
+                                    {this.state.currencyChange}
                                     {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
                                         (this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
                                 </h4>
                             </div>
                         </div>
                     </div>
-                    
+
                     {/* Start of third calculation textbox */}
 
 
@@ -813,7 +816,7 @@ class Excards extends Component {
                                 <strong>If you could reduce ATTRITION to this much </strong>
                             </div>
                             <div className="col-sm-12 col-md-3">
-                            <ExCalculationAttritionSlider setCalculationAttritionValue={this.handleCalculationAttritionChange} />
+                                <ExCalculationAttritionSlider setCalculationAttritionValue={this.handleCalculationAttritionChange} />
                             </div>
                             <div className="col-sm-12 col-md-2 text-right">
                                 <h4><b>{this.state.CalculationAttritionValue} %</b></h4>
@@ -826,7 +829,7 @@ class Excards extends Component {
                             </div>
                             <div className="col-sm-12 col-md-2 text-right">
                                 <h4>
-                                {this.state.currencyChange} {this.state.PayValue * this.state.CalculationAttritionValue}
+                                    {this.state.currencyChange} {this.state.PayValue * this.state.CalculationAttritionValue}
                                 </h4>
                             </div>
                         </div>
@@ -837,7 +840,7 @@ class Excards extends Component {
                             </div>
                             <div className="col-md-2 text-right">
                                 <h4>
-                                {this.state.currencyChange}
+                                    {this.state.currencyChange}
                                     {this.state.PayValue + this.state.LostPeoplePerYear - this.state.LostPeoplePerYear}
                                 </h4>
                             </div>
