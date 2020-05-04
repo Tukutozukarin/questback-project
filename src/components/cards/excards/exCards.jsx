@@ -196,11 +196,8 @@ class Excards extends Component {
     // This will hide or show the meny
     handleScroll = () => {
         const { prevScrollpos } = this.state;
-
         const currentScrollPos = window.pageYOffset;
         const visible = prevScrollpos > currentScrollPos;
-
-
 
         this.setState({
             prevScrollpos: currentScrollPos,
@@ -450,7 +447,7 @@ class Excards extends Component {
                 >
                     <div class="dropdown">
                         <button class="dropdown__btn dropdown__btn--left">Product</button>
-                        <button class="dropdown__btn dropdown__btn--right">MR</button>
+                        <button class="dropdown__btn dropdown__btn--right">Ex</button>
 
                         <div class="dropdown-content dropdown-product">
                             <a href="/cx">MR</a>
@@ -480,397 +477,428 @@ class Excards extends Component {
                     </div>
                 </nav>
 
-                <div className="bg-content mt-4 mb-4" ref={this.refROIDashboard}>
-                    <div className="container d-flex justify-content-between">
-                        <p className="p-result">ROI Dashboard | Total Business:</p>
+       
 
-                        <p className="sum">{this.state.currencyChange} 30030300</p>
+                    {/* Sidebar start */}
+                    <div className="container-fluid nav-sidebar">
+                          <ul className="list-sidebar">
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refROIDashboard) }}>ROI Dashboard</li>
+                            <p></p>
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>About your company</li>
+                            <ul className="list-sidebar-moretext">
+                                <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refTheImpact) }}>The Impact</li>
+                            </ul>
+                            <p></p>
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refWhatIf) }}>What If</li>
+                            <p></p>
+                            <li className="div-link-text-sidebar" onClick={() => { this.handleScrollTo(this.refTotalBusinessImpact) }}>Total Business Impact</li>
+
+                        </ul>
+
                     </div>
-                </div>
 
-                <div className="container bg-content mt-4 mb-4 p-4">
-                    <h3>Select a section below to review your ROI{"\n"}</h3>
-                    <p>To calculate your return of investment, begin with the first section below.
-                    The information entered automatically populate corresponding fields in the other sections.
-                    You will be able to move from section to section to add/or adjust value to reflect your organization and process.
-                    To return to this screen, click on the ROI Dashboard button to the left.
+           
+
+                   
+              
+
+                    {/* Sidebar end */}
+
+                    <div className="container-fluid pdfbtn-sidebar">
+                        <button className="PDF-btn" onClick={print}>PDF</button>
+
+                    </div>
+
+                    <div className="bg-content mt-4 mb-4" ref={this.refROIDashboard}>
+                        <div className="container d-flex justify-content-between">
+                            <p className="p-result">ROI Dashboard | Total Business:</p>
+
+                            <p className="sum">{this.state.currencyChange} 30030300</p>
+                        </div>
+                    </div>
+
+                    <div className="container bg-content mt-4 mb-4 p-4">
+                        <h3>Select a section below to review your ROI{"\n"}</h3>
+                        <p>To calculate your return of investment, begin with the first section below.
+                        The information entered automatically populate corresponding fields in the other sections.
+                        You will be able to move from section to section to add/or adjust value to reflect your organization and process.
+                        To return to this screen, click on the ROI Dashboard button to the left.
                 </p>
-                </div>
+                    </div>
 
 
-                <div className="container-fluid mb-4">
-                    <div className="row">
-                        <div className="col-xs-12 col-lg-7">
-                            <div className="row">
+                    <div className="container-fluid mb-4">
+                        <div className="row">
+                            <div className="col-xs-12 col-lg-7">
+                                <div className="row">
+                                    <div className="col-xs-12 col-xl-4 mb-4">
 
-                                <div className="col-xs-12 col-xl-4 mb-4">
+                                        <Excard
+                                            title="Size"
+                                            description="How many employees do you have"
+                                            ahref="/mr"
+                                        >
+                                            <p className="p-SizeValue">{this.state.SizeValue}</p>
+                                            <div className="container-fluid div-slider-size">
+                                                <ExSizeSlider setSizeValue={this.handleSizeChange} />
+                                                <button
+                                                    className="btn btn-primary"
+                                                    disabled={this.state.SizeValue === 0 ? true : false}
+                                                    onClick={this.includeSize.bind(this)}
+                                                >{btn_includeSize}</button>
 
-                                    <Excard
-                                        title="Size"
-                                        description="How many employees do you have"
-                                        ahref="/mr"
-                                    >
-                                        <p className="p-SizeValue">{this.state.SizeValue}</p>
-                                        <div className="container-fluid div-slider-size">
-                                            <ExSizeSlider setSizeValue={this.handleSizeChange} />
-                                            <button
-                                                className="btn btn-primary"
-                                                disabled={this.state.SizeValue === 0 ? true : false}
-                                                onClick={this.includeSize.bind(this)}
-                                            >{btn_includeSize}</button>
+                                            </div>
+                                        </Excard>
+                                    </div>
+                                    <div className="col-xs-12 col-xl-4 mb-4">
 
-                                        </div>
-                                    </Excard>
+                                        <Excard
+                                            title="Grow rate"
+                                            description="By what % does your organization grow per year?"
+                                            ahref="/mr"
+                                        >
+                                            <p className="p-GrowValue">{this.state.GrowValue}%</p>
+                                            <div className="container-fluid div-slider-grow">
+                                                <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
+                                                <button
+                                                    className="btn btn-primary"
+                                                    disabled={this.state.GrowValue === 0 ? true : false}
+                                                    onClick={this.includeGrow.bind(this)}
+                                                >{btn_includeGrow}</button>
+
+                                            </div>
+                                        </Excard>
+                                    </div>
+                                    <div className="col-xs-12 col-xl-4 mb-4">
+                                        <Excard
+                                            title="Attrition"
+                                            description="What % of your organization leave per year?"
+                                            ahref="/cx"
+
+                                        >
+                                            <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
+                                            <div className="container-fluid div-slider-attrition">
+
+                                                <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
+                                                <button
+                                                    className="btn btn-primary"
+                                                    disabled={this.state.AttritionValue === 0 ? true : false}
+                                                    onClick={this.includeAttrition.bind(this)}
+                                                >{btn_includeAttrition}</button>
+                                            </div>
+                                        </Excard>
+                                    </div>
+
                                 </div>
-                                <div className="col-xs-12 col-xl-4 mb-4">
-
-                                    <Excard
-                                        title="Grow rate"
-                                        description="By what % does your organization grow per year?"
-                                        ahref="/mr"
-                                    >
-                                        <p className="p-GrowValue">{this.state.GrowValue}%</p>
-                                        <div className="container-fluid div-slider-grow">
-                                            <ExGrowRateSlider setGrowValue={this.handleGrowChange} />
-                                            <button
-                                                className="btn btn-primary"
-                                                disabled={this.state.GrowValue === 0 ? true : false}
-                                                onClick={this.includeGrow.bind(this)}
-                                            >{btn_includeGrow}</button>
-
-                                        </div>
-                                    </Excard>
-                                </div>
-                                <div className="col-xs-12 col-xl-4 mb-4">
-                                    <Excard
-                                        title="Attrition"
-                                        description="What % of your organization leave per year?"
-                                        ahref="/cx"
-
-                                    >
-                                        <p className="p-AttritionValue">{this.state.AttritionValue}%</p>
-                                        <div className="container-fluid div-slider-attrition">
-
-                                            <ExAttritionSlider setAttritionValue={this.handleAttritionChange} />
-                                            <button
-                                                className="btn btn-primary"
-                                                disabled={this.state.AttritionValue === 0 ? true : false}
-                                                onClick={this.includeAttrition.bind(this)}
-                                            >{btn_includeAttrition}</button>
-                                        </div>
-                                    </Excard>
-                                </div>
-
                             </div>
-                        </div>
 
-                        <div className=" col-xs-12 col-lg-5">
-                            <div className="card shadow">
-                                <div className="card-body">
-                                    <h4 className="card-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
+                            <div className=" col-xs-12 col-lg-5">
+                                <div className="card shadow">
+                                    <div className="card-body">
+                                        <h4 className="card-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
 
-                                    <div className="div-the-impact-card-info">
-                                        <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
-                                        <b className="the-impact-total-new-hires-number">{this.state.MorePeoplePerYear + this.state.LostPeoplePerYear}</b>
-                                        <hr className="hr-total-new-hires" />
+                                        <div className="div-the-impact-card-info">
+                                            <p className="the-impact-total-new-hires-text"><b>Total New Hires >> </b></p>
+                                            <b className="the-impact-total-new-hires-number">{this.state.MorePeoplePerYear + this.state.LostPeoplePerYear}</b>
+                                            <hr className="hr-total-new-hires" />
 
-                                        <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
-                                        <b className="the-impact-cost-of-recruitmet-number">{this.state.currencyChange} {Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}</b>
+                                            <p className="the-impact-cost-of-recruitmet-text"><b>Cost of Recruitment</b></p>
+                                            <b className="the-impact-cost-of-recruitmet-number">{this.state.currencyChange} {Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}</b>
 
-                                        <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
+                                            <p className="the-impact-productivity-cost-text"><b>How much does getting <br /> people
                                     up to full produtivity cost?</b></p>
-                                        <b className="the-impact-productivity-cost-number">{this.state.currencyChange} {Math.round(((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)))} </b>
+                                            <b className="the-impact-productivity-cost-number">{this.state.currencyChange} {Math.round(((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)))} </b>
 
-                                        <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
-                                        <b className="the-impact-cost-of-attrition-number">{this.state.currencyChange} {Math.round(this.state.PayValue + this.state.LostPeoplePerYear)}</b>
+                                            <p className="the-impact-cost-of-attrition-text"><b>Cost of Attrition</b></p>
+                                            <b className="the-impact-cost-of-attrition-number">{this.state.currencyChange} {Math.round(this.state.PayValue + this.state.LostPeoplePerYear)}</b>
 
-                                        <hr className="hr-cost-of-attrition" />
+                                            <hr className="hr-cost-of-attrition" />
 
-                                        <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
-                                        <b className="the-impact-total-cost-number">{this.state.currencyChange} {Math.round((this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) +
-                                            (this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
-                                            ((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
-                                            (this.state.PayValue + this.state.LostPeoplePerYear))
-                                        }
-                                        </b>
+                                            <p className="the-impact-total-cost-text"><b>Total cost in one year</b></p>
+                                            <b className="the-impact-total-cost-number">{this.state.currencyChange} {Math.round((this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) +
+                                                (this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
+                                                ((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)) +
+                                                (this.state.PayValue + this.state.LostPeoplePerYear))
+                                            }
+                                            </b>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="container-fluid">
-                    <div className="row">
+                    <div className="container-fluid">
+                        <div className="row">
 
-                        <div className="col-md-2">
-                            <Excard
-                                title="Pay"
-                                description="What is the average fully loaded annual salary in your company?"
-                                ahref="/cx"
-                            >
-                                <p className="p-PayValue">{this.state.currencyChange} {this.state.PayValue} </p>
-                                <div className="container-fluid div-slider-pay">
-                                    <ExPaySlider setPayValue={this.handlePayChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.PayValue === 0 ? true : false}
-                                        onClick={this.includePay.bind(this)}
-                                    >{btn_includePay}</button>
+                            <div className="col-md-2">
+                                <Excard
+                                    title="Pay"
+                                    description="What is the average fully loaded annual salary in your company?"
+                                    ahref="/cx"
+                                >
+                                    <p className="p-PayValue">{this.state.currencyChange} {this.state.PayValue} </p>
+                                    <div className="container-fluid div-slider-pay">
+                                        <ExPaySlider setPayValue={this.handlePayChange} />
+                                        <button
+                                            className="btn btn-primary"
+                                            disabled={this.state.PayValue === 0 ? true : false}
+                                            onClick={this.includePay.bind(this)}
+                                        >{btn_includePay}</button>
 
-                                </div>
-                            </Excard>
-                        </div>
+                                    </div>
+                                </Excard>
+                            </div>
 
-                        <div className="col-md-2">
-                            <Excard
-                                title="Cost per hire (CPH)"
-                                description="Consider job boards, consultants, background - Checks, marketing etc..."
-                                ahref="/cx"
-                                hrefTitle="test"
-                            >
-                                <p className="p-CostPerHireValue">{this.state.currencyChange} {this.state.CostPerHireValues}</p>
-                                <div className="container-fluid div-slider-costperhire">
-                                    <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.CostPerHireValues === 0 ? true : false}
-                                        onClick={this.includeCostPerHire.bind(this)}
-                                    >{btn_includeCostPerHire}</button>
-                                </div>
-                            </Excard>
-                        </div>
+                            <div className="col-md-2">
+                                <Excard
+                                    title="Cost per hire (CPH)"
+                                    description="Consider job boards, consultants, background - Checks, marketing etc..."
+                                    ahref="/cx"
+                                    hrefTitle="test"
+                                >
+                                    <p className="p-CostPerHireValue">{this.state.currencyChange} {this.state.CostPerHireValues}</p>
+                                    <div className="container-fluid div-slider-costperhire">
+                                        <ExCostPerHireSlider setCostValue={this.handleCostPerHireChange} />
+                                        <button
+                                            className="btn btn-primary"
+                                            disabled={this.state.CostPerHireValues === 0 ? true : false}
+                                            onClick={this.includeCostPerHire.bind(this)}
+                                        >{btn_includeCostPerHire}</button>
+                                    </div>
+                                </Excard>
+                            </div>
 
 
-                        <div className="col-md-2">
-                            <Excard
-                                title="Onboarding time (in days"
-                                description="How long does it take for employees. To be fully productive?"
-                                ahref="/cx"
-                                hrefTitle="test"
-                            >
-                                <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
-                                <div className="container-fluid div-slider-onboardingtime">
-                                    <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange} />
-                                    <button
-                                        className="btn btn-primary"
-                                        disabled={this.state.OnboardingTimeValue === 0 ? true : false}
-                                        onClick={this.includeOnboarding.bind(this)}
-                                    >{btn_includeOnboarding}</button>
+                            <div className="col-md-2">
+                                <Excard
+                                    title="Onboarding time (in days"
+                                    description="How long does it take for employees. To be fully productive?"
+                                    ahref="/cx"
+                                    hrefTitle="test"
+                                >
+                                    <p className="p-OnboardingTimeValue">{this.state.OnboardingTimeValue}</p>
+                                    <div className="container-fluid div-slider-onboardingtime">
+                                        <ExOnboardingSlider setOnboardingValue={this.handleOnboardinTimeChange} />
+                                        <button
+                                            className="btn btn-primary"
+                                            disabled={this.state.OnboardingTimeValue === 0 ? true : false}
+                                            onClick={this.includeOnboarding.bind(this)}
+                                        >{btn_includeOnboarding}</button>
 
-                                </div>
-                            </Excard>
-                        </div>
+                                    </div>
+                                </Excard>
+                            </div>
 
-                        <div className="col-md-6">
-                            <div className="card shadow">
-                                <div className="card-body">
-                                    <h4 className="card-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
-                                    <div className="card-text">
-                                        <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
+                            <div className="col-md-6">
+                                <div className="card shadow">
+                                    <div className="card-body">
+                                        <h4 className="card-title" ref={this.refTheImpact}><b>THE IMPACT</b></h4>
+                                        <div className="card-text">
+                                            <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-
-
-                <div className="container mt-5 mb-5">
-                    <h3>Why the numbers</h3>
-                    <hr />
-                    <div className="row flex-md-row-reverse">
-                        <div className="col-md-4">
-                            <img src={whythenumbersImg} class="img-whythenumbers" alt="whythenumbersImg"></img>
-                        </div>
-
-                        <div className="col-md-8">
-                            <p>
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-
-
-                            <hr className="hr-below-whythenumbers" />
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                            <p><a className="a-read-more" href="https://www.questback.com/no/" target="blank">Read more &#8594;</a> </p>
                         </div>
                     </div>
-                </div>
 
-                {/* The ref will refer the scroll link to what if, in sidebar */}
-                <div className="bg-content pt-5 pb-5 mt-5 mb-5" ref={this.refWhatIf}>
-                    <div className="container">
-                        <h3>WHAT IF</h3>
+
+                    <div className="container mt-5 mb-5">
+                        <h3>Why the numbers</h3>
                         <hr />
-                        <p>
-                            <b>
-                                This is what you could save by using Questback tools.
-                                All the calculation is based on articles and by customer.
+                        <div className="row flex-md-row-reverse">
+                            <div className="col-md-4">
+                                <img src={whythenumbersImg} class="img-whythenumbers" alt="whythenumbersImg"></img>
+                            </div>
+
+                            <div className="col-md-8">
+                                <p>
+
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+
+
+                                <hr className="hr-below-whythenumbers" />
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                                <p><a className="a-read-more" href="https://www.questback.com/no/" target="blank">Read more &#8594;</a> </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* The ref will refer the scroll link to what if, in sidebar */}
+                    <div className="bg-content pt-5 pb-5 mt-5 mb-5" ref={this.refWhatIf}>
+                        <div className="container">
+                            <h3>WHAT IF</h3>
+                            <hr />
+                            <p>
+                                <b>
+                                    This is what you could save by using Questback tools.
+                                    All the calculation is based on articles and by customer.
                             </b>
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p><a class="a-read-more" href="https://www.questback.com/no/" target="blank">Read more &#8594;</a> </p>
-                    </div>
-                </div>
-
-                <div className="container mt-5 mb-5">
-                    <h3>Do the calculation</h3>
-                    <hr />
-                    <div className="container-fluid bg-content p-4">
-                        <div className="row align-items-center mb-3">
-                            <div className="col-md-7">
-                                <strong> If you could reduce CPH to this much</strong>
-                            </div>
-                            <div className="col-md-3">
-                                <ExCalculationCPHSlider setCalculationCPHValue={this.handleCalculationCPHChange} />
-                            </div>
-                            <div className="col-md-2 text-right">
-                                <h4>{this.state.currencyChange}{this.state.CalculationCPHValue}</h4>
-                            </div>
-                        </div>
-
-                        <div className="row align-items-center mb-3">
-                            <div className="col-md-10">
-                                <strong>Cost of recruitment would go down</strong>
-                            </div>
-                            <div className="col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange} {this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}
-                                </h4>
-                            </div>
-                        </div>
-
-                        <div className="row align-items-center">
-                            <div className="col-md-10">
-                                <strong>Saving you</strong>
-                            </div>
-                            <div className="col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange} {Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
-                                        this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
-                                </h4>
-                            </div>
+                            <p><a class="a-read-more" href="https://www.questback.com/no/" target="blank">Read more &#8594;</a> </p>
                         </div>
                     </div>
 
-
-
-                    {/* Start of second calculation textbox */}
-
-                    <div className="container-fluid bg-content p-4 mt-3 mb-3">
-                        <div className="row align-items-center mb-3">
-                            <div className="col-md-7">
-                                <strong>If you could reduce ONBOARDING time this much </strong>
+                    <div className="container mt-5 mb-5">
+                        <h3>Do the calculation</h3>
+                        <hr />
+                        <div className="container-fluid bg-content p-4">
+                            <div className="row align-items-center mb-3">
+                                <div className="col-md-7">
+                                    <strong> If you could reduce CPH to this much</strong>
+                                </div>
+                                <div className="col-md-3">
+                                    <ExCalculationCPHSlider setCalculationCPHValue={this.handleCalculationCPHChange} />
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCaluculation-InputColor">{this.state.currencyChange} {this.state.CalculationCPHValue}</h4>
+                                </div>
                             </div>
-                            <div className="col-md-3">
-                                <ExCalculationOnboardingSlider setCalculationOnboardingValue={this.handleCalculationOnboardingChange} />
+
+                            <div className="row align-items-center mb-3">
+                                <div className="col-md-10">
+                                    <strong>Cost of recruitment would go down</strong>
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}{this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear)}
+                                    </h4>
+                                </div>
                             </div>
-                            <div className="col-md-2 text-right">
-                                <h4><b>Days {this.state.CalculationOnboardingValue}</b></h4>
+
+                            <div className="row align-items-center">
+                                <div className="col-md-10">
+                                    <strong>Saving you</strong>
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}{Math.round(this.state.CostPerHireValues * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
+                                            this.state.CalculationCPHValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
+                                    </h4>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="row align-items-center mb-3">
-                            <div className="col-md-10">
-                                <strong>Cost of ONBOARDING will go down to</strong>
+
+
+                        {/* Start of second calculation textbox */}
+
+                        <div className="container-fluid bg-content p-4 mt-3 mb-3">
+                            <div className="row align-items-center mb-3">
+                                <div className="col-md-7">
+                                    <strong>If you could reduce ONBOARDING time this much </strong>
+                                </div>
+                                <div className="col-md-3">
+                                    <ExCalculationOnboardingSlider setCalculationOnboardingValue={this.handleCalculationOnboardingChange} />
+                                </div>
+                                <div className="col-md-2 text-right p-DoTheCaluculation-InputColor">
+                                    <h4><b>Days {this.state.CalculationOnboardingValue}</b></h4>
+                                </div>
                             </div>
-                            <div className="col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange}
-                                    {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
-                                </h4>
+
+                            <div className="row align-items-center mb-3">
+                                <div className="col-md-10">
+                                    <strong>Cost of ONBOARDING will go down to</strong>
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}
+                                        {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div className="row align-items-center">
+                                <div className="col-md-10">
+                                    <strong>Saving you</strong>
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}
+                                        {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
+                                            (this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
+                                    </h4>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="row align-items-center">
-                            <div className="col-md-10">
-                                <strong>Saving you</strong>
+                        {/* Start of third calculation textbox */}
+
+
+                        <div className="container-fluid bg-content p-4 mt-3 mb-3">
+                            <div className="row align-items-center mb-3">
+                                <div className="col-sm-12 col-md-7">
+                                    <strong>If you could reduce ATTRITION to this much </strong>
+                                </div>
+                                <div className="col-sm-12 col-md-3">
+                                    <ExCalculationAttritionSlider setCalculationAttritionValue={this.handleCalculationAttritionChange} />
+                                </div>
+                                <div className="col-sm-12 col-md-2 text-right">
+                                    <h4 className="p-DoTheCaluculation-InputColor" >{this.state.CalculationAttritionValue} %</h4>
+                                </div>
                             </div>
-                            <div className="col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange}
-                                    {Math.round((this.state.PayValue / this.state.FullProductionCost) * this.state.OnboardingTimeValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear) -
-                                        (this.state.PayValue / this.state.FullProductionCost) * this.state.CalculationOnboardingValue * (this.state.MorePeoplePerYear + this.state.LostPeoplePerYear))}
-                                </h4>
+
+                            <div className="row align-items-center mb-3">
+                                <div className="col-sm-12 col-md-10">
+                                    <strong>Cost of ATTRITION will go down to</strong>
+                                </div>
+                                <div className="col-sm-12 col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}{this.state.PayValue * this.state.CalculationAttritionValue}
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div className="row align-items-center">
+                                <div className="col-md-10">
+                                    <strong>Saving you</strong>
+                                </div>
+                                <div className="col-md-2 text-right">
+                                    <h4 className="p-DoTheCalculation-GreenValue">
+                                        {this.state.currencyChange}
+                                        {this.state.PayValue + this.state.LostPeoplePerYear - this.state.LostPeoplePerYear}
+                                    </h4>
+                                </div>
                             </div>
                         </div>
+
+                        <p className="calculated-CPH">Calculated as CPH x (Total new Hires)</p>
+
                     </div>
 
                     {/* Start of third calculation textbox */}
 
+                    {/* start of business impact */}
 
-                    <div className="container-fluid bg-content p-4 mt-3 mb-3">
-                        <div className="row align-items-center mb-3">
-                            <div className="col-sm-12 col-md-7">
-                                <strong>If you could reduce ATTRITION to this much </strong>
-                            </div>
-                            <div className="col-sm-12 col-md-3">
-                                <ExCalculationAttritionSlider setCalculationAttritionValue={this.handleCalculationAttritionChange} />
-                            </div>
-                            <div className="col-sm-12 col-md-2 text-right">
-                                <h4><b>{this.state.CalculationAttritionValue} %</b></h4>
-                            </div>
+                    <div className="container-fluid div-business-impact">
+                        <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
+                            <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
+
+
                         </div>
 
-                        <div className="row align-items-center mb-3">
-                            <div className="col-sm-12 col-md-10">
-                                <strong>Cost of ATTRITION will go down to</strong>
-                            </div>
-                            <div className="col-sm-12 col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange} {this.state.PayValue * this.state.CalculationAttritionValue}
-                                </h4>
-                            </div>
+                        <div className="div-business-impact-box">
+                            <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
+
+
                         </div>
-
-                        <div className="row align-items-center">
-                            <div className="col-md-10">
-                                <strong>Saving you</strong>
-                            </div>
-                            <div className="col-md-2 text-right">
-                                <h4>
-                                    {this.state.currencyChange}
-                                    {this.state.PayValue + this.state.LostPeoplePerYear - this.state.LostPeoplePerYear}
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p className="calculated-CPH">Calculated as CPH x (Total new Hires)</p>
-
-                </div>
-
-                {/* Start of third calculation textbox */}
-
-                {/* start of business impact */}
-
-                <div className="container-fluid div-business-impact">
-                    <div className="div-total-business-impact" ref={this.refTotalBusinessImpact}>
-                        <b className="div-total-business-impact-title">Your total BUSINESS IMPACT</b>
 
 
                     </div>
-
-                    <div className="div-business-impact-box">
-                        <ExChartTotalBusinessImpact chartBusinessData={this.state.chartBusinessData} />
-
-
-                    </div>
-
-
-                </div>
-            </div >
+                </div >
 
         );
     }

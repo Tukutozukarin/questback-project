@@ -11,21 +11,24 @@ function Container() {
   return (
     <Router>
       <nav className="main-navbar">
-        <NavLink to="/" className="logo">
-          <img src={logo}
-            id="logoimg" alt="questbackLogo" />
-        </NavLink>
-        <ul>
-          <li>
-            <NavLink to="/mr"><span>Mr</span></NavLink>
-          </li>
-          <li>
-            <NavLink to="/ex"><span>Ex</span></NavLink>
-          </li>
-          <li>
-            <NavLink to="/cx"><span>Cx</span></NavLink>
-          </li>
-        </ul>
+          <NavLink to="/" className="logo">
+            <img src={logo}
+              id="logoimg" alt="questbackLogo" />
+          </NavLink>
+          <div className="navbar-menu">
+          <ul>
+            <li>
+              <NavLink to="/mr"><span>Mr</span></NavLink>
+            </li>
+            <li>
+              <NavLink to="/ex"><span>Ex</span></NavLink>
+            </li>
+            <li>
+              <NavLink to="/cx"><span>Cx</span></NavLink>
+            </li>
+          </ul>
+        </div>
+
       </nav>
       <main className="main-content">
         <Route exact path="/" component={Home} />

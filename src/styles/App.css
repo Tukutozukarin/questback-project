@@ -4,6 +4,7 @@
   --bg-body: #e2ebf0;
   --bg-content: #f0f5f7;
   --green: #2ecc77;
+  --orange: #ff6a33;
   --light-blue: #6e9ab4;
   --success: var(--green);
 }
@@ -56,21 +57,35 @@ img {
   list-style: none;
   padding: 20px;
   margin: 0;
+  
 }
 
 .main-navbar ul a {
-  color: #fff;
-  font-size: 25px;
+  color: black;
+  font-size: 35px;
   font-weight: bold;
+  
 }
 
 .main-content {
   width: calc(100% - var(--nav-width));
   position: relative;
   left: var(--nav-width);
+
 }
 
 
 .top-navbar {
   background-color: var(--bg-content);
+}
+
+.Include {
+  background-color: limegreen;
+}
+
+.navbar-menu {
+  position: relative;
+  top: 40%;
+
+
 }

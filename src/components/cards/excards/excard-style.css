@@ -1,3 +1,14 @@
+.p-result {
+    margin-top: 1.5%;
+}
+
+.sum {
+    color: var(--green);
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 1%;
+}
+
 .p-SizeValue {
     font-size: xx-large;
     font-weight: bold;
@@ -5,11 +16,42 @@
     z-index: 2;
 }
 
-.sum {
-    color: var(--green);
+.p-GrowValue {
+    font-size: xx-large;
     font-weight: bold;
-    font-size: x-large;
+    color: var(--green);
+    z-index: 2;
 }
+
+.p-AttritionValue {
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--green);
+    z-index: 2;
+}
+
+.p-PayValue {
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--green);
+    z-index: 2;
+}
+
+.p-CostPerHireValue {
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--green);
+    z-index: 2;
+}
+
+.p-OnboardingTimeValue {
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--green);
+    z-index: 2;
+}
+
+
 
 .dropdown {
     position: relative;
@@ -62,4 +104,100 @@
 #btn-currency {
     font-weight: bold;
 }
+
+.Include {
+    background-color: limegreen;
+    color: limegreen;
+}
+
+.Exclude {
+    background-color: red;
+}
+
+.PDF-btn {
+    position: fixed;
+    background-color: black;
+    color: white;
+    border-color: black;
+    font-weight: bold;
+    font-size: large;
+    width: 8%;
+    height: 5%;
+    top: 85%;
+    left: 3%;
+  }
+
+  /* Sidebar content div start */
+.nav-sidebar{
+    position: fixed;
+    width: 18%;
+    height: 49%;
+    z-index: 2;
+    left: 0%;
+    top: 15%;
+    overflow: hidden;
+
+}
+
+.icon-sidebar {
+    width: 20px;
+    height: 20px;
+}
+
+.title-sidebar {
+    font-weight: bold;
+    font-size: large;
+}
+
+.list-sidebar {
+    font-weight: bold;
+    font-size: medium;
+
+}
+
+.list-sidebar-moretext {
+    font-size: medium;
+}
+
+.div-link-text-sidebar {
+    color: black;
+    cursor: pointer;
+}
+
+.links-sidebar {
+    position: fixed;
+    width: 18%;
+    height: 24%;
+    
+    z-index: 2;
+    left: 1%;
+    top: 60%;
+    overflow: auto;
+}
+
+.list-links-sidebar {
+    font-weight: bold;
+    font-size: 28px;
+    list-style: none;
+    top: 20%;
+ 
+}
+
+.href-link-text-sidebar {
+    color: black;
+}
+
+/* Do the calculation start*/
+.p-DoTheCaluculation-InputColor {
+    color: var(--orange);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.p-DoTheCalculation-GreenValue {
+    color: var(--green);
+    font-size: 28px;
+}
+
+/* Do the calculation end*/
   
