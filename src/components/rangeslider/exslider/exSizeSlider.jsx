@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Range, getTrackBackground } from 'react-range';
 
 
-const STEP = 0.1;
+const STEP = 1000;
 const MIN = 0;
-const MAX = 100;
+const MAX = 100000;
 
 class ExSizeSlider extends React.Component {
     state = {
-        size: [50]
+        size: [50000]
       };
 
 

@@ -4,11 +4,11 @@ import { Range, getTrackBackground } from 'react-range';
 
 const STEP = 0.1;
 const MIN = 0;
-const MAX = 100;
+const MAX = 4000;
 
 class ExCalculationCPHSlider extends React.Component {
     state = {
-        calculationcphvalues: [50]
+        calculationcphvalues: [2000]
       };
 
 

@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Range, getTrackBackground } from 'react-range';
 
 
-const STEP = 0.1;
+const STEP = 1000;
 const MIN = 0;
-const MAX = 100;
+const MAX = 50000;
 
 class ExCostPerHireSlider extends React.Component {
     state = {
-        costperhirevalues: [50]
+        costperhirevalues: [25000]
       };
 
 

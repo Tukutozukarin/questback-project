@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Range, getTrackBackground } from 'react-range';
 
 
-const STEP = 0.1;
+const STEP = 1;
 const MIN = 0;
-const MAX = 100;
+const MAX = 365;
 
 class ExOnboardingSlider extends React.Component {
     state = {
-        onboardingvalues: [50]
+        onboardingvalues: [182]
       };
 
 

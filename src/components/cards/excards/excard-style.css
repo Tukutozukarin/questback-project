@@ -14,13 +14,32 @@
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 90%;
+  
+    border: '0.5px solid #ccc';
+    left: 6%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
+
 
 .p-GrowValue {
     font-size: xx-large;
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 90%;
+  
+    border: '0.5px solid #ccc';
+    left: 6%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .p-AttritionValue {
@@ -28,6 +47,15 @@
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 90%;
+  
+    border: '0.5px solid #ccc';
+    left: 6%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .p-PayValue {
@@ -35,6 +63,28 @@
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 95%;
+  
+    border: '0.5px solid #ccc';
+    left: 4%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+   
+}
+
+.p-PayCurrency {
+    position: relative;
+
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--green);
+  
+    width: 19%;
+    background-color: grey;
+
 }
 
 .p-CostPerHireValue {
@@ -42,6 +92,15 @@
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 90%;
+  
+    border: '0.5px solid #ccc';
+    left: 6%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .p-OnboardingTimeValue {
@@ -49,6 +108,15 @@
     font-weight: bold;
     color: var(--green);
     z-index: 2;
+    width: 90%;
+  
+    border: '0.5px solid #ccc';
+    left: 6%;
+    position: relative;
+    display: 'block';
+    
+    text-Shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 
@@ -197,7 +265,15 @@
 .p-DoTheCalculation-GreenValue {
     color: var(--green);
     font-size: 28px;
+  
 }
 
 /* Do the calculation end*/
   
+/* The impact cards start */
+
+.p-TheImpact-GreenValue {
+    color: var(--green);
+    font-size: 16px;
+}
+/* The impact cards end */
