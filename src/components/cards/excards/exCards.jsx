@@ -930,12 +930,12 @@ render() {
                             <ExCalculationCPHSlider setCalculationCPHValue={this.handleCalculationCPHChange} />
                         </div>
                         <div className="col-md-2 text-right">
-                            <h4 className="p-DoTheCaluculation-InputColor">{this.state.currencyChange}
+                            <h4 className="p-DoTheCaluculation-InputColor">
                                 <NumericInput
                                     min={0}
                                     max={4000}
                                     value={this.state.CalculationCPHValue}
-                                    className="form-control p-PayValue"
+                                    className="form-control p-DoTheCalculationValue"
                                     placeholder=""
                                     onChange={this.handleCalculationCPHChange}
                                     noStyle
@@ -989,7 +989,7 @@ render() {
                                     min={0}
                                     max={31}
                                     value={this.state.CalculationOnboardingValue}
-                                    className="form-control p-PayValue"
+                                    className="form-control p-DoTheCalculationValue"
                                     placeholder=""
                                     onChange={this.handleCalculationOnboardingChange}
                                     noStyle
@@ -1046,7 +1046,7 @@ render() {
                                     min={0}
                                     max={100}
                                     value={this.state.CalculationAttritionValue}
-                                    className="form-control p-PayValue"
+                                    className="form-control p-DoTheCalculationValue"
                                     placeholder=""
                                     format={this.growFormat}
                                     onChange={this.handleCalculationAttritionChange}
