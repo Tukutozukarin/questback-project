@@ -70,7 +70,11 @@ class Excards extends Component {
       FullProductionCost: 240,
 
       chartData: {},
+      chartDataYear2: 2,
+      chartDataYear3: 3,
       chartBusinessData: {},
+      chartBusinessDataYear2: 2,
+      chartBusinessDataYear3: 3,
 
       calculateSizeValue: true,
 
@@ -107,33 +111,18 @@ class Excards extends Component {
                     state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)
                 ),
                 Math.round(
-                  state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    (state.PayValue / state.FullProductionCost) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    (state.PayValue / state.FullProductionCost) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)
+                    (state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                      (state.PayValue / state.FullProductionCost) *
+                        state.OnboardingTimeValue *
+                        ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                      state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) * state.chartDataYear2
                 ),
                 Math.round(
-                  state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    (state.PayValue / state.FullProductionCost) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    (state.PayValue / state.FullProductionCost) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    (state.PayValue / state.FullProductionCost) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)
+                    (state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                      (state.PayValue / state.FullProductionCost) *
+                        state.OnboardingTimeValue *
+                        ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                      state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) * state.chartDataYear3
                 ),
               ],
               backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(75, 192, 192, 0.6)'],
@@ -154,7 +143,8 @@ class Excards extends Component {
             {
               label: 'The Business impact',
               data: [
-                Math.round(state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) -
+                Math.round(
+                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) -
                   state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
                   (state.PayValue / 240) *
                     state.OnboardingTimeValue *
@@ -163,61 +153,33 @@ class Excards extends Component {
                     state.CalculationOnboardingValue *
                     ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
                   state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                  state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue),
-                Math.round(
-                  state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) -
-                    state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
-                    (state.PayValue / 240) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    (state.PayValue / state.FullProductionCost) *
-                      state.CalculationOnboardingValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) -
-                    state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
-                    (state.PayValue / 240) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    (state.PayValue / state.FullProductionCost) *
-                      state.CalculationOnboardingValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue)
-                ),
+                  state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue)
+                  ,
 
-                Math.round(
-                  state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) -
-                    state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
-                    (state.PayValue / 240) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    (state.PayValue / state.FullProductionCost) *
-                      state.CalculationOnboardingValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) -
-                    state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
-                    (state.PayValue / 240) *
-                      state.OnboardingTimeValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    (state.PayValue / state.FullProductionCost) *
-                      state.CalculationOnboardingValue *
-                      ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                    state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                    (state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                      state.PayValue * ((state.SizeValue / 100) * state.AttritionValue) -
-                      state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
-                      (state.PayValue / 240) *
-                        state.OnboardingTimeValue *
-                        ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                      (state.PayValue / state.FullProductionCost) *
-                        state.CalculationOnboardingValue *
-                        ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
-                      state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
-                      state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue))
+                  Math.round(
+                      ((state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) -
+                  state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
+                  (state.PayValue / 240) *
+                    state.OnboardingTimeValue *
+                    ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
+                  (state.PayValue / state.FullProductionCost) *
+                    state.CalculationOnboardingValue *
+                    ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                  state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
+                  state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue)) * state.chartBusinessDataYear2
+                  ),
+
+                  Math.round(
+                    ((state.PayValue * ((state.SizeValue / 100) * state.AttritionValue)) -
+                state.PayValue * ((state.SizeValue / 100) * state.CalculationAttritionValue) +
+                (state.PayValue / 240) *
+                  state.OnboardingTimeValue *
+                  ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
+                (state.PayValue / state.FullProductionCost) *
+                  state.CalculationOnboardingValue *
+                  ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) +
+                state.CostPerHireValues * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue) -
+                state.CalculationCPHValue * ((state.SizeValue / 100) * state.GrowValue + (state.SizeValue / 100) * state.AttritionValue)) * state.chartBusinessDataYear3
                 ),
               ],
               backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(75, 192, 192, 0.6)'],
@@ -415,9 +377,92 @@ class Excards extends Component {
     return (this.state.SizeValue / 100) * this.state.GrowValue + (this.state.SizeValue / 100) * this.state.AttritionValue;
   };
 
+  calculateTotalBusiness = () => {
+      return Numeral(Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)) -
+      this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue) +
+      (this.state.PayValue / 240) *
+        this.state.OnboardingTimeValue *
+        (this.getCostPerHire()) -
+      (this.state.PayValue / this.state.FullProductionCost) *
+        this.state.CalculationOnboardingValue *
+        this.getCostPerHire() +
+      this.state.CostPerHireValues *
+        this.getCostPerHire() -
+      this.state.CalculationCPHValue *
+        this.getCostPerHire()).format('0,0')
+  }
+
   calculateCostOfRecruitment = () => {
-    return Math.round(this.state.CostPerHireValues * this.getCostPerHire());
+    return Numeral(Math.round(this.state.CostPerHireValues * this.getCostPerHire())).format('0,0');
   };
+
+  calculateCostOfOnboarding = () => {
+      return Numeral(Math.round((this.state.PayValue / 240) * this.state.OnboardingTimeValue * this.getCostPerHire())).format('0,0');
+  }
+
+  calculateCostOfAttrition = () => {
+      return Numeral(Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue))).format('0,0');
+  }
+
+  calculateTotalCostInOneYear = () => {
+    return Numeral(Math.round(
+      this.state.CostPerHireValues *
+        (this.getCostPerHire()) +
+        (this.state.PayValue / this.state.FullProductionCost) *
+          this.state.OnboardingTimeValue *
+          (this.getCostPerHire()) +
+        this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)
+    )).format('0,0');
+}
+
+
+  // Do the calculation 
+
+  // Do the calculation textbox 1
+  doThecalculationCostOfRecruitMentWouldGoDown = () => {
+      return Numeral(Math.round(
+        this.state.CalculationCPHValue *
+          this.getCostPerHire())).format('0,0');
+  }
+
+
+  doTheCalculationCostOfRecuitmentSavingYou = () => {
+      return Numeral(Math.round(
+        this.state.CostPerHireValues *
+          this.getCostPerHire() -
+          this.state.CalculationCPHValue *
+            this.getCostPerHire())).format('0,0');
+  }
+
+  // Do the Calculation textbox 2
+
+  doTheCalculationCostOfOnboardingWillGoDown = () => {
+      return Numeral(Math.round(
+        (this.state.PayValue / this.state.FullProductionCost) *
+          this.state.CalculationOnboardingValue *
+          this.getCostPerHire())).format('0,0');
+  }
+
+  doTheCalculationCostOfOnboardingSavingYou = () => {
+      return Numeral(Math.round(
+        (this.state.PayValue / 240) *
+          this.state.OnboardingTimeValue *
+          this.getCostPerHire() -
+          (this.state.PayValue / this.state.FullProductionCost) *
+            this.state.CalculationOnboardingValue *
+            this.getCostPerHire())).format('0,0');
+  }
+
+  // Do the calculation textbox 2
+
+  doTheCalculationCostOfAttritionWouldGoDown = () => {
+      return Numeral(Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue))).format('0,0');
+  }
+
+  doTheCalculationCostOfAttritionSavingYou = () => {
+      return Numeral(Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)) -
+      this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue)).format('0,0');
+  }
 
   render() {
     let btn_includeSize = this.state.includeExcludeSize ? 'Include' : 'Exclude';
@@ -448,7 +493,7 @@ class Excards extends Component {
 
       // potential benefit achieveable
       pdf.setFontSize(16);
-      pdf.text(`${Math.round(this.state.SizeValue + this.state.GrowValue)}`, 148, 53);
+      pdf.text(`${Numeral(Math.round((this.state.SizeValue + this.state.GrowValue))).format('0,0')}`, 148, 53);
 
       // minustes spent searching left result
       pdf.setFontSize(14);
@@ -616,18 +661,7 @@ class Excards extends Component {
 
             <p className="sum">
               {this.state.currencyChange}{' '}
-              {Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)) -
-                this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue) +
-                (this.state.PayValue / 240) *
-                  this.state.OnboardingTimeValue *
-                  (this.getCostPerHire()) -
-                (this.state.PayValue / this.state.FullProductionCost) *
-                  this.state.CalculationOnboardingValue *
-                  this.getCostPerHire() +
-                this.state.CostPerHireValues *
-                  this.getCostPerHire() -
-                this.state.CalculationCPHValue *
-                  this.getCostPerHire()}
+              {this.calculateTotalBusiness()}
             </p>
           </div>
         </div>
@@ -730,7 +764,7 @@ class Excards extends Component {
                       <b>Total New Hires >> </b>
                     </p>
                     <b className="the-impact-total-new-hires-number p-TheImpact-GreenValue">
-                      {Math.round(this.getCostPerHire())}
+                      {Numeral(Math.round(this.getCostPerHire())).format('0,0')}
                     </b>
                     <hr className="hr-total-new-hires" />
 
@@ -738,7 +772,7 @@ class Excards extends Component {
                       <b>Cost of Recruitment</b>
                     </p>
                     <b className="the-impact-cost-of-recruitmet-number p-TheImpact-GreenValue">
-                      {this.state.currencyChange} {Numeral(this.calculateCostOfRecruitment()).format('0,0')}
+                      {this.state.currencyChange} {this.calculateCostOfRecruitment()}
                     </b>
 
                     <p className="the-impact-productivity-cost-text">
@@ -746,18 +780,14 @@ class Excards extends Component {
                     </p>
                     <b className="the-impact-productivity-cost-number p-TheImpact-GreenValue">
                       {this.state.currencyChange}{' '}
-                      {Math.round(
-                        (this.state.PayValue / 240) *
-                          this.state.OnboardingTimeValue *
-                          this.getCostPerHire()
-                      )}{' '}
+                      {this.calculateCostOfOnboarding()}{' '}
                     </b>
 
                     <p className="the-impact-cost-of-attrition-text">
                       <b>Cost of Attrition</b>
                     </p>
                     <b className="the-impact-cost-of-attrition-number p-TheImpact-GreenValue">
-                      {this.state.currencyChange} {Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue))}
+                      {this.state.currencyChange} {this.calculateCostOfAttrition()}
                     </b>
 
                     <hr className="hr-cost-of-attrition" />
@@ -767,14 +797,7 @@ class Excards extends Component {
                     </p>
                     <b className="the-impact-total-cost-number p-TheImpact-GreenValue">
                       {this.state.currencyChange}{' '}
-                      {Math.round(
-                        this.state.CostPerHireValues *
-                          (this.getCostPerHire() +
-                          (this.state.PayValue / this.state.FullProductionCost) *
-                            this.state.OnboardingTimeValue *
-                            this.getCostPerHire()) +
-                          this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)
-                      )}
+                      {this.calculateTotalCostInOneYear()}
                     </b>
                   </div>
                 </div>
@@ -783,15 +806,16 @@ class Excards extends Component {
           </div>
         </div>
 
-        <div className="container-fluid">
+        <div className="container-fluid mb-4">
           <div className="row">
+          
             <div className="col-md-2">
               <Excard title="Salary in your company" description="What is the average fully loaded annual salary in your company?" ahref="/cx">
                 <p className="p-PayValue">
                   <NumericInput
                     min={0}
                     max={200000}
-                    value={this.state.PayValue}
+                    value={(this.state.PayValue)}
                     className="form-control p-PayValue"
                     placeholder=""
                     onChange={this.handlePayChange}
@@ -870,7 +894,8 @@ class Excards extends Component {
               </Excard>
             </div>
 
-            <div className="col-md-6">
+
+            <div className="col-md-5">
               <div className="card shadow">
                 <div className="card-body">
                   <h4 className="card-title">
@@ -882,8 +907,12 @@ class Excards extends Component {
                 </div>
               </div>
             </div>
+
+            
           </div>
         </div>
+
+
 
         <div className="container mt-5 mb-5">
           <h3>Why the numbers</h3>
@@ -973,10 +1002,8 @@ class Excards extends Component {
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(
-                    this.state.CalculationCPHValue *
-                      this.getCostPerHire()
-                  )}
+                  {this.doThecalculationCostOfRecruitMentWouldGoDown()
+                  }
                 </h4>
               </div>
             </div>
@@ -988,12 +1015,8 @@ class Excards extends Component {
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(
-                    this.state.CostPerHireValues *
-                      this.getCostPerHire() -
-                      this.state.CalculationCPHValue *
-                        this.getCostPerHire()
-                  )}
+                  {this.doTheCalculationCostOfRecuitmentSavingYou()
+                  }
                 </h4>
               </div>
             </div>
@@ -1033,11 +1056,8 @@ class Excards extends Component {
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(
-                    (this.state.PayValue / this.state.FullProductionCost) *
-                      this.state.CalculationOnboardingValue *
-                      this.getCostPerHire()
-                  )}
+                  {this.doTheCalculationCostOfOnboardingWillGoDown()
+                  }
                 </h4>
               </div>
             </div>
@@ -1049,14 +1069,8 @@ class Excards extends Component {
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(
-                    (this.state.PayValue / 240) *
-                      this.state.OnboardingTimeValue *
-                      this.getCostPerHire() -
-                      (this.state.PayValue / this.state.FullProductionCost) *
-                        this.state.CalculationOnboardingValue *
-                        this.getCostPerHire()
-                  )}
+                  {this.doTheCalculationCostOfOnboardingSavingYou()
+                  }
                 </h4>
               </div>
             </div>
@@ -1095,7 +1109,7 @@ class Excards extends Component {
               <div className="col-sm-12 col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue))}
+                  {this.doTheCalculationCostOfAttritionWouldGoDown()}
                 </h4>
               </div>
             </div>
@@ -1107,8 +1121,7 @@ class Excards extends Component {
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
                   {this.state.currencyChange}
-                  {Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.AttritionValue)) -
-                    this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue)}
+                  {this.doTheCalculationCostOfAttritionSavingYou()}
                 </h4>
               </div>
             </div>

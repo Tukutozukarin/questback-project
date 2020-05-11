@@ -25,7 +25,7 @@ function Container() {
             */}
 
             <li>
-              <NavLink to="/ex"><span>Ex</span></NavLink>
+              <NavLink to="/ex">Ex</NavLink>
             </li>
             {/*
             <li>

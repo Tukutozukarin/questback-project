@@ -2,11 +2,12 @@
 .nav-sidebar{
     position: fixed;
     width: 18%;
-    height: 49%;
+  
     z-index: 2;
     left: 0%;
     top: 8%;
-    overflow: hidden;
+  
+ 
 
 }
 
@@ -42,8 +43,8 @@
     
     z-index: 2;
     left: 1%;
-    top: 60%;
-    overflow: auto;
+ 
+   
 }
 
 .list-links-sidebar {
