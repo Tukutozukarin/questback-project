@@ -271,7 +271,7 @@
 .p-DoTheCalculationValue {
     font-size: xx-large;
     font-weight: bold;
-    color: var(--green);
+    color: var(--orange);
     z-index: 2;
     width: 80%;
   
