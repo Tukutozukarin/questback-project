@@ -31,6 +31,7 @@ class Excards extends Component {
   /* Navigating though divs for sidebar  */
   refROIDashboard = React.createRef();
   refAboutYourCompany = React.createRef();
+  refWhyTheNumbers = React.createRef(); 
   refTheImpact = React.createRef();
   refTotalBusinessImpact = React.createRef();
   refUsingQuestback = React.createRef();
@@ -85,8 +86,8 @@ class Excards extends Component {
       includeExcludeCostPerHire: true,
       includeExcludeOnboarding: true,
 
-      currencyText: 'USD',
-      currencyChange: '$',
+      currencyText: 'GBP',
+      currencyChange: '￡',
 
       time: new Date(),
     };
@@ -324,8 +325,15 @@ class Excards extends Component {
     });
   };
 
+  currencyChangeToGBP = (e) => {
+    e.preventDefault();
+    this.setState({
+      currencyChange: '£',
+      currencyText: 'GBP',
+    });
+  };
+
   currencyChangeToUSD = (e) => {
-    //reent default will let you use onclick in ahref
     e.preventDefault();
     this.setState({
       currencyChange: '$',
@@ -349,13 +357,7 @@ class Excards extends Component {
     });
   };
 
-  currencyChangeToGBP = (e) => {
-    e.preventDefault();
-    this.setState({
-      currencyChange: '£',
-      currencyText: 'GBP',
-    });
-  };
+ 
 
   sizeFormat(size) {
     return size + '.0';
@@ -567,6 +569,8 @@ class Excards extends Component {
             </div>
           </div>
 
+          {/* Customer dropdown functionality that hasnt been worked on */}
+          {/* 
           <div class="dropdown">
             <button class="dropdown__btn dropdown__btn--left">CUSTOMER</button>
             <button class="dropdown__btn dropdown__btn--right">OLD</button>
@@ -575,13 +579,14 @@ class Excards extends Component {
               <a href="#">OLD</a>
             </div>
           </div>
+          */}
 
           <div class="dropdown">
             <button class="dropdown__btn dropdown__btn--left">CURRENCY</button>
             <button class="dropdown__btn dropdown__btn--right">{this.state.currencyText}</button>
             <div class="dropdown-content dropdown-currency">
-              <a href="#" onClick={this.currencyChangeToUSD}>
-                USD
+              <a href="#" onClick={this.currencyChangeToGBP}>
+                GBP
               </a>
               <a href="#" onClick={this.currencyChangeToNok}>
                 Nok
@@ -589,8 +594,8 @@ class Excards extends Component {
               <a href="#" onClick={this.currencyChangeToEuro}>
                 EURO
               </a>
-              <a href="#" onClick={this.currencyChangeToGBP}>
-                GBP
+              <a href="#" onClick={this.currencyChangeToUSD}>
+                USD
               </a>
             </div>
           </div>
@@ -634,6 +639,15 @@ class Excards extends Component {
               }}
             >
               Using Questback
+            </li>
+            <p></p>
+            <li
+              className="div-link-text-sidebar"
+              onClick={() => {
+                this.handleScrollTo(this.refWhyTheNumbers);
+              }}
+            >
+              Why the numbers
             </li>
             <p></p>
             <li
@@ -796,7 +810,7 @@ class Excards extends Component {
                       <b>Total cost in one year</b>
                     </p>
                     <b className="the-impact-total-cost-number p-TheImpact-GreenValue">
-                      {this.state.currencyChange}{' '}
+                      {this.state.currencyChange} 
                       {this.calculateTotalCostInOneYear()}
                     </b>
                   </div>
@@ -835,7 +849,7 @@ class Excards extends Component {
             <div className="col-md-2">
               <Excard
                 title="Cost per hire (CPH)"
-                description="Consider job boards, consultants, background - Checks, marketing etc..."
+                description="Consider job boards, consultants, background - Checks, marketing"
                 ahref="/cx"
                 hrefTitle="test"
               >
@@ -914,7 +928,7 @@ class Excards extends Component {
 
 
 
-        <div className="container mt-5 mb-5">
+        <div className="container mt-5 mb-5" ref={this.refWhyTheNumbers}>
           <h3>Why the numbers</h3>
           <hr />
           <div className="row flex-md-row-reverse">
@@ -1055,9 +1069,8 @@ class Excards extends Component {
               </div>
               <div className="col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
-                  {this.state.currencyChange}
-                  {this.doTheCalculationCostOfOnboardingWillGoDown()
-                  }
+                  {this.state.currencyChange} 
+                  {this.doTheCalculationCostOfOnboardingWillGoDown()}
                 </h4>
               </div>
             </div>
@@ -1108,7 +1121,7 @@ class Excards extends Component {
               </div>
               <div className="col-sm-12 col-md-2 text-right">
                 <h4 className="p-DoTheCalculation-GreenValue">
-                  {this.state.currencyChange}
+                  {this.state.currencyChange} 
                   {this.doTheCalculationCostOfAttritionWouldGoDown()}
                 </h4>
               </div>

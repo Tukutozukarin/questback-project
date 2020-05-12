@@ -265,6 +265,8 @@
 .p-DoTheCalculation-GreenValue {
     color: var(--green);
     font-size: 28px;
+    right: 55%;
+    position: relative;
   
 }
 

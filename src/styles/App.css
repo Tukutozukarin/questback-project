@@ -62,7 +62,7 @@ img {
 
 .main-navbar ul a {
   color: black;
-  font-size: 35px;
+  font-size: 45px;
   font-weight: bold;
   
 }
@@ -71,6 +71,7 @@ img {
   width: calc(100% - var(--nav-width));
   position: relative;
   left: var(--nav-width);
+
 
 }
 
@@ -85,6 +86,8 @@ img {
 
 .navbar-menu {
   position: relative;
-  top: 40%;
+  top: 58%;
+  left: 30%;
+ 
 
 }
