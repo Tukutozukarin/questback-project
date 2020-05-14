@@ -558,6 +558,7 @@ class Excards extends Component {
             'navbar--hidden': !this.state.visible,
           })}
         >
+          <div>
           <div class="dropdown">
             <button class="dropdown__btn dropdown__btn--left">Product</button>
             <button class="dropdown__btn dropdown__btn--right">Ex</button>
@@ -569,17 +570,6 @@ class Excards extends Component {
             </div>
           </div>
 
-          {/* Customer dropdown functionality that hasnt been worked on */}
-          {/* 
-          <div class="dropdown">
-            <button class="dropdown__btn dropdown__btn--left">CUSTOMER</button>
-            <button class="dropdown__btn dropdown__btn--right">OLD</button>
-            <div class="dropdown-content">
-              <a href="#">NEW</a>
-              <a href="#">OLD</a>
-            </div>
-          </div>
-          */}
 
           <div class="dropdown">
             <button class="dropdown__btn dropdown__btn--left">CURRENCY</button>
@@ -599,6 +589,20 @@ class Excards extends Component {
               </a>
             </div>
           </div>
+          </div>
+
+
+          {/* Customer dropdown functionality that hasnt been worked on */}
+          {/* 
+          <div class="dropdown">
+            <button class="dropdown__btn dropdown__btn--left">CUSTOMER</button>
+            <button class="dropdown__btn dropdown__btn--right">OLD</button>
+            <div class="dropdown-content">
+              <a href="#">NEW</a>
+              <a href="#">OLD</a>
+            </div>
+          </div>
+          */}
         </nav>
 
         {/* Sidebar start */}
