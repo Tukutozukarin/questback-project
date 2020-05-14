@@ -11,13 +11,14 @@ function Container() {
   return (
     <Router>
       <nav className="main-navbar">
+        {/* Questback logo */}
         <NavLink to="/" className="logo">
           <img src={logo}
             id="logoimg" alt="questbackLogo" />
         </NavLink>
         <div className="navbar-menu">
           <ul>
-            {/*
+            {/* These have been commented off since they have not been used, only EX has been worked on
             <li>
               <NavLink to="/mr"><span>Mr</span></NavLink>
             </li> 
@@ -38,6 +39,7 @@ function Container() {
         </div>
 
       </nav>
+      {/* Router links for the pages */}
       <main className="main-content">
         <Route exact path="/" component={Home} />
         <Route path="/mr" component={Mr} />

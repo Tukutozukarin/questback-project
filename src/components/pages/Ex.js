@@ -6,6 +6,7 @@ class Ex extends Component {
   render() {
     return (
         <div>
+          {/* The site will be found at excards folder */}
           <ExCard />
         </div>
     );

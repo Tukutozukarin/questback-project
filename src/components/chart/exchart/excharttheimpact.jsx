@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
+// This component is used from the chartjs module 
+// It lets you 
 class exChartTheImpact extends Component {
     refChart = {};
 
@@ -11,6 +13,7 @@ class exChartTheImpact extends Component {
         }
     }
 
+    // Props for changing the values on things 
     static defaultProps = {
         displayTitle: true,
         displayLegend: true,
@@ -18,6 +21,7 @@ class exChartTheImpact extends Component {
         location: ''
     }
 
+    // function that lets you update the chart by state
     componentWillReceiveProps(nextProps) {
         if (nextProps.chartData !== this.state.chartData) {
           this.setState({ chartData: nextProps.chartData });

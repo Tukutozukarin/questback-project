@@ -2,6 +2,7 @@
     margin-top: 1.5%;
 }
 
+/* ROI Dashboard Total business sum start */
 .sum {
     color: var(--green);
     font-weight: bold;
@@ -9,6 +10,9 @@
     margin-top: 1%;
 }
 
+/* ROI Dashboard Total business sum end */
+
+/* Calculation for the cards start */
 .p-SizeValue {
     font-size: xx-large;
     font-weight: bold;
@@ -119,15 +123,19 @@
     text-align: center;
 }
 
+.card-theImpact{
+    top: -50%;
+}
 
+/* Calculation for the cards stop */
+
+/* Top nav bar start */
 
 .dropdown {
     position: relative;
     display: inline-block;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
-
-
 
 .dropdown__btn {
     -webkit-appearance: none;
@@ -175,6 +183,10 @@
     font-weight: bold;
 }
 
+/* Top nav bar end */
+
+/* include and exclude buttons start */
+
 .Include {
     background-color: limegreen;
     color: limegreen;
@@ -184,6 +196,9 @@
     background-color: red;
 }
 
+/* include and exclude buttons end */
+
+/* PDF button */
 .PDF-btn {
     position: fixed;
     background-color: black;
@@ -256,6 +271,8 @@
 .href-link-text-sidebar {
     color: black;
 }
+
+/* Sidebar content end */
 
 /* Do the calculation start*/
 .p-DoTheCaluculation-InputColor {

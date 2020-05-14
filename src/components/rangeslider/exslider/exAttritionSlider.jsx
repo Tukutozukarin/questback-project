@@ -6,6 +6,8 @@ const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
+// This will let you customized rangeslider more in depth
+// More customizedable options will be found in https://www.npmjs.com/package/react-range
 class ExSizeSlider extends React.Component {
     state = {
         attritionvalues: [50]
