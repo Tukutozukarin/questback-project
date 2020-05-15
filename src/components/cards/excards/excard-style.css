@@ -127,6 +127,14 @@
     top: -50%;
 }
 
+.card-exChart {
+    position: relative;
+    width: 300%;
+    height: 150%;
+    background-color: blue;
+
+}
+
 /* Calculation for the cards stop */
 
 /* Top nav bar start */
@@ -208,7 +216,7 @@
     font-size: large;
     width: 8%;
     height: 5%;
-    top: 85%;
+    top: 90%;
     left: 3%;
   }
 

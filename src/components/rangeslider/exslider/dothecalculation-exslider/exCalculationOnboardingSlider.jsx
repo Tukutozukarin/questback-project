@@ -4,11 +4,11 @@ import { Range, getTrackBackground } from 'react-range';
 
 const STEP = 1;
 const MIN = 0;
-const MAX = 31;
+const MAX = 365;
 
 class ExCalculationOnboardingSlider extends React.Component {
     state = {
-        calculationonboardingvalues: [15]
+        calculationonboardingvalues: [182]
       };
 
 

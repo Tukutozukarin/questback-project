@@ -35,7 +35,7 @@ class exChartTheImpact extends Component {
                     data={this.state.chartData}
                     ref={(referense) => this.refChart = referense}
                     width={100}
-                    height={90}
+                    height={100}
                     options={{
                         title: {
                             display: this.props.displayTitle,

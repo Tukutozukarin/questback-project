@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { renderToString } from 'react-dom/server';
-// props import to refactor the code
-import Excard from './exCardsUI';
-
+// props import to refactor the code UI
+import Excard from './exUI/exCardsUI';
+import ExUsingQuesback from './exUI/exUsingQuestback';
+import ExWhyTheNumbers from './exUI/exWhyTheNumbers';
 
 // chart component that can be changed in chart folder
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
+
 
 // Range sliders import from rangeslide folder
 import ExSizeSlider from '../../rangeslider/exslider/exSizeSlider';
@@ -69,7 +71,7 @@ class Excards extends Component {
       PayValue: 0,
       CostPerHireValues: 0,
       OnboardingTimeValue: 0,
-      
+
       // Do the calculation values t
       CalculationCPHValue: 0,
       CalculationOnboardingValue: 0,
@@ -373,12 +375,12 @@ class Excards extends Component {
   };
 
 
-// format for some of the calculation for the impact
+  // format for some of the calculation for the impact
   growFormat(grow) {
     return grow + '%';
   }
 
- // calculation for values such as the total impact
+  // calculation for values such as the total impact
   getCostPerHire = () => {
     return (this.state.SizeValue / 100) * this.state.GrowValue + (this.state.SizeValue / 100) * this.state.AttritionValue;
   };
@@ -459,7 +461,7 @@ class Excards extends Component {
       this.getCostPerHire())).format('0,0');
   }
 
-  // Do the calculation textbox 2
+  // Do the calculation textbox 3
 
   doTheCalculationCostOfAttritionWouldGoDown = () => {
     return Numeral(Math.round(this.state.PayValue * ((this.state.SizeValue / 100) * this.state.CalculationAttritionValue))).format('0,0');
@@ -564,7 +566,7 @@ class Excards extends Component {
 
     return (
       <div>
-        {/* top nav bar  */} 
+        {/* top nav bar  */}
         <nav
           className={classnames('top-navbar navbar', {
             'navbar--hidden': !this.state.visible,
@@ -624,8 +626,6 @@ class Excards extends Component {
                 to add a certein scrolling you will need to make a ref etc  refROIDashboard = React.createRef();
                  then you have to create on ref for the text you want it to smooth scroll as u can see below.
               to add a destination how far the scroll will go write this beside the class name of the div etc ref={this.refROIDashboard}
-                  
-        
         */}
         <div className="container-fluid nav-sidebar">
           <ul className="list-sidebar">
@@ -698,7 +698,7 @@ class Excards extends Component {
         {/* PDF button end */}
 
         {/* ROI Dashboard total business sum start */}
-        <div className="bg-content mt-4 mb-4" ref={this.refROIDashboard}>
+        <div className="bg-content mt-4 mb-5" ref={this.refROIDashboard}>
           <div className="container d-flex justify-content-between">
             <p className="p-result">ROI Dashboard | Total Business:</p>
 
@@ -709,9 +709,9 @@ class Excards extends Component {
           </div>
         </div>
 
-         {/* ROI Dashboard total business sum end */}
+        {/* ROI Dashboard total business sum end */}
 
-         {/* Select a section div start */}
+        {/* Select a section div start */}
         <div className="container bg-content mt-4 mb-4 p-4" ref={this.refAboutYourCompany}>
           <h3>Select a section below to review your ROI{'\n'}</h3>
           <p>
@@ -720,10 +720,10 @@ class Excards extends Component {
             process. To return to this screen, click on the ROI Dashboard button to the left.
           </p>
         </div>
-          {/* Select a section div end */}
-        
+        {/* Select a section div end */}
+
         {/*  Ex cards calculation with props from exCardsUI start*/}
-          {/* row one start */}
+        {/* row one start */}
         <div className="container-fluid mb-4" ref={this.refTheImpact}>
           <div className="row">
             <div className="col-xs-12 col-lg-7">
@@ -803,14 +803,14 @@ class Excards extends Component {
               </div>
             </div>
 
-           
+
 
           </div>
 
-            {/* row two end */}
+          {/* row two end */}
         </div>
-        
-          {/* Second row for excard calculation start */}
+
+        {/* Second row for excard calculation start */}
 
         <div className="container-fluid mb-4">
           <div className="row">
@@ -901,8 +901,31 @@ class Excards extends Component {
               </div>
             </div>
 
-            <div className="col-xs-12 col-lg-5">
-              <div className="card shadow card-theImpact">
+          </div>
+
+          {/* second row end */}
+        </div>
+
+        {/* Third row chart and total the impact */}
+
+
+        <div className="container-fluid mb-8">
+          <div className="row">
+     
+              <div className="col-lg-4 col-md-6">
+              <div className="card shadow">
+                <div className="card-body">
+                    {/* Added chart in the div, this is the the impact chart */}
+                    <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
+              </div>
+            </div>
+              
+              </div>
+        
+       
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card shadow">
                 <div className="card-body">
                   <h4 className="card-title">
                     <b>THE IMPACT</b>
@@ -954,80 +977,51 @@ class Excards extends Component {
             </div>
 
           </div>
+          </div>
 
-            {/* second row end */}
-        </div>
+
+        
+
+    
 
 
         {/* Why the numbers div start*/}
-        <div className="container mt-5 mb-5" ref={this.refWhyTheNumbers}>
-          <h3>Why the numbers</h3>
-          <hr />
-          <div className="row flex-md-row-reverse">
-            <div className="col-md-5">
-              <div className="card shadow">
-                <div className="card-body">
-                 
-                  <div className="card-text">
-                    {/* Added chart in the div, this is the the impact chart */}
-                    <ExChartTheImpact chartData={this.state.chartData} legendPositiont="top" location="EX" />
-                  </div>
-                </div>
+        <div className="container mt-5 mb-8" ref={this.refWhyTheNumbers}>
+            
+            {/* Props text for exWhytheNumers file */}
+            <ExWhyTheNumbers 
+              title="Why the numbers"
+              firstDescription="   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum."
+              secondDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum."
+              ahrefText="Read More"
+            />
 
-              </div>
-            </div>
-
-            <div className="col-md-7">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-
-              <hr className="hr-below-whythenumbers" />
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                <a className="a-read-more" href="https://www.questback.com/no/" target="blank">
-                  Read more &#8594;
-            </a>{' '}
-              </p>
-            </div>
           </div>
-        </div>
+     
 
-          {/* why the numbers div end */}
-        
+        {/* why the numbers div end */}
+
         {/* Using Questback div start */}
         {/* The ref will refer the smooth scroll link to what if, in sidebar */}
         <div className="bg-content pt-5 pb-5 mt-5 mb-5" ref={this.refUsingQuestback}>
-          <div className="container">
-            <h3>Using Questback</h3>
-            <hr />
-            <p>
-              <b>This is what you could save by using Questback tools. All the calculation is based on articles and by customer.</b>
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-              in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-              <a class="a-read-more" href="https://www.questback.com/no/" target="blank">
-                Read more &#8594;
-              </a>{' '}
-            </p>
-          </div>
+          <ExUsingQuesback
+            title="Using Questback"
+            headline="This is what you could save by using Questback tools. All the calculation is based on articles and by customer."
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum."
+            ahrefText="Read More"
+          />
         </div>
         {/* Using Questback div end */}
-        
+
         {/* First calculation that calculates the total business impact */}
         <div className="container mt-5 mb-5">
           <h3>Do the calculation</h3>
