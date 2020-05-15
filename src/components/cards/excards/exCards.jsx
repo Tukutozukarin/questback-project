@@ -10,6 +10,8 @@ import ExWhyTheNumbers from './exUI/exWhyTheNumbers';
 import ExChartTheImpact from '../../chart/exchart/excharttheimpact';
 import ExChartTotalBusinessImpact from '../../chart/exchart/excharttotalbusinessimpact';
 
+//image for whythenumbers
+import imgWhyTheNumbers from '../../assets/img/Sigurd.png';
 
 // Range sliders import from rangeslide folder
 import ExSizeSlider from '../../rangeslider/exslider/exSizeSlider';
@@ -814,7 +816,7 @@ class Excards extends Component {
 
         <div className="container-fluid mb-4">
           <div className="row">
-            <div className="col-xs-12 col-lg-7">
+            <div className="col-md-8 col-lg-8">
               <div className="row">
                 <div className="col-xs-12 col-xl-4 mb-4">
                   <Excard title="Salary in your company" description="What is the average fully loaded annual salary in your company?">
@@ -985,10 +987,10 @@ class Excards extends Component {
 
         {/* Why the numbers div start*/}
         <div className="container mt-5 mb-8" ref={this.refWhyTheNumbers}>
-            
             {/* Props text for exWhytheNumers file */}
             <ExWhyTheNumbers 
               title="Why the numbers"
+              image={imgWhyTheNumbers}
               firstDescription="   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
               minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -1012,9 +1014,9 @@ class Excards extends Component {
             title="Using Questback"
             headline="This is what you could save by using Questback tools. All the calculation is based on articles and by customer."
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-          officia deserunt mollit anim id est laborum."
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum."
             ahrefText="Read More"
           />
         </div>
