@@ -726,9 +726,9 @@ class Excards extends Component {
         {/* row one start */}
         <div className="container-fluid mb-4" ref={this.refTheImpact}>
           <div className="row">
-            <div className="col-xs-12 col-lg-7">
+            <div className="col-md-8 col-lg-8">
               <div className="row">
-                <div className="col-xs-12 col-xl-4 mb-4">
+                <div className="col-xs-10 col-xl-4 mb-4">
                   {/* These props from Excard can be found in exCardsUI */}
                   <Excard title="Size" description="How many employees do you have">
                     <p className="p-SizeValue">
@@ -912,7 +912,7 @@ class Excards extends Component {
         <div className="container-fluid mb-8">
           <div className="row">
      
-              <div className="col-lg-4 col-md-6">
+              <div className="col-sm-3 col-md-5">
               <div className="card shadow">
                 <div className="card-body">
                     {/* Added chart in the div, this is the the impact chart */}
@@ -922,9 +922,7 @@ class Excards extends Component {
               
               </div>
         
-       
-
-            <div className="col-lg-4 col-md-6">
+            <div className="col-sm-3 col-md-4">
               <div className="card shadow">
                 <div className="card-body">
                   <h4 className="card-title">
