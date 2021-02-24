@@ -3,12 +3,12 @@ import { Range, getTrackBackground } from 'react-range';
 
 
 const STEP = 0.1;
-const MIN = 0;
+const MIN = -100;
 const MAX = 100;
 
 class ExGrowRateSlider extends React.Component {
     state = {
-        growratevalues: [50]
+        growratevalues: [0]
       };
 
 

@@ -933,7 +933,7 @@ class Excards extends Component {
 
                   <div className="div-the-impact-card-info">
                     <p className="the-impact-total-new-hires-text">
-                      <b>Total New Hires >> </b>
+                      <b>Total New Hires </b>
                     </p>
                     <b className="the-impact-total-new-hires-number p-TheImpact-GreenValue">
                       {Numeral(Math.round(this.getCostPerHire())).format('0,0')}

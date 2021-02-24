@@ -35,7 +35,7 @@ class exChartTotalBusinessImpact extends Component {
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Your total BUSINESS IMPACT wouuld be ' + this.props.location,
+                            text: 'Your total BUSINESS IMPACT would be ' + this.props.location,
                             fontSize: 25
                         },
                         legend: {
