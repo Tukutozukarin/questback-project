@@ -535,7 +535,7 @@ class Excards extends Component {
       //Operational cost result right
       pdf.text(`${Math.round(this.state.SizeValue + this.state.CostPerHireValues)}`, 143, 170);
 
-      pdf.fromHTML(string);
+      pdf.html(string);
       pdf.save('expdf');
     };
 

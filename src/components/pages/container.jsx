@@ -23,11 +23,12 @@ function Container() {
               <NavLink to="/mr"><span>Mr</span></NavLink>
             </li> 
             
-            */}
 
             <li>
               <NavLink to="/ex">Ex</NavLink>
             </li>
+            
+          */}
             {/*
             <li>
               <NavLink to="/cx"><span>Cx</span></NavLink>
@@ -41,7 +42,7 @@ function Container() {
       </nav>
       {/* Router links for the pages */}
       <main className="main-content">
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Ex} />
         <Route path="/mr" component={Mr} />
         <Route path="/ex" component={Ex} />
         <Route path="/cx" component={Cx} />
