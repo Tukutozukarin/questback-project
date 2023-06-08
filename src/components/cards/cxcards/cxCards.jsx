@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import iconCalculator from '../../assets/img/iconcalculator.png';
-
 
 class Cxcards extends Component {
     render() {
