@@ -582,7 +582,7 @@ class Excards extends Component {
 
               <div class="dropdown-content dropdown-product">
                 <a href="#">MR</a>
-                <a href="/ex">EX</a>
+                <a href="#">EX</a>
                 <a href="#">CX</a>
               </div>
             </div>
