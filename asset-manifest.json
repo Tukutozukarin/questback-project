@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/questback-project/static/css/main.d828e4e1.css",
+    "main.js": "/questback-project/static/js/main.79fa433f.js",
+    "static/js/236.6212d3c1.chunk.js": "/questback-project/static/js/236.6212d3c1.chunk.js",
+    "static/js/703.3126481b.chunk.js": "/questback-project/static/js/703.3126481b.chunk.js",
+    "static/js/278.5d0275ae.chunk.js": "/questback-project/static/js/278.5d0275ae.chunk.js",
+    "static/media/questback_protoTemplate.png": "/questback-project/static/media/questback_protoTemplate.8d163139243250365268.png",
+    "static/media/Sigurd.png": "/questback-project/static/media/Sigurd.3fa0ab298f04a96280eb.png",
+    "index.html": "/questback-project/index.html",
+    "main.d828e4e1.css.map": "/questback-project/static/css/main.d828e4e1.css.map",
+    "main.79fa433f.js.map": "/questback-project/static/js/main.79fa433f.js.map",
+    "236.6212d3c1.chunk.js.map": "/questback-project/static/js/236.6212d3c1.chunk.js.map",
+    "703.3126481b.chunk.js.map": "/questback-project/static/js/703.3126481b.chunk.js.map",
+    "278.5d0275ae.chunk.js.map": "/questback-project/static/js/278.5d0275ae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d828e4e1.css",
+    "static/js/main.79fa433f.js"
+  ]
+}
